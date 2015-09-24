@@ -1,15 +1,24 @@
 body {
     background: rgba(162, 161, 157, 0.6);
 }
-
+.navbar {
+	height: 75px;
+}
+.top-span>.vertical-center {
+	 top: 40% !important;
+}
 .vertical-center {
     position: relative;
-    top: 40%;
+    top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
 }
-
+.user-pic {
+	height: 50px;
+	width: 50px;
+	margin-right: 10px;
+}
 .logo {
     width: 30%;
     height: 60%;

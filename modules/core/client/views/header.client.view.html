@@ -1,3 +1,14 @@
+<div class="container-fluid vertical-center">
+    <div ng-show="authentication.user" class="navbar-brand pull-right">
+        Logout
+    </div>
+    <div ng-hide="authentication.user" class="navbar-brand pull-right">
+        Login
+    </div>
+      <a ng-hide="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic pull-right"> </a>
 
-<div class="navbar-brand">
-  </div>
+      <div ng-hide="authentication.user.isTeacher" class="navbar-brand pull-right">
+        Data
+    </div>
+
+</div>
