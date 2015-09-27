@@ -18,20 +18,24 @@ module.exports.loadModels = function() {
 };
 
 // Manually defining the schemas like a normal human being.
+
+// Student Schema
 var studentSchema = new Schema({
     firstname: {type: String, required: 'Please enter your first name.'},
     lastname: {type: String, required: 'Please enter your last name.'},
-    email: {type: String, required: 'Please enter your email address.', set: toLower},
+    email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
     coursesTakingIds: [Number]
 });
 
+// Instructor/Teacher Schema
 var teacherSchema = new Schema({
     firstname: {type: String, required: 'Please enter your first name.'},
     lastname: {type: String, required: 'Please enter your last name.'},
-    email: {type: String, required: 'Please enter your email address.', set: toLower},
+    email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
     coursesTeachingIds: [Number]
 });
 
+// Question Schema
 var questionSchema = new Schema({
     description: {type : String, required: true},
     type: {type: String, required: true},
