@@ -3,7 +3,7 @@
 module.exports = {
   app: {
     title: 'Biotility',
-    description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
+    description: 'Preparing students for biometrics exam.',
     keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
