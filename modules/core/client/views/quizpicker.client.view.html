@@ -1,29 +1,32 @@
-<div class="content" ng-controller="MainController">
- <div align="left">
- <p> <a href="modules/core/client/views/home.client.view.html">home</a>
- </div>
+<div class="content" ng-controller="QuizPickerController">
+ 
 
  
 <div class="jumbotron text-center">
+    <div align="left">
+ <p> <a ui-sref="home">home</a>
+    <span class="glyphicons glyphicons-chevron-right"></span>
+    {{breadcrum}}
+ </div>
     <!--change this to show the subject name-->
-    <h1>{{subject.name}}</h1>
+    <h1>{{breadcrum}}</h1>
     </div> 
 <div class="row">
         <!--2 columns on the grid-->
         <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a href="{{subjectquiz.html}}" class="thumbnail home-thumb">
-        <img src="{{picture of subject here}}" alt="Subject Picture">
+         <a ui-sref="quiz">
+        <img src="modules/core/client/img/prequiz/quiz_generic.jpg" alt="Subject Picture" class="thumbnail prequiz-thumb">
          </a>
-        <h3>Take the quiz!</h3>
+        <h3 class ="text-center">Take the quiz!</h3>
         </div>
 
           <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a href="{{resourcespage.html}}" class="thumbnail home-thumb">
-        <img src="resources.jpg" alt="Resources Picture">
+         <a href="">
+        <img src="modules/core/client/img/prequiz/resources_draft.jpg" alt="Resources Picture" class="thumbnail prequiz-thumb">
          </a>
-        <h3>Resources</h3>
+        <h3 class ="text-center">Resources</h3>
         </div>
     </div>
 </div>

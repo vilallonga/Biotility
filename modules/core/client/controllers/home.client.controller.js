@@ -41,3 +41,60 @@ angular.module('core').controller('MainController', ['$scope', '$state', 'Authen
 
   }
 ]);
+angular.module('core').controller('QuizController', ['$scope', 'Authentication',
+  function ($scope, Authentication) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.arr =
+    [
+        {
+            q: "What is biology?",
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
+        },
+        {
+            q: "What is Genetics?",
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
+        },
+        {
+            q: "What is Chemistry?",
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
+        },
+        {
+            q: "What is Geology?",
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
+        }
+
+    ];
+    $scope.index = 0;
+    $scope.increment = function() { 
+      $scope.index = ($scope.index + 1) % $scope.arr.length;
+      console.log($scope.index);
+    };
+
+
+  }
+]);
+
+angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication',
+  function ($scope, $state, Authentication) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.breadcrum = $state.current.name;
+    
+
+  }
+]);
