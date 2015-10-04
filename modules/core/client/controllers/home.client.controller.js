@@ -45,23 +45,31 @@ angular.module('core').controller('QuizController', ['$scope', 'Authentication',
     [
         {
             q: "What is biology?",
-            answer_1: "A. ",
-            answer_2: "B. "
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
         },
         {
             q: "What is Genetics?",
-            answer_1: "A. ",
-            answer_2: "B. "
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
         },
         {
             q: "What is Chemistry?",
-            answer_1: "A. ",
-            answer_2: "B. "
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
         },
         {
             q: "What is Geology?",
-            answer_1: "A. ",
-            answer_2: "B. "
+            a1: "A. is Cool",
+            a2: "B. is not cool",
+            a3: "C. is kinda cool",
+            a4: "D. all of the above"
         }
 
     ];
