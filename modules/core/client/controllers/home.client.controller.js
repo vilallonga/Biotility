@@ -36,3 +36,41 @@ angular.module('core').controller('MainController', ['$scope', 'Authentication',
 
   }
 ]);
+angular.module('core').controller('QuizController', ['$scope', 'Authentication',
+  function ($scope, Authentication) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.arr =
+    [
+        {
+            q: "What is biology?",
+            answer_1: "A. ",
+            answer_2: "B. "
+        },
+        {
+            q: "What is Genetics?",
+            answer_1: "A. ",
+            answer_2: "B. "
+        },
+        {
+            q: "What is Chemistry?",
+            answer_1: "A. ",
+            answer_2: "B. "
+        },
+        {
+            q: "What is Geology?",
+            answer_1: "A. ",
+            answer_2: "B. "
+        }
+
+    ];
+    $scope.index = 0;
+    $scope.increment = function() { 
+      $scope.index = ($scope.index + 1) % $scope.arr.length;
+    };
+
+
+  }
+]);
+
