@@ -1,7 +1,9 @@
 body {
     background: rgba(127, 127, 127, 0.9);
 }
-
+.top-span {
+    background: rgba(127, 127, 127, 0.9);
+}
 .navbar {
     height: 75px;
 }
