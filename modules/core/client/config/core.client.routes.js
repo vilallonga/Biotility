@@ -28,7 +28,6 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
-
     .state('quizpicker',{
       url:'/quizprep',
       templateUrl: 'modules/core/client/views/quizpicker.client.view.html'
