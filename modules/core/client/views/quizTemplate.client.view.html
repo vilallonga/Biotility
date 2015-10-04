@@ -1,4 +1,36 @@
-<div id = "quizTemplate">
-	<h1> Hello </h1>
+<section ng-controller="QuizController">
+<div class = "content">
+</br>
+</br>
+	<div class = "container" >
+		  <div class = "col-md-10 col-md-offset-1" style = "border-style: solid;">
+	      <div class = "row" ng-repeat = "n in [1, 2, 3, 4] track by $index">
+	        <h1> 
+	          {{n}}
+	        </h1>
+	      </div>
+			<div class = "col-md-offset-1">
+				<div class = "row">
+				  <div class="radio">
+				    <label><input type="radio" name="answer">Option 1</label>
+				  </div>
+				  <div class="radio">
+				    <label><input type="radio" name="answer">Option 2</label>
+				  </div>
+				   <div class="radio">
+				    <label><input type="radio" name="answer">Option 1</label>
+				  </div>
+				  <div class="radio">
+				    <label><input type="radio" name="answer">Option 2</label>
+				  </div>
+				</div>
+			</div>
+
+	      <div class = "row">
+	        <button class = "btn-lg" ui-sref="newPage" >Button 1 </button>
+	      </div>
+
+	  </div>
+	</div>
 </div>
-Hello
+</section>
