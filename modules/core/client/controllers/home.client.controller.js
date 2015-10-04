@@ -76,6 +76,7 @@ angular.module('core').controller('QuizController', ['$scope', 'Authentication',
     $scope.index = 0;
     $scope.increment = function() { 
       $scope.index = ($scope.index + 1) % $scope.arr.length;
+      console.log($scope.index);
     };
 
 
