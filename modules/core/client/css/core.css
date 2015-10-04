@@ -47,13 +47,13 @@ body {
     text-align: center;
 }
 
-.thumbnail {
+.thumbnail.subject-img {
     box-shadow: 1px 1px 8px black;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
-.thumbnail:hover {
+.thumbnail.subject-img:hover {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
