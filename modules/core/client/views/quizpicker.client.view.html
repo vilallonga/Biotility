@@ -1,12 +1,12 @@
-
+<div class="quizSelect" ng-controller="MainController">
  <div align="left">
- <p> a href="homepage">home </a><span class="glyphicon glyphicon-chevron-right"></span>{{Current Page}}</p>    
+ <p> <a href="modules/core/client/views/home.client.view.html">home</a>
  </div>
 
  
 <div class="jumbotron text-center">
     <!--change this to show the subject name-->
-    <h1>{{Subject Name}}</h1>
+    <h1>{{subject.name}}</h1>
     </div> 
 <div class="row">
         <!--2 columns on the grid-->
@@ -21,9 +21,10 @@
           <div class="col-md-6">
             <!--put subject picture here along with link-->
          <a href="{{resourcespage.html}}" class="thumbnail home-thumb">
-        <img src="Biotility/imgs/resources.jpg" alt="Resources Picture">
+        <img src="resources.jpg" alt="Resources Picture">
          </a>
         <h3>Resources</h3>
         </div>
     </div>
+</div>
 

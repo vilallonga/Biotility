@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('MainController', ['$scope', 'Authentication',
-  function ($scope, Authentication) {
+angular.module('core').controller('MainController', ['$scope', '$state', 'Authentication',
+  function ($scope, $state, Authentication) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -33,6 +33,11 @@ angular.module('core').controller('MainController', ['$scope', 'Authentication',
     		description: "Biology is COOL."
     	}
     ];
+
+    $scope.onClicked = function(){
+       $state.go('quizpicker');
+
+    };
 
   }
 ]);
