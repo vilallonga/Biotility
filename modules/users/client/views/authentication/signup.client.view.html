@@ -1,60 +1,85 @@
 <div ng-controller="AuthenticationController">
-  <h3 class="col-md-12 text-center">Or sign up using your email</h3>
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <form name="userForm" ng-submit="signup(userForm.$valid)" class="signin" novalidate autocomplete="off">
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="credentials.firstName" placeholder="First Name" required>
-          <div ng-messages="userForm.firstName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">First name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="credentials.lastName" placeholder="Last Name" required>
-          <div ng-messages="userForm.lastName.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Last name is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" ng-model="credentials.email" placeholder="Email" lowercase required>
-          <div ng-messages="userForm.email.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Email address is required.</p>
-            <p class="help-block error-text" ng-message="email">Email address is invalid.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
-          <div ng-messages="userForm.username.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Username is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" popover="{{popoverMsg}}" popover-trigger="focus" password-validator required>
-          <div ng-messages="userForm.password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Password is required.</p>
-            <div ng-repeat="passwordError in passwordErrors">
-              <p class="help-block error-text" ng-show="userForm.password.$error.strength">{{passwordError}}</p>
+    <div class="row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>First Name: </p>
             </div>
-          </div>
+            <div class = "col-md-2">
+            	<input type="text" ng-model="firstName">
+            </div>
         </div>
-        <div class="form-group" ng-show="!userForm.password.$pristine">
-          <label>Password Strength</label>
-          <progressbar value="strengthProgress" type="{{strengthColor}}"><span style="color:white; white-space:nowrap;">{{strengthProgress}}%</span></progressbar>
+        
+        <div class = "row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Last Name: </p>
+            </div>
+            <div class = "col-md-2">
+            	<input type="text" ng-model="lastName">
+            </div>
         </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Sign up</button>
-          &nbsp; or&nbsp;
-          <a ui-sref="authentication.signin" class="show-signup">Sign in</a>
+        
+        <div class = "row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>E-mail: </p>
+            </div>
+            <div class = "col-md-2">
+            	<input type="email" ng-model="email">
+            </div>
         </div>
-        <div ng-show="error" class="text-center text-danger">
-          <strong ng-bind="error"></strong>
+        
+        <div class = "row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Account Type: </p>
+            </div>
+            <div class = "col-md-2">
+                  <label>
+                    <input type="radio" ng-model="type" value="Teacher">
+                    Teacher
+                  </label><br/>
+                  <label>
+                    <input type="radio" ng-model="type" value="Student">
+                    Student
+                  </label><br/>
+            </div>
+            
         </div>
-      </fieldset>
-    </form>
-  </div>
+        
+        <!-- if student -->
+         <div class = "row" ng-show="type=='Student'">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Class Code: </p>
+            </div>
+            <div class = "col-md-2">
+            	<input type="text" ng-model="classCode">
+            </div>
+        </div>
+        
+        <!-- if teacher -->
+        <div class = "row" ng-show="type=='Teacher'">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Courses: </p>
+            </div>
+            <div class = "col-md-2">
+            	<select>
+                	  <option selected disabled>Select Course</option>
+                      <option value="class1">Class 1</option>
+                      <option value="class2">Class 2</option>
+                      <option value="class3">Class 3</option>
+                      <option value="class4">Class 4</option>
+                 </select>
+                 <button type="button" class="btn btn-default">
+       				 +
+    			</button>
+            </div>
+        </div>
+        
+  	</div>
+    
+    <!-- log-in button -->
+    <div class="topmargin-10" style="text-align:center;">
+    	<a class="btn btn-default" href="">
+       	 	Register
+    	</a>
+    </div>
+
+    
 </div>
