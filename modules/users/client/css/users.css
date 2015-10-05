@@ -3,6 +3,10 @@
     position: fixed;
   }
 }
+
+body {
+    background-color: #FFF;
+}
 .social-account-container {
   display: inline-block;
   position: relative;
@@ -33,4 +37,33 @@
 .user-profile-picture {
   min-height: 150px;
   max-height: 150px;
+}
+
+.topmargin{
+	margin-top: 200px;
+}
+
+.topmargin-50{
+	margin-top: 50px;
+}
+
+.topmargin-10{
+	margin-top: 10px;
+}
+
+.topmargin-100{
+	margin-top: 100px;
+}
+
+img.image-center{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.registerLink {
+	font-size: 10px;
+}
+
+select.my_dropdown {
+    width:100%;
 }

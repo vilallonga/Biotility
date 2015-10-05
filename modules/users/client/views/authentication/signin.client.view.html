@@ -1,34 +1,39 @@
 <div ng-controller="AuthenticationController">
-  <h3 class="col-md-12 text-center">Or with your account</h3>
-  <div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
-    <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
-      <fieldset>
-        <div class="form-group" show-errors>
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" class="form-control" ng-model="credentials.username" placeholder="Username" lowercase required>
-          <div ng-messages="userForm.username.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Username is required.</p>
-          </div>
-        </div>
-        <div class="form-group" show-errors>
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control" ng-model="credentials.password" placeholder="Password" required>
-          <div ng-messages="userForm.password.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Password is required.</p>
-          </div>
-        </div>
-        <div class="text-center form-group">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-          &nbsp; or&nbsp;
-          <a ui-sref="authentication.signup">Sign up</a>
-        </div>
-        <div class="text-center forgot-password">
-          <a ui-sref="password.forgot">Forgot your password?</a>
-        </div>
-        <alert type="danger" ng-show="error" class="text-center text-danger">
-          <span ng-bind="error"></span>
-        </alert>
-      </fieldset>
-    </form>
+  <div class="topmargin">
+  	<img class = "image-center" src="modules/core/client/img/brand/logo2.jpg" alt="Biotility Logo" style="width:300px;height:124px;">
   </div>
+    
+  	<!-- username and password entry -->
+ 	<div class="container topmargin-50">
+  		<div class="row">
+        	<div class="col-md-1 col-md-offset-4">
+            	<p>Username: </p>
+            </div>
+            <div class = "col-md-1">
+            	<input type="text" ng-model="username">
+            </div>
+        </div>
+        
+        <div class = "row">
+        	<div class="col-md-1 col-md-offset-4">
+            	<p>Password: </p>
+            </div>
+            <div class = "col-md-1">
+            	<input type="password" ng-model="password">
+            </div>
+        </div>
+  	</div>
+    
+    
+    <!-- log-in button -->
+    <div class="topmargin-10" style="text-align:center;">
+    	<a class="btn btn-default" href="">
+       	 	Log-in
+    	</a>
+    </div>
+    
+    <!-- register link -->
+    <div class="registerLink topmargin-10" style="text-align:center;">
+    	<a data-ui-sref="authentication.signup">Don't have an account? Click here to register.</a>
+    </div>
 </div>
