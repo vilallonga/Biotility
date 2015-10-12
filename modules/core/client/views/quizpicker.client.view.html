@@ -1,7 +1,7 @@
 <div class="content" ng-controller="QuizPickerController">
  
 
- 
+<div class="container">
 <div class="jumbotron text-center">
     <div align="left">
  <p> <a ui-sref="home">home</a>
@@ -11,23 +11,22 @@
     <!--change this to show the subject name-->
     <h1>{{breadcrum}}</h1>
     </div> 
+
 <div class="row">
         <!--2 columns on the grid-->
         <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a ui-sref="quiz">
-        <img src="modules/core/client/img/prequiz/quiz_generic.jpg" alt="Subject Picture" class="thumbnail prequiz-thumb">
-         </a>
-        <h3 class ="text-center">Take the quiz!</h3>
+         <a ui-sref="quiz" class ="text-center">
+       <div class="button big-btn" ><h1>KNOWLEDGE ASSESSMENT</h1>Click here to take quiz on select topic</div>
         </div>
-
+        </a>
           <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a href="">
-        <img src="modules/core/client/img/prequiz/resources_draft.jpg" alt="Resources Picture" class="thumbnail prequiz-thumb">
+         <a href="" class ="text-center">
+         <div class="button big-btn" ><h1>RESOURCES</h1>Click here to view resources on the select topic</div>
          </a>
-        <h3 class ="text-center">Resources</h3>
         </div>
     </div>
+  </div>
 </div>
 
