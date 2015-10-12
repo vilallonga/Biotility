@@ -24,10 +24,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 	$scope.lastName = "";
 	$scope.email = "";
 	$scope.type = "Select Type";
-	
 	$scope.classCode = "";
-	
-	$scope.class = ["Select Class"];
+	$scope.class = ["a"];
+	$scope.add = function() {
+        $scope.class.push("b");
+    };
+	$scope.classNames = ["Intro to Biology", "Intro to Chemistry", "Biotechnician 101"];
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {
