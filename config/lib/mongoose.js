@@ -35,6 +35,13 @@ var teacherSchema = new Schema({
     coursesTeachingIds: [Number]
 });
 
+// Subject Schema
+var subjectSchema = new Schema({
+    name: {type : String, required: true},
+    id: {type: Number, required: true},
+    description: {type: String}
+});
+
 // Question Schema
 var questionSchema = new Schema({
     description: {type : String, required: true},
@@ -47,6 +54,7 @@ var questionSchema = new Schema({
 });
 
 module.exports.Student = mongoose.model('Student', studentSchema);
+module.exports.Subject = mongoose.model('Subject', subjectSchema);
 module.exports.Teacher = mongoose.model('Teacher', teacherSchema);
 module.exports.Question = mongoose.model('Question', questionSchema);
 
