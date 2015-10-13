@@ -29,11 +29,8 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       }
     })
     .state('quizpicker',{
-      url:'/subject/{courseName:[a-zA-Z]+}',
-      templateUrl: 'modules/core/client/views/quizpicker.client.view.html',
-      controller: function($scope, $stateParams) {
-          $scope.displayName = $stateParams.courseName;
-      }
+      url:'/{courseName:[a-zA-Z]+}',
+      templateUrl: 'modules/core/client/views/quizpicker.client.view.html'
     })
     .state('bad-request', {
       url: '/bad-request',

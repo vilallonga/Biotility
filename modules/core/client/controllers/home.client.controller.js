@@ -11,18 +11,18 @@ angular.module('core').controller('MainController', ['$scope', '$state', '$locat
     $scope.subjects = Subjects.subjects;
 
     $scope.onClicked = function(subjectObj) {
-        $location.path('/subject/' + subjectObj.name);
+        $location.path('/' + subjectObj.name);
     };
 
   }
 ]);
 
-angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication',
-  function ($scope, $state, Authentication) {
+angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication', '$stateParams',
+  function ($scope, $state, Authentication, $stateParams) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-    $scope.breadcrum = $state.current.name;
+    $scope.breadcrum = $stateParams.courseName;
     
 
   }
