@@ -71,3 +71,19 @@ h3.text-center {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+.button {
+    background-color: #000000;
+    color: grey;
+    float: right;
+    padding: 10px;
+    border-radius: 15px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.big-btn {
+    width: 361px;
+    height: 250px;
+}
+
