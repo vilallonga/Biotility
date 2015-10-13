@@ -10,6 +10,9 @@ module.exports = function (app) {
   // Return a 404 for all undefined api, module or lib routes
   app.route('/:url(api|modules|lib)/*').get(core.renderNotFound);
 
+  // Fetch question data from database
+  app.route('/api/question-data/:subject-name').get(core.getQuestionData);
+
   // Define application route
   app.route('/*').get(core.renderIndex);
 };

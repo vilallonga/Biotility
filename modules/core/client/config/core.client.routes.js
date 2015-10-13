@@ -13,7 +13,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
     // Home state routing
     $stateProvider
-    .state('quiz',{
+    .state('quizpicker.quiz',{
       url: '/quizTemplate',
       templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
     })
@@ -29,8 +29,11 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       }
     })
     .state('quizpicker',{
-      url:'/quizprep',
-      templateUrl: 'modules/core/client/views/quizpicker.client.view.html'
+      url:'/subject/{courseName:[a-zA-Z]+}',
+      templateUrl: 'modules/core/client/views/quizpicker.client.view.html',
+      controller: function($scope, $stateParams) {
+          $scope.displayName = $stateParams.courseName;
+      }
     })
     .state('bad-request', {
       url: '/bad-request',

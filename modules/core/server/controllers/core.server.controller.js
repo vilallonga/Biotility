@@ -40,3 +40,8 @@ exports.renderNotFound = function (req, res) {
     }
   });
 };
+
+// Retrieve question data, based on request params.
+exports.getQuestionData = function(req, res) {
+
+};
