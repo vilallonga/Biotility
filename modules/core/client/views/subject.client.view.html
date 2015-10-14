@@ -1,32 +1,31 @@
-<div class="content" ui-view ng-controller="SubjectController">
- 
-
-<div class="container">
-<div class="jumbotron text-center">
-    <div align="left">
- <p> <a ui-sref="home">home</a>
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    {{breadcrum}}
- </div>
-    <!--change this to show the subject name-->
-    <h1>{{breadcrum}}</h1>
-    </div> 
-
-<div class="row">
-        <!--2 columns on the grid-->
-        <div class="col-md-6">
-            <!--put subject picture here along with link-->
-         <a ui-sref="subject.quiz" class ="text-center">
-       <div class="button big-btn" ><h1>KNOWLEDGE ASSESSMENT</h1>Click here to take quiz on select topic</div>
+<div class="margin-top-50" ui-view ng-controller="SubjectController">
+    <div class="container">
+        <div class="jumbotron text-center">
+            <div align="left">
+                <p> <a ui-sref="home">Home</a>
+                    <span class="glyphicon glyphicon-chevron-right"></span> {{breadcrum}} </p>
+            </div>
+            <!--change this to show the subject name-->
+            <h1>{{breadcrum}}</h1>
         </div>
-        </a>
-          <div class="col-md-6">
-            <!--put subject picture here along with link-->
-         <a ui-sref="subject.resources" class ="text-center">
-         <div class="button big-btn" ><h1>RESOURCES</h1>Click here to view resources on the select topic</div>
-         </a>
+        <div class="row">
+            <!--2 columns on the grid-->
+            <div class="col-md-6">
+                <!--put subject picture here along with link-->
+                <div class="button big-btn text-center center-block">
+                    <a ui-sref="subject.quiz">
+                        <h1>KNOWLEDGE ASSESSMENT</h1>Click here to take quiz on select topic
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!--put subject picture here along with link-->
+                <div class="button big-btn text-center center-block">
+                    <a ui-sref="subject.resources">
+                        <h1>RESOURCES</h1>Click here to view resources on the select topic
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
 </div>
-

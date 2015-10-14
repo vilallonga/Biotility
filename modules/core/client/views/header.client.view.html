@@ -5,9 +5,9 @@
     <div ng-hide="authentication.user" class="navbar-brand pull-right">
    	 <a data-ui-sref="authentication.signin">Login</a>
     </div>
-      <a ng-hide="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic pull-right"> </a>
+      <a ng-show="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic pull-right"> </a>
 
-      <div ng-hide="authentication.user.isTeacher" class="navbar-brand pull-right">
+      <div ng-show="authentication.user.isTeacher" class="navbar-brand pull-right">
         Data
     </div>
 </div>
