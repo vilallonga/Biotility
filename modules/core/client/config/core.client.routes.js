@@ -3,7 +3,7 @@
 // Setting up route
 angular.module('core').config(['$stateProvider', '$urlRouterProvider',
   function ($stateProvider, $urlRouterProvider) {
-
+    var custom = subject.name;
     // Redirect to 404 when route not found
     $urlRouterProvider.otherwise(function ($injector, $location) {
       $injector.get('$state').transitionTo('not-found', null, {
@@ -31,6 +31,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     .state('quizpicker',{
       url:'/{courseName:[a-zA-Z]+}',
       templateUrl: 'modules/core/client/views/quizpicker.client.view.html'
+    })
+     .state('resources', {
+      url: '/resources',
+      templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
     .state('bad-request', {
       url: '/bad-request',
