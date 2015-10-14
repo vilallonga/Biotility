@@ -12,32 +12,32 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
     // Home state routing
     $stateProvider
-    .state('quizpicker.quiz',{
-      url: '/quizTemplate',
-      templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
-    })
     .state('home', {
       url: '/',
       templateUrl: 'modules/core/client/views/home.client.view.html'
     })
-    .state('not-found', {
-      url: '/not-found',
-      templateUrl: 'modules/core/client/views/404.client.view.html',
-      data: {
-        ignoreState: true
-      }
-    })
-    .state('quizpicker',{
+    .state('subject',{
       url:'/{courseName:[a-zA-Z]+}',
-      templateUrl: 'modules/core/client/views/quizpicker.client.view.html'
+      templateUrl: 'modules/core/client/views/subject.client.view.html'
     })
-     .state('resources', {
+    .state('subject.quiz',{
+      url: '/quizTemplate',
+      templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
+    })
+     .state('subject.resources', {
       url: '/resources',
       templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
     .state('bad-request', {
       url: '/bad-request',
       templateUrl: 'modules/core/client/views/400.client.view.html',
+      data: {
+        ignoreState: true
+      }
+    })
+    .state('not-found', {
+      url: '/not-found',
+      templateUrl: 'modules/core/client/views/404.client.view.html',
       data: {
         ignoreState: true
       }
