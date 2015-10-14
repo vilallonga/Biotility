@@ -41,8 +41,8 @@ angular.module('core').controller('MainController', ['$scope', '$state', 'Authen
 
   }
 ]);
-angular.module('core').controller('QuizController', ['$scope', '$location','Authentication',
-  function ($scope, Authentication, $location) {
+angular.module('core').controller('QuizController', ['$scope','Authentication',
+  function ($scope, Authentication) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -92,6 +92,11 @@ angular.module('core').controller('QuizController', ['$scope', '$location','Auth
 
 
   }
+]);
+angular.module('core').controller('QuizResults', ['$scope','Authentication',
+    function ($scope, Authentication) {
+
+    }
 ]);
 
 angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication',
