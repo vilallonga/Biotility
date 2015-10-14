@@ -1,4 +1,4 @@
-<div class="content" ng-controller="QuizPickerController">
+<div class="content" ui-view ng-controller="SubjectController">
  
 
 <div class="container">
@@ -16,13 +16,13 @@
         <!--2 columns on the grid-->
         <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a ui-sref="quiz" class ="text-center">
+         <a ui-sref="subject.quiz" class ="text-center">
        <div class="button big-btn" ><h1>KNOWLEDGE ASSESSMENT</h1>Click here to take quiz on select topic</div>
         </div>
         </a>
           <div class="col-md-6">
             <!--put subject picture here along with link-->
-         <a ui-sref="resources" class ="text-center">
+         <a ui-sref="subject.resources" class ="text-center">
          <div class="button big-btn" ><h1>RESOURCES</h1>Click here to view resources on the select topic</div>
          </a>
         </div>

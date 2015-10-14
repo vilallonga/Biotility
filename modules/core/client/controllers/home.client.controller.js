@@ -1,7 +1,32 @@
 'use strict';
 
 /** SEE core.server.routes.js,  */
-angular.module('core').controller('QuizController', ['$scope','Authentication',
+
+angular.module('core').controller('MainController', ['$scope', '$state', '$location', 'Authentication', 'Subjects',
+  function ($scope, $state, $location, Authentication, Subjects) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.subjects = Subjects.subjects;
+
+    $scope.onClicked = function(subjectObj) {
+        $location.path('/' + subjectObj.name);
+    };
+
+  }
+]);
+
+angular.module('core').controller('SubjectController', ['$scope', '$state', 'Authentication', '$stateParams',
+  function ($scope, $state, Authentication, $stateParams) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.breadcrum = $stateParams.courseName;
+    
+
+  }
+]);
+angular.module('core').controller('QuizController', ['$scope', 'Authentication',
   function ($scope, Authentication) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
@@ -55,20 +80,6 @@ angular.module('core').controller('QuizResults', ['$scope','Authentication',
     function ($scope, Authentication) {
 
     }
-]);
-
-angular.module('core').controller('MainController', ['$scope', '$state', '$location', 'Authentication', 'Subjects',
-  function ($scope, $state, $location, Authentication, Subjects) {
-    // This provides Authentication context.
-    $scope.authentication = Authentication;
-
-    $scope.subjects = Subjects.subjects;
-
-    $scope.onClicked = function(subjectObj) {
-        $location.path('/' + subjectObj.name);
-    };
-
-  }
 ]);
 
 angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication', '$stateParams',
