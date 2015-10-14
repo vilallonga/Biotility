@@ -48,7 +48,8 @@ angular.module('core').controller('QuizController', ['$scope','Authentication',
       }
       $scope.index = ($scope.index + 1) % $scope.arr.length;
       console.log($scope.index);
-
+    }
+  }
 ]);
 angular.module('core').controller('QuizResults', ['$scope','Authentication',
     function ($scope, Authentication) {
