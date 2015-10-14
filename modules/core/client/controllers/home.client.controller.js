@@ -1,46 +1,6 @@
 'use strict';
 
-angular.module('core').controller('MainController', ['$scope', '$state', 'Authentication',
-  function ($scope, $state, Authentication) {
-    // This provides Authentication context.
-    $scope.authentication = Authentication;
-
-    $scope.subjects =
-    [
-    	{
-    		name: "Biology",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
-    	},
-    	{
-    		name: "Genetics",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
-    	},
-    	{
-    		name: "Biotility ftw",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
-    	},
-    	{
-    		name: "Chemistry",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
-    	},
-    	{
-    		name: "Chemistry",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
-    	}
-    ];
-
-    $scope.onClicked = function(){
-       $state.go('quizpicker');
-
-    };
-
-  }
-]);
+/** SEE core.server.routes.js,  */
 angular.module('core').controller('QuizController', ['$scope','Authentication',
   function ($scope, Authentication) {
     // This provides Authentication context.
@@ -88,10 +48,7 @@ angular.module('core').controller('QuizController', ['$scope','Authentication',
       }
       $scope.index = ($scope.index + 1) % $scope.arr.length;
       console.log($scope.index);
-    };
 
-
-  }
 ]);
 angular.module('core').controller('QuizResults', ['$scope','Authentication',
     function ($scope, Authentication) {
@@ -99,13 +56,26 @@ angular.module('core').controller('QuizResults', ['$scope','Authentication',
     }
 ]);
 
-angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication',
-  function ($scope, $state, Authentication) {
+angular.module('core').controller('MainController', ['$scope', '$state', '$location', 'Authentication', 'Subjects',
+  function ($scope, $state, $location, Authentication, Subjects) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-    $scope.breadcrum = $state.current.name;
-    
+    $scope.subjects = Subjects.subjects;
+
+    $scope.onClicked = function(subjectObj) {
+        $location.path('/' + subjectObj.name);
+    };
+
+  }
+]);
+
+angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication', '$stateParams',
+  function ($scope, $state, Authentication, $stateParams) {
+    // This provides Authentication context.
+    $scope.authentication = Authentication;
+
+    $scope.breadcrum = $stateParams.courseName;
 
   }
 ]);
