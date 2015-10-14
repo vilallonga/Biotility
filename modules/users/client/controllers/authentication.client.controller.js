@@ -1,7 +1,9 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator',
-  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'PasswordValidator', 'Subjects',
+  function ($scope, $state, $http, $location, $window, Authentication, PasswordValidator, Subjects) {
+
+    //Added Stuff
     $scope.authentication = Authentication;
     $scope.popoverMsg = PasswordValidator.getPopoverMsg();
 
@@ -16,11 +18,20 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 	$scope.firstName = "";
 	$scope.lastName = "";
 	$scope.email = "";
-	$scope.type = "";
-	
+	$scope.type = "Select Type";
 	$scope.classCode = "";
-	
-	$scope.class = ["Select Class"];
+	$scope.class = ["a"];
+	$scope.add = function() {
+        $scope.class.push("b");
+    };
+
+    // array of class names
+	$scope.classNames = [];
+
+    // grab all the courses, and read their names.
+  for (var i = 0; i < Subjects.subjects.length; i++) {
+    $scope.classNames.push(Subjects.subjects[i].name);
+  }
 
     // If user is signed in then redirect back home
     if ($scope.authentication.user) {

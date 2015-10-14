@@ -1,12 +1,17 @@
 <div ng-controller="AuthenticationController">
-    <div class="row">
+	<div class = "row ">
+        	<div class="col-md-2 col-md-offset-5 text-left">
+            	<h1>Sign-Up<br></h1>
+            </div>
+    </div>
+    <div class="row topmargin-50">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>First Name: </p>
             </div>
             <div class = "col-md-2">
             	<input type="text" ng-model="firstName">
             </div>
-        </div>
+    </div>
 
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
@@ -23,6 +28,24 @@
             </div>
             <div class = "col-md-2">
             	<input type="email" ng-model="email">
+            </div>
+        </div>
+
+        <div class = "row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Username: </p>
+            </div>
+            <div class = "col-md-2">
+            	<input type="text" ng-model="username">
+            </div>
+        </div>
+
+        <div class = "row">
+        	<div class="col-md-2 col-md-offset-3 text-right">
+            	<p>Password: </p>
+            </div>
+            <div class = "col-md-2">
+            	<input type="password" ng-model="password">
             </div>
         </div>
 
@@ -60,14 +83,11 @@
             	<p>Courses: </p>
             </div>
             <div class = "col-md-2">
-            	<select>
+                <select ng-repeat="x in class track by $index">
                 	  <option selected disabled>Select Course</option>
-                      <option value="class1">Class 1</option>
-                      <option value="class2">Class 2</option>
-                      <option value="class3">Class 3</option>
-                      <option value="class4">Class 4</option>
+                      <option ng-repeat="x in classNames track by $index">{{x}}</option>
                  </select>
-                 <button type="button" class="btn btn-default">
+                 <button type="button" class="btn btn-default" ng-click = "add()">
        				 +
     			</button>
             </div>

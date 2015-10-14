@@ -1,4 +1,4 @@
-<div class="content" ng-controller="MainController">
+<div class="margin-top-50 content-main" ng-controller="MainController">
     <div class="container-fluid top-span">
         <div class="vertical-center"> 
             <img class="logo" src="modules/core/client/img/brand/logo2.jpg" alt="">
@@ -7,7 +7,7 @@
     <div class="container">
         <h6>Topics</h6>
         <div class="row">
-            <div class="col-sm-3 subject-box" ng-repeat="subject in subjects track by $index" ng-click="onClicked()">
+            <div class="col-sm-3 subject-box" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
                 <div class="thumbnail subject-img">
                     <img ng-src="{{subject.img}}" alt="" class="img-responsive">
                     <div class="caption">
@@ -18,4 +18,7 @@
             </div>
         </div>
     </div>
+
+    <div class="text-center">&copy; Biotility, 20XX-2015.</div>
+    
 </div>
