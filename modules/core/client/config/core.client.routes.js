@@ -12,14 +12,6 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
     // Home state routing
     $stateProvider
-    .state('quizpicker.quiz',{
-      url: '/quizTemplate',
-      templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
-    })
-    .state('quiz-results',{
-      url:'/quizResults',
-      templateUrl: 'modules/core/client/views/quizResults.client.view.html'
-    })
     .state('home', {
       url: '/',
       templateUrl: 'modules/core/client/views/home.client.view.html'
@@ -31,6 +23,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     .state('subject.quiz',{
       url: '/quizTemplate',
       templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
+    })
+    .state('subject.quiz.quiz-results',{
+      url:'/quizResults',
+      templateUrl: 'modules/core/client/views/quizResults.client.view.html'
     })
      .state('subject.resources', {
       url: '/resources',

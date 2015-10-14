@@ -67,16 +67,17 @@ angular.module('core').controller('QuizController', ['$scope', 'Authentication',
     var max = $scope.arr.length - 1;
     $scope.index = 0;
     $scope.increment = function($location) { 
-      if ($scope.index == max) {
+      if ($scope.index === max) {
         console.log("Done");
         $scope.isDone = true;
       }
       $scope.index = ($scope.index + 1) % $scope.arr.length;
       console.log($scope.index);
-    }
+    };
   }
 ]);
-angular.module('core').controller('QuizResults', ['$scope','Authentication',
+
+angular.module('core').controller('QuizResultsController', ['$scope','Authentication',
     function ($scope, Authentication) {
 
     }
