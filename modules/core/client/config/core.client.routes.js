@@ -32,6 +32,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       url: '/resources',
       templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
+    .state('studentprofile', {
+          url: '/profile/student',
+          templateUrl: 'modules/core/client/views/profile.client.view.html'
+    })
+    .state('teacherprofile', {
+      url: '/profile/teacher',
+      templateUrl: 'modules/core/client/views/profile.client.view.html'
+    })
     .state('bad-request', {
       url: '/bad-request',
       templateUrl: 'modules/core/client/views/400.client.view.html',

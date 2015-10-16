@@ -12,7 +12,7 @@
             	<input type="text" ng-model="firstName">
             </div>
     </div>
-        
+
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>Last Name: </p>
@@ -21,7 +21,7 @@
             	<input type="text" ng-model="lastName">
             </div>
         </div>
-        
+
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>E-mail: </p>
@@ -30,7 +30,7 @@
             	<input type="email" ng-model="email">
             </div>
         </div>
-        
+
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>Username: </p>
@@ -39,7 +39,7 @@
             	<input type="text" ng-model="username">
             </div>
         </div>
-        
+
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>Password: </p>
@@ -48,24 +48,24 @@
             	<input type="password" ng-model="password">
             </div>
         </div>
-        
+
         <div class = "row">
         	<div class="col-md-2 col-md-offset-3 text-right">
             	<p>Account Type: </p>
             </div>
-            <div class = "col-md-2">
+            <div class = "radio col-md-2">
                   <label>
-                    <input type="radio" ng-model="type" value="Teacher">
+                    <input type="radio" name="profiletype" value="Teacher"  ng-model="type"  >
                     Teacher
                   </label><br/>
                   <label>
-                    <input type="radio" ng-model="type" value="Student">
+                    <input type="radio" name="profiletype" value="Student" ng-model="type" >
                     Student
                   </label><br/>
             </div>
-            
+
         </div>
-        
+
         <!-- if student -->
          <div class = "row" ng-show="type=='Student'">
         	<div class="col-md-2 col-md-offset-3 text-right">
@@ -74,8 +74,9 @@
             <div class = "col-md-2">
             	<input type="text" ng-model="classCode">
             </div>
+
         </div>
-        
+
         <!-- if teacher -->
         <div class = "row" ng-show="type=='Teacher'">
         	<div class="col-md-2 col-md-offset-3 text-right">
@@ -91,16 +92,21 @@
     			</button>
             </div>
 
+
         </div>
-        
 
-    
-    <!-- log-in button -->
-    <div class="topmargin-10" style="text-align:center;">
-    	<a class="btn btn-default" ng-click ="" href="">
-       	 	Register
-    	</a>
-    </div>
+  <div class="topmargin-10" style="text-align:center;" >
+    <a class="btn btn-default" ng-click="signup()" href="">
+      Register
+    </a>
+  </div>
 
-    
+</div>
+
+
+
+
+
+
+
 </div>

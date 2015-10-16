@@ -40,7 +40,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     $scope.signup = function (isValid) {
       $scope.error = null;
-
+      //when database is setup and we can successfully hit /api/auth/signup,
+      // move this below where the redirect is commented
+      if ($scope.type == 'Student') {
+        $state.go('studentprofile', $state.previous.params);
+      } else if ($scope.type == 'Teacher') {
+        $state.go('teacherprofile', $state.previous.params);
+      }
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
 
@@ -52,7 +58,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+        //$state.go($state.previous.state.name || 'home', $state.previous.params);
+
       }).error(function (response) {
         $scope.error = response.message;
       });
