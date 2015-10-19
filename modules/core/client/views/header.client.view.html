@@ -1,4 +1,8 @@
-<div class="container-fluid vertical-center">
+<div class="header-image">
+	<img src="modules/core/client/img/brand/logo2.jpg" alt="" style="width:200px;">
+</div>
+
+<div id="navbar" class="container-fluid vertical-center bg-navbar">
     <div ng-show="authentication.user" class="navbar-brand pull-right">
         Logout
     </div>
@@ -8,6 +12,6 @@
       <a ng-show="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic pull-right"> </a>
 
       <div ng-show="authentication.user.isTeacher" class="navbar-brand pull-right">
-        Data
+        Progress
     </div>
 </div>
