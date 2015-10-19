@@ -8,7 +8,7 @@ This will update all the branches you've ever checked out with changes that othe
  
 Step 2: `git pull origin YOUR_BRANCH_HERE` 
 
-This will pull the _u[dated_ information into your _local_ repository copy.
+This will pull the _updated_ information into your _local_ repository copy.
 
 Step 3: `git add -A` 
 
