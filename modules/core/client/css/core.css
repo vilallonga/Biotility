@@ -1,9 +1,48 @@
+
 .navbar {
-    height: 75px;
+    height: 50px;
+}
+.down{
+	margin-top:200px;
+}
+
+.header-image{
+	align: left;
+	min-width: 100%;
+	display: inline-block;
+	background-color: white;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;	
+}
+
+/*header*/
+.navbar-brand{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 15px;
+}
+
+#navbar a:link, #navbar a:visited{
+	color: white;
+	text-decoration: none;
+}
+
+#navbar a:hover {
+	color: #818181;
+	text-decoration: none;
+}
+
+#navbar a:active {
+	color: #464646;
+	text-decoration: none;
 }
 
 .top-span>.vertical-center {
     top: 40% !important;
+}
+
+.bg-navbar{
+	background-color: #242424;
 }
 
 .vertical-center {
