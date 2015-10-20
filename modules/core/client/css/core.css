@@ -1,9 +1,7 @@
 
+/*----header----*/
 .navbar {
     height: 50px;
-}
-.down{
-	margin-top:200px;
 }
 
 .header-image{
@@ -12,23 +10,23 @@
 	display: inline-block;
 	background-color: white;
 	padding-bottom: 10px;
-	padding-left: 10px;
+	padding-left: 30px;
 	padding-top: 10px;	
 }
 
-/*header*/
 .navbar-brand{
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 15px;
+	padding-right: 20px;
 }
 
 #navbar a:link, #navbar a:visited{
-	color: white;
+	color: #959595;
 	text-decoration: none;
 }
 
 #navbar a:hover {
-	color: #818181;
+	color: white;
 	text-decoration: none;
 }
 
@@ -43,6 +41,7 @@
 
 .bg-navbar{
 	background-color: #242424;
+	color:white;
 }
 
 .vertical-center {
@@ -52,14 +51,17 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 .content-main{
-    background: rgba(127,127,127,0.6);
+    background: white;
     height: 100%;
 }
+
 .user-pic {
-    height: 50px;
-    width: 50px;
-    margin-right: 10px;
+	margin-top: 5px;
+    height: 40px;
+    width: 40px;
+	
 }
 .logo {
     width: 30%;
@@ -73,11 +75,8 @@
     text-shadow: 1px 1px 8px grey;
 }
 
-.top-span {
-    background: white;
-    height: 750px;
-    margin-bottom: 30px;
-    text-align: center;
+.header-space{
+	padding-top: 145px;
 }
 
 .margin-top-50 {
@@ -130,4 +129,11 @@
 }
 .big-btn > a {
     color: inherit;
+}
+
+.main-head{
+	background-color: #BBB;
+	border-radius: 25px;
+	padding: 40px;
+
 }
