@@ -1,17 +1,26 @@
 <div class="header-image">
-	<img src="modules/core/client/img/brand/logo2.jpg" alt="" style="width:200px;">
+	<a href="http://biotility.research.ufl.edu/"><img src="modules/core/client/img/brand/logo2.jpg" alt="" style="height: 80px;"></a>
 </div>
 
 <div id="navbar" class="container-fluid vertical-center bg-navbar">
+	<div class="navbar-brand pull-left">
+    	Preparation for the Biotechnician Assistant Credential Exam (BACE)
+    </div>
+    <a
+    	ng-show="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle 
+        user-pic pull-right"> 
+    </a>
     <div ng-show="authentication.user" class="navbar-brand pull-right">
         Logout
     </div>
     <div ng-hide="authentication.user" class="navbar-brand pull-right">
    	 <a data-ui-sref="authentication.signin">Login</a>
     </div>
-      <a ng-show="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic pull-right"> </a>
 
       <div ng-show="authentication.user.isTeacher" class="navbar-brand pull-right">
         Progress
     </div>
+    <!--<div class="navbar-brand pull-right">
+    	<a href="http://biotility.research.ufl.edu/">Biotility</a>
+    </div>-->
 </div>
