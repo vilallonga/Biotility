@@ -9,20 +9,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
-	
-	/* login temp*/
-	$scope.username = "";
-	$scope.password = "";
-	
-	/* registration tmp*/
-	$scope.firstName = "";
-	$scope.lastName = "";
-	$scope.email = "";
-	$scope.type = "Select Type";
-	$scope.classCode = "";
-	$scope.class = ["a"];
+
+
+	$scope.coursesTeaching = ["a"];
 	$scope.add = function() {
-        $scope.class.push("b");
+        $scope.coursesTeaching.push("b");
     };
 
     // array of class names
@@ -42,11 +33,12 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.error = null;
       //when database is setup and we can successfully hit /api/auth/signup,
       // move this below where the redirect is commented
-      if ($scope.type == 'Student') {
+      if ($scope.type === 'Student') {
         $state.go('studentprofile', $state.previous.params);
-      } else if ($scope.type == 'Teacher') {
+      } else if ($scope.type === 'Teacher') {
         $state.go('teacherprofile', $state.previous.params);
       }
+
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'userForm');
 

@@ -17,20 +17,24 @@ module.exports.loadModels = function() {
     });
 };
 
-// Manually defining the schemas like a normal human being.
+// ************* Schema Definitions *************
 
 // Student Schema
 var studentSchema = new Schema({
-    firstname: {type: String, required: 'Please enter your first name.'},
-    lastname: {type: String, required: 'Please enter your last name.'},
+    firstName: {type: String, required: 'Please enter your first name.'},
+    lastName: {type: String, required: 'Please enter your last name.'},
+    userName: {type: String, required: true, unique: true},
+    password: {type: String, required: true},
     email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
-    coursesTakingIds: [Number]
+    courseCode: Number
 });
 
 // Instructor/Teacher Schema
 var teacherSchema = new Schema({
-    firstname: {type: String, required: 'Please enter your first name.'},
-    lastname: {type: String, required: 'Please enter your last name.'},
+    firstName: {type: String, required: 'Please enter your first name.'},
+    lastName: {type: String, required: 'Please enter your last name.'},
+    userName: {type: String, required: true, unique: true},
+    password: {type: String, required: true},
     email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
     coursesTeachingIds: [Number]
 });
@@ -39,7 +43,8 @@ var teacherSchema = new Schema({
 var subjectSchema = new Schema({
     name: {type : String, required: true},
     id: {type: Number, required: true},
-    description: {type: String}
+    description: {type: String},
+    imgUrl: String
 });
 
 // Question Schema

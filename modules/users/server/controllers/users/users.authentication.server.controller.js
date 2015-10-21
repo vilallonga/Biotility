@@ -21,15 +21,21 @@ var noReturnUrls = [
  * Signup
  */
 exports.signup = function (req, res) {
-  // For security measurement we remove the roles from the req.body object
-  delete req.body.roles;
 
   // Init Variables
-  var user = new User(req.body);
+  var user;
+  if(req.body.profiletype === "Student") {
+     user = new Student(req.body);
+  } else if (req.body.profiletype === "Teacher") {
+    user = new Teacher(req.body);
+  } else {
+    // problem... not teacher or student
+  }
+ 
+ // potential error message
   var message = null;
 
   // Add missing user fields
-  user.provider = 'local';
   user.displayName = user.firstName + ' ' + user.lastName;
 
   // Then save the user
