@@ -36,7 +36,7 @@ var teacherSchema = new Schema({
     userName: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
-    coursesTeachingIds: [Number]
+    coursesTeaching: [Number]
 });
 
 // Subject Schema
