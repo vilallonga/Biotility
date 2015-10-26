@@ -40,8 +40,6 @@ exports.signup = function(req, res) {
     // Add missing user fields
     user.displayName = user.firstName + ' ' + user.lastName;
 
-    console.log(user);
-
     // Then save the user
     user.save(function(err) {
         if (err) {
@@ -67,24 +65,48 @@ exports.signup = function(req, res) {
 /**
  * Signin after passport authentication
  */
-exports.signin = function(req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
-        if (err || !user) {
-            res.status(400).send(info);
-        } else {
-            // Remove sensitive data before login
-            user.password = undefined;
-            user.salt = undefined;
+exports.signin = function(req, res) {
 
-            req.login(user, function(err) {
-                if (err) {
-                    res.status(400).send(err);
-                } else {
-                    res.json(user);
+    var user = {};
+
+    // First try to find the person in the Student database.
+    Student.findOne({
+            'userName': req.body.username,
+            'password': req.body.password
+        },
+        function(err, student) {
+            if (!err) {
+                user = student;
+            }
+        });
+
+    // If not found, then try to find them in the Teacher database.
+    if (!user) {
+        Teacher.findOne({
+                'userName': req.body.username,
+                'password': req.body.password
+            },
+            function(err, teacher) {
+                if (!err)
+                    user = teacher;
+                else {
+                    return;
                 }
             });
+    }
+
+    // no user found after both searching both data collections, send error.
+    // Remove sensitive data before login
+    user.password = undefined;
+    user.salt = undefined;
+
+    req.login(user, function(err) {
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            res.json(user);
         }
-    })(req, res, next);
+    });
 };
 
 /**
