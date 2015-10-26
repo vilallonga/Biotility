@@ -67,8 +67,6 @@ exports.signup = function(req, res) {
  */
 exports.signin = function(req, res) {
 
-    var user = {};
-
     // First try to find the person in the Student database.
     Student.findOne({
             'userName': req.body.username,
@@ -76,37 +74,26 @@ exports.signin = function(req, res) {
         },
         function(err, student) {
             if (!err) {
-                user = student;
+                res.json(student);
+                return;
+            } else {
+                // If not found, then try to find them in the Teacher database.
+                Teacher.findOne({
+                        'userName': req.body.username,
+                        'password': req.body.password
+                    },
+                    function(err, teacher) {
+                        if (!err) {
+                            res.json(teacher);
+                        } else {
+                            // no user found after both searching both data collections, send error.
+                            res.send(500, {
+                                error: "No user found."
+                            });
+                        }
+                    });
             }
         });
-
-    // If not found, then try to find them in the Teacher database.
-    if (!user) {
-        Teacher.findOne({
-                'userName': req.body.username,
-                'password': req.body.password
-            },
-            function(err, teacher) {
-                if (!err)
-                    user = teacher;
-                else {
-                    return;
-                }
-            });
-    }
-
-    // no user found after both searching both data collections, send error.
-    // Remove sensitive data before login
-    user.password = undefined;
-    user.salt = undefined;
-
-    req.login(user, function(err) {
-        if (err) {
-            res.status(400).send(err);
-        } else {
-            res.json(user);
-        }
-    });
 };
 
 /**
