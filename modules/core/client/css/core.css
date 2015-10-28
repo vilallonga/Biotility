@@ -22,7 +22,7 @@
 }
 .navbar-brand{
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 20px;
+	font-size: 15px;
 	padding-right: 20px;
 	cursor: pointer;
 }
@@ -181,11 +181,4 @@
 .himg{
     box-shadow: 6px 6px 5px #787878;
 	margin-top: 30px;
-}
-
-.btn-default{
-	width: 150px;
-	height: 40px;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 14px;
 }

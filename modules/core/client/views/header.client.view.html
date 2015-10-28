@@ -1,14 +1,3 @@
-<div class="container-fluid top-bar">
-    <div class="row">
-        <div class="col-md-3 header-image">
-            <a href="http://biotility.research.ufl.edu/"><img src="modules/core/client/img/brand/logo2.jpg" alt="" style="height: 80px;"></a>
-        </div>
-        <div class="col-md-6 text-center header-text">
-            Preparation for the Biotechnician Assistant Credential Exam (BACE)
-            <p></p>
-        </div>
-    </div>
-</div>
 <div id="navbar" ng-controller="HeaderController" class="container-fluid vertical-center bg-navbar">
     <span class="navbar-brand" ng-repeat="crumb in breadcrumb track by $index" ng-click="click(crumb)">
         {{crumb.name}}<span ng-hide="$index === breadcrumb.length - 1" class="glyphicon glyphicon-chevron-right"></span>
