@@ -74,7 +74,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 // If successful we assign the response to the global user model
                 $scope.authentication.user = response;
                 //make a dialog pop up box appear notifying the user that they successfully logged in
+                //thhis tells a user they have logged in successfully
+                $('#dialog').html('Login Succesful');
                 
+
                 // And redirect to home page
                 $state.go('home');
             }).error(function(response) {
