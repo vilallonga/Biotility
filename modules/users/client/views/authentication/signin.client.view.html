@@ -1,3 +1,10 @@
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+      <script src="authentication.client.controller.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+</head>
 <div ng-controller="AuthenticationController">
     <div class="topmargin">
         <img class="image-center" src="modules/core/client/img/brand/logo2.jpg" alt="Biotility Logo" style="width:300px;height:124px;">
@@ -24,9 +31,18 @@
         </div>
         <!-- log-in button -->
         <div class="topmargin-10" style="text-align:center;">
-            <button type="submit" class="btn btn-primary">
+            <!--modal-->
+            <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+            <h3>Attempting to Log-in...</h3>
+            </div>
+
+       
+    </script>
+            <button type="submit" ng-click="open()" class="btn btn-primary">
                 Log-in
             </button>
+            <div ng-show="selected">Selection from a modal: {{ selected }}</div>
         </div>
     </form>
     <!-- register link -->
