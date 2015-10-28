@@ -73,12 +73,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             $http.post('/api/auth/signin', $scope.credentials).success(function(response) {
                 // If successful we assign the response to the global user model
                 $scope.authentication.user = response;
-
+                //make a dialog pop up box appear notifying the user that they successfully logged in
+                
                 // And redirect to home page
                 $state.go('home');
             }).error(function(response) {
                 $scope.error = response.message;
             });
+
+
         };
 
         // OAuth provider request
