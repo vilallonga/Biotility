@@ -60,13 +60,23 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             });
         };
 
+         $scope.open = function () {
+
+        $modal.open({
+            templateUrl: 'myModalContent.html',
+            backdrop: true,
+            windowClass: 'modal',
+            
+        });
+    };
+
         $scope.signin = function(isValid) {
 
             $scope.error = null;
 
             if (!isValid) {
                 $scope.$broadcast('show-errors-check-validity', 'userForm');
-                $('#dialog').html('Login Unsuccessful');
+                /*$('#dialog').html('Login Unsuccessful');
                 $('#dialog').dialog({
                 autoOpen: true,
                 show: "blind",
@@ -75,7 +85,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 open: function(event, ui) {
                 setTimeout(function(){
               $('#dialog').dialog('close');                
-                }, 3000);
+                }, 3000);*/
                 return false;
             }
 
@@ -105,6 +115,24 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
 
         };
+
+        $scope.open = function () {
+
+        $modal.open({
+            templateUrl: 'myModalContent.html',
+            backdrop: true,
+            windowClass: 'modal',
+            controller: function ($scope, $modalInstance, $log, user) {
+                $scope.user = user;
+                
+            },
+            resolve: {
+                user: function () {
+                    return $scope.user;
+                }
+            },
+        });
+    };
 
         // OAuth provider request
         $scope.callOauthProvider = function(url) {
