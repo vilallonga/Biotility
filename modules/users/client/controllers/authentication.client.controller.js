@@ -66,7 +66,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
             if (!isValid) {
                 $scope.$broadcast('show-errors-check-validity', 'userForm');
-
+                $('#dialog').html('Login Unsuccessful');
+                $('#dialog').dialog({
+                autoOpen: true,
+                show: "blind",
+                hide: "explode",
+                modal: true,
+                open: function(event, ui) {
+                setTimeout(function(){
+              $('#dialog').dialog('close');                
+                }, 3000);
                 return false;
             }
 
