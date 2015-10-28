@@ -64,3 +64,12 @@ angular.module('core').service('Subjects', ['$http', function($http) {
     };
 
 }]);
+
+angular.module('core').service('NavCrumbs', [
+    function() {
+        this.breadcrumb = [
+        {
+            name: "Home",
+            url: "/"
+        }];
+}]);

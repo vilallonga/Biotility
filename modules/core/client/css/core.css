@@ -1,26 +1,35 @@
 
+@font-face {
+    font-family: roundedElegance;
+    src: url(/modules/core/client/img/font/rounded_elegance-webfont.woff);
+}
+
 /*----header----*/
 .navbar {
     height: 50px;
 }
-
-.header-image{
-	align: left;
+.top-bar {
 	min-width: 100%;
-	display: inline-block;
 	background-color: white;
+}
+.header-image{
 	padding-bottom: 10px;
 	padding-left: 30px;
-	padding-top: 10px;	
+	padding-top: 10px;
 }
-
+.glyphicon-chevron-right {
+	margin-left: 12px;
+}
 .navbar-brand{
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 15px;
+	font-size: 20px;
 	padding-right: 20px;
+	cursor: pointer;
 }
-
-#navbar a:link, #navbar a:visited{
+.navbar-brand>span {
+	color: white;
+}
+#navbar a:link, #navbar a:visited {
 	color: #959595;
 	text-decoration: none;
 }
@@ -43,7 +52,10 @@
 	background-color: #242424;
 	color:white;
 }
-
+.header-text {
+	font-size: 30px;
+	margin-top: 30px;
+}
 .vertical-center {
     position: relative;
     top: 50%;
@@ -137,17 +149,43 @@
 	padding: 40px;
 }
 
-.home{
+.head{
+	font-family: roundedElegance, Verdana, sans-serif;
+}
+
+.sub{
 	font-family: Verdana, Geneva, sans-serif;	
 }
 
 .mh{
-	margin-top: -10px;
+	margin-top: 0px;
 	font-size: 30px;
 	font-style: bold;
 	margin-bottom: 10px;
+	color: black;
+}
+
+.mhh{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-style: bold;
+	color: black;
 }
 
 .ms{
-		
+	color: #262626;	
+	font-size: 13px;
+}
+
+.himg{
+    box-shadow: 6px 6px 5px #787878;
+	margin-top: 30px;
+}
+
+.btn-default{
+	width: 150px;
+	height: 40px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
 }
