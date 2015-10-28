@@ -76,7 +76,17 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 //make a dialog pop up box appear notifying the user that they successfully logged in
                 //thhis tells a user they have logged in successfully
                 $('#dialog').html('Login Succesful');
-                
+                $('#dialog').dialog({
+                autoOpen: true,
+                show: "blind",
+                hide: "explode",
+                modal: true,
+                open: function(event, ui) {
+                setTimeout(function(){
+              $('#dialog').dialog('close');                
+                }, 4000);
+    }
+});
 
                 // And redirect to home page
                 $state.go('home');
