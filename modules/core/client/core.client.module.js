@@ -1,6 +1,8 @@
 'use strict';
 
 // Use Applicaion configuration module to register a new module
+console.log("Core Ran here");
 ApplicationConfiguration.registerModule('core');
 ApplicationConfiguration.registerModule('core.admin', ['core']);
 ApplicationConfiguration.registerModule('core.admin.routes', ['ui.router']);
+ApplicationConfiguration.registerModule('quiz');

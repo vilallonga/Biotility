@@ -62,13 +62,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
          $scope.open = function () {
 
-        $modal.open({
-            templateUrl: 'myModalContent.html',
-            backdrop: true,
-            windowClass: 'modal',
+        // $modal.open({
+        //     templateUrl: 'myModalContent.html',
+        //     backdrop: true,
+        //     windowClass: 'modal',
             
-        });
-    };
+        // });
+        };
 
         $scope.signin = function(isValid) {
 
@@ -93,46 +93,45 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 // If successful we assign the response to the global user model
                 $scope.authentication.user = response;
                 //make a dialog pop up box appear notifying the user that they successfully logged in
-                //thhis tells a user they have logged in successfully
-                $('#dialog').html('Login Succesful');
-                $('#dialog').dialog({
+                //this tells a user they have logged in successfully
+                //$('#dialog').html('Login Succesful');
+                /*$('#dialog').dialog({
                 autoOpen: true,
                 show: "blind",
                 hide: "explode",
                 modal: true,
                 open: function(event, ui) {
-                setTimeout(function(){
-              $('#dialog').dialog('close');                
-                }, 4000);
-    }
-});
-
-                // And redirect to home page
-                $state.go('home');
-            }).error(function(response) {
-                $scope.error = response.message;
+                    setTimeout(function(){
+                    $('#dialog').dialog('close');                
+                    }, 4000);
+                }*/
             });
+
+            // And redirect to home page
+            // $state.go('home');
+            // }).error(function(response) {
+            //     $scope.error = response.message;
+            // });
 
 
         };
 
-        $scope.open = function () {
-
-        $modal.open({
-            templateUrl: 'myModalContent.html',
-            backdrop: true,
-            windowClass: 'modal',
-            controller: function ($scope, $modalInstance, $log, user) {
-                $scope.user = user;
-                
-            },
-            resolve: {
-                user: function () {
-                    return $scope.user;
-                }
-            },
-        });
-    };
+        // $scope.open = function () {
+        //     $modal.open({
+        //         templateUrl: 'myModalContent.html',
+        //         backdrop: true,
+        //         windowClass: 'modal',
+        //         controller: function ($scope, $modalInstance, $log, user) {
+        //             $scope.user = user;
+                    
+        //         },
+        //         resolve: {
+        //             user: function () {
+        //                 return $scope.user;
+        //             }
+        //         },
+        //     });
+        // };
 
         // OAuth provider request
         $scope.callOauthProvider = function(url) {
