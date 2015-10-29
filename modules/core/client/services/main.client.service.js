@@ -7,30 +7,61 @@ angular.module('core').service('Subjects', ['$http', function($http) {
 	this.subjects =
     [
     	{
-    		name: "Biology",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
+    		name: "Cells",
+    		img: "modules/core/client/img/subject_icons/cells.png",
+    		description: "Cells (general), Cell Structures and Organelles, Photosynthesis"
+    	},
+    	{
+    		name: "Chemistry & Biochemistry",
+    		img: "modules/core/client/img/subject_icons/chemistry.png",
+    		description: "Chemicals are cool."
     	},
     	{
     		name: "Genetics",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
+    		img: "modules/core/client/img/subject_icons/genetics.png",
+    		description: "GENES GENES GENES GENES GENES GENES"
     	},
     	{
-    		name: "Biotility",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
+    		name: "Laboratory Skills and Applications",
+    		img: "modules/core/client/img/subject_icons/lab.png",
+    		description: "Lab Lab Lab"
     	},
     	{
-    		name: "Chemistry",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
+    		name: "Research and Scientific Method",
+    		img: "modules/core/client/img/subject_icons/research.png",
+    		description: "Research is Cool"
     	},
-    	{
-    		name: "Chemistry",
-    		img: "modules/core/client/img/subject_icons/biology.png",
-    		description: "Biology is COOL."
+		{
+    		name: "General Topics in Biotechnology",
+    		img: "modules/core/client/img/subject_icons/general.jpg",
+    		description: "I love generalized topics"
+    	},
+		{
+    		name: "Applied Mathematics in Biotechnology",
+    		img: "modules/core/client/img/subject_icons/math.jpg",
+    		description: "Yay math"
+    	},
+		{
+    		name: "Biotechnology Skills",
+    		img: "modules/core/client/img/subject_icons/skills.jpg",
+    		description: "Mad skillz"
+    	},
+		{
+    		name: "Laboratory Equipment",
+    		img: "modules/core/client/img/subject_icons/equip.jpg",
+    		description: "centrifuge!"
+    	},
+		{
+    		name: "Preparing Solutions",
+    		img: "modules/core/client/img/subject_icons/solution.png",
+    		description: "Mix it up"
+    	},
+		{
+    		name: "Workplace Safety and Behavior",
+    		img: "modules/core/client/img/subject_icons/work.png",
+    		description: "Be professional."
     	}
+		
     ];
     // Array for question objects we have for the selected subject.
     this.questionsForSubject = [ {} ];
@@ -63,4 +94,13 @@ angular.module('core').service('Subjects', ['$http', function($http) {
     	return null;
     };
 
+}]);
+
+angular.module('core').service('NavCrumbs', [
+    function() {
+        this.breadcrumb = [
+        {
+            name: "Home",
+            url: "/"
+        }];
 }]);

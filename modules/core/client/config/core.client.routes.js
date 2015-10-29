@@ -33,15 +33,15 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
     .state('studentprofile', {
-          url: '/profile/student',
-          templateUrl: 'modules/core/client/views/profile.client.view.html'
+      url:'/profile/student/{userName:[a-zA-Z]+}',
+      templateUrl: 'modules/core/client/views/profile.client.view.html'
     })
     .state('teacherprofile', {
-      url: '/profile/teacher',
+      url:'/profile/teacher/{userName:[a-zA-Z]+}',
       templateUrl: 'modules/core/client/views/profile.client.view.html'
     })
     .state('bad-request', {
-      url: '/bad-request',
+      url:'/bad-request',
       templateUrl: 'modules/core/client/views/400.client.view.html',
       data: {
         ignoreState: true

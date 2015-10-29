@@ -1,39 +1,52 @@
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+      <script src="authentication.client.controller.js"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+</head>
 <div ng-controller="AuthenticationController">
-  <div class="topmargin">
-  	<img class = "image-center" src="modules/core/client/img/brand/logo2.jpg" alt="Biotility Logo" style="width:300px;height:124px;">
-  </div>
-    
-  	<!-- username and password entry -->
- 	<div class="container topmargin-50">
-  		<div class="row">
-        	<div class="col-md-1 col-md-offset-4">
-            	<p>Username: </p>
-            </div>
-            <div class = "col-md-1">
-            	<input type="text" ng-model="username">
-            </div>
-        </div>
-        
-        <div class = "row">
-        	<div class="col-md-1 col-md-offset-4">
-            	<p>Password: </p>
-            </div>
-            <div class = "col-md-1">
-            	<input type="password" ng-model="password">
-            </div>
-        </div>
-  	</div>
-    
-    
-    <!-- log-in button -->
-    <div class="topmargin-10" style="text-align:center;">
-    	<a class="btn btn-default" href="">
-       	 	Log-in
-    	</a>
+    <div class="topmargin">
+        <img class="image-center" src="modules/core/client/img/brand/logo2.jpg" alt="Biotility Logo" style="width:300px;height:124px;">
     </div>
-    
+    <!-- username and password entry -->
+    <form ng-submit="signin(true)">
+        <div class="container topmargin-50">
+            <div class="row">
+                <div class="col-md-1 col-md-offset-4">
+                    <p>Username: </p>
+                </div>
+                <div class="col-md-1">
+                    <input type="text" ng-model="credentials.username" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1 col-md-offset-4">
+                    <p>Password: </p>
+                </div>
+                <div class="col-md-1">
+                    <input type="password" ng-model="credentials.password" required>
+                </div>
+            </div>
+        </div>
+        <!-- log-in button -->
+        <div class="topmargin-10" style="text-align:center;">
+            <!--modal-->
+            <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+            <h3>Attempting to Log-in...</h3>
+            </div>
+
+       
+    </script>
+            <button type="submit" ng-click="open()" class="btn btn-default">
+                Log-in
+            </button>
+            <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+        </div>
+    </form>
     <!-- register link -->
     <div class="registerLink topmargin-10" style="text-align:center;">
-    	<a data-ui-sref="authentication.signup">Don't have an account? Click here to register.</a>
+        <a data-ui-sref="authentication.signup">Don't have an account? Click here to register.</a>
     </div>
 </div>

@@ -1,11 +1,11 @@
 <div class="margin-top-50 content-main" ng-controller="MainController">
-    <div class="container-fluid top-span">
-        <div class="vertical-center"> 
-            <img class="logo" src="modules/core/client/img/brand/logo2.jpg" alt="">
-        </div>
+    <div top-images>
+    	<!--insert carousel here...-->
+        <img src="modules/core/client/img/biotility_img/microcentrifuge.jpg" alt="" style="width: 100%; height: 100%;">
     </div>
+    
     <div class="container">
-        <h6>Topics</h6>
+        <h2>Select a topic to begin: </h2>
         <div class="row">
             <div class="col-sm-3 subject-box" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
                 <div class="thumbnail subject-img">
@@ -19,6 +19,6 @@
         </div>
     </div>
 
-    <div class="text-center">&copy; Biotility, 20XX-2015.</div>
+    <div class="text-center">&copy; Biotility, 2015.</div>
     
 </div>

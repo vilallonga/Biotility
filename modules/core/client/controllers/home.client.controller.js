@@ -1,6 +1,6 @@
 'use strict';
 
-/** SEE core.server.routes.js,  */
+/** SEE core.server.routes.js  */
 
 angular.module('core').controller('MainController', ['$scope', '$state', '$location', 'Authentication', 'Subjects',
   function ($scope, $state, $location, Authentication, Subjects) {
@@ -21,11 +21,11 @@ angular.module('core').controller('SubjectController', ['$scope', '$state', '$lo
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
-    $scope.breadcrum = $stateParams.courseName;
-    
+    $scope.subject = $stateParams.courseName;
 
   }
 ]);
+
 angular.module('core').controller('QuizController', ['$scope', 'Authentication',
   function ($scope, Authentication) {
     // This provides Authentication context.
@@ -81,16 +81,6 @@ angular.module('core').controller('QuizResultsController', ['$scope','Authentica
     function ($scope, Authentication) {
 
     }
-]);
-
-angular.module('core').controller('QuizPickerController', ['$scope', '$state', 'Authentication', '$stateParams',
-  function ($scope, $state, Authentication, $stateParams) {
-    // This provides Authentication context.
-    $scope.authentication = Authentication;
-
-    $scope.breadcrum = $stateParams.courseName;
-
-  }
 ]);
 
 
