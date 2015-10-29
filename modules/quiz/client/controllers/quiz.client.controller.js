@@ -47,20 +47,25 @@ angular.module('quiz').controller('QuizController', ['$scope',
       $scope.index = ($scope.index + 1) % $scope.arr.length;
       console.log($scope.index);
     };
-  }
+  }//End of function for controller
 ]);
 
 angular.module('quiz').controller('QuizCreate', ['$scope', 'Quiz',
-    function ($scope, Quiz) {
-      $scope.create = function() { 
-        var quizQuestion = new Quiz({
-          description: this.description,
-          type: this.type,
-          answerDesc1: this.answer1,
-          answerDesc2: this.answer2
-        });
-      }; 
-    }
+  function ($scope, Quiz) {
+    $scope.createQuizObject = function() { 
+      var quizQuestion = new Quiz({
+        description: this.description,
+        type: this.type,
+        answerDesc1: this.answer1,
+        answerDesc2: this.answer2
+      });
+    };
+  
+    $scope.showContent = function($fileContent){
+        console.log("Show content");
+        $scope.content = $fileContent;
+    };
+  }
 ]);
 
 //angular.module('quiz').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Quiz',

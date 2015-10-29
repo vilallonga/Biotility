@@ -2,7 +2,12 @@
     <div class="header-space">
         <!-- Using this for space -->
     </div>
-	<div class = "container" >
-		<input type="file" file-reader="fileContent" />
-	</div>
+		<div class = "container" >
+			<h1> Here</h1>
+			<input type="file" on-read-csv = "showContent($fileContent)" />
+		    <div ng-if="content">
+		        <h2>File content is:</h2>
+		        <pre>{{ content }}</pre>
+		    </div>
+		</div>
 </div>
