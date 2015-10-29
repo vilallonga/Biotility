@@ -42,9 +42,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.error = null;
       //when database is setup and we can successfully hit /api/auth/signup,
       // move this below where the redirect is commented
-      if ($scope.type == 'Student') {
-        $state.go('studentprofile', $state.previous.params);
-      } else if ($scope.type == 'Teacher') {
+      if ($scope.type === 'Student') {
+        $state.go('studentpofile', $state.previous.params);
+      } else if ($scope.type === 'Teacher') {
         $state.go('teacherprofile', $state.previous.params);
       }
       if (!isValid) {
