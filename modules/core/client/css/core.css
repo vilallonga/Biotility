@@ -6,12 +6,17 @@
 
 /*----header----*/
 .navbar {
-    height: 50px;
+    height: 75px;
 }
 .top-bar {
 	min-width: 100%;
 	background-color: white;
 }
+.nav-img{
+	padding-top: 8px;
+	padding-left: 50px;
+}
+
 .header-image{
 	padding-bottom: 10px;
 	padding-left: 30px;
@@ -22,9 +27,10 @@
 }
 .navbar-brand{
 	font-family: AwesomeFont, Verdana, Geneva, sans-serif;
-	font-size: 13px;
+	font-size: 15px;
 	padding-right: 20px;
 	cursor: pointer;
+	margin-top: 10px;
 }
 .navbar-brand>span {
 	color: white;
@@ -49,6 +55,8 @@
 }
 
 .bg-navbar{
+	margin-top: 0px;
+	height: 75px;
 	background-color: #242424;
 	color:white;
 }
