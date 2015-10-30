@@ -4,21 +4,39 @@
         <img src="modules/core/client/img/biotility_img/microcentrifuge.jpg" alt="" style="width: 100%; height: 100%;">
     </div>
     
-    <div class="container">
-        <h2>Select a topic to begin: </h2>
-        <div class="row">
-            <div class="col-sm-3 subject-box" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
-                <div class="thumbnail subject-img">
-                    <img ng-src="{{subject.img}}" alt="" class="img-responsive">
-                    <div class="caption">
-                        <h3>{{subject.name}}</h3>
-                        <p>{{subject.description}}</p>
-                    </div>
+    <div class="head">
+    
+    	<div class="m"> Advanced <span style="color: #FD432F">biotechnology</span> education and training </div>
+        <div class="mh">Preparation for the Biotechnician Assistant Credentialing Exam (BACE)</div>
+    </div>
+    
+    <div class="container-fluid subjects">
+    	<div class="margin-top-75">
+       	 	<div class="row">
+            
+        		<div class="head sh">
+    				Select a topic to begin:
+        		</div>
+        			<div class="col-xs-3" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
+                    	<div class="so">
+                        	<div  id="subject-box">
+                				<div id="overlay">
+            						<div >
+                    					<img ng-src="{{subject.img}}" alt="" class="img-responsive">
+                    				</div>
+                    				<div class="head shh">
+                    					{{subject.name}}
+                    				</div>
+                             	</div>
+                           </div>
+                    	</div>
+            		</div>
                 </div>
-            </div>
-        </div>
+        	</div>
+        
+    	</div>
     </div>
 
-    <div class="text-center">&copy; Biotility, 2015.</div>
+    <div class="text-center footer">&copy; Biotility, 2015.</div>
     
 </div>

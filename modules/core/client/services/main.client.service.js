@@ -32,12 +32,12 @@ angular.module('core').service('Subjects', ['$http', function($http) {
     		description: "Research is Cool"
     	},
 		{
-    		name: "General Topics in Biotechnology",
+    		name: "General Topics",
     		img: "modules/core/client/img/subject_icons/general.jpg",
     		description: "I love generalized topics"
     	},
 		{
-    		name: "Applied Mathematics in Biotechnology",
+    		name: "Applied Mathematics",
     		img: "modules/core/client/img/subject_icons/math.jpg",
     		description: "Yay math"
     	},

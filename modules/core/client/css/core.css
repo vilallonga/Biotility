@@ -1,7 +1,7 @@
 
 @font-face {
-    font-family: roundedElegance;
-    src: url(/modules/core/client/img/font/rounded_elegance-webfont.woff);
+    font-family: AwesomeFont;
+    src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
 }
 
 /*----header----*/
@@ -21,8 +21,8 @@
 	margin-left: 12px;
 }
 .navbar-brand{
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 15px;
+	font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+	font-size: 13px;
 	padding-right: 20px;
 	cursor: pointer;
 }
@@ -87,24 +87,43 @@
     text-shadow: 1px 1px 8px grey;
 }
 
-.header-space{
-	padding-top: 145px;
+
+.margin-top-75 {
+    margin-top: 75px;
 }
 
-.margin-top-50 {
-    margin-top: 50px;
+.subjects{
+background: #EFEFEF	;
 }
 
-.subject-box {
+.so{
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#subject-box {
+	background: white;
     padding: 10px;
     text-align: center;
+	border: solid;
+	border-color: #E5E5E5;
+	border-width: 1px;
+	border-radius: 10px;
 }
 
-.thumbnail.subject-img {
-    box-shadow: 1px 1px 8px black;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+#overlay {
+	  background:rgba(255,255,255,.5);
+      opacity:1;
+      -webkit-transition: opacity .25s ease;
+		-moz-transition: opacity .25s ease;
 }
+
+#subject-box:hover #overlay {
+               opacity:.2;
+}
+
 
 .thumbnail.prequiz-thumb {
     height: 361px;
@@ -113,12 +132,6 @@
 
 .text-center {
     text-align: center;
-}
-
-.thumbnail.subject-img:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
 }
 
 .button {
@@ -150,35 +163,50 @@
 }
 
 .head{
-	font-family: roundedElegance, Verdana, sans-serif;
+	font-family: AwesomeFont, Verdana, sans-serif;
 }
 
-.sub{
-	font-family: Verdana, Geneva, sans-serif;	
+.m{
+	font-size: 40px;
+	color: white;
+	margin-left: 100px;
+	margin-top: -300px;
+	margin-bottom: 4px;
+	text-shadow: 2px 2px 5px #787878;
+}
+
+.red{
+color: #FDC8C1;	
 }
 
 .mh{
-	margin-top: 0px;
+	font-size: 15px;
+	font-color: white;
+	margin-left: 100px;
+	margin-bottom: 200px;
+	color: white;
+	text-shadow: 1px 1px 8px #787878;
+	
+}
+
+.sh{
 	font-size: 30px;
-	font-style: bold;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	color: #11023C;
+	margin-left: 50px;
+}
+
+.shh{
+	margin-top: 12px;
+	margin-bottom: 5px;
+	font-size: 15px;
 	color: black;
 }
 
-.mhh{
-	margin-top: 20px;
-	margin-bottom: 10px;
-	font-size: 20px;
-	font-style: bold;
-	color: black;
-}
 
-.ms{
-	color: #262626;	
-	font-size: 13px;
-}
-
-.himg{
-    box-shadow: 6px 6px 5px #787878;
-	margin-top: 30px;
+.footer{
+	padding-top: 42px;
+	padding-bottom: 30px;
+	background: #252525;
+	color: #B9B9B9;
 }
