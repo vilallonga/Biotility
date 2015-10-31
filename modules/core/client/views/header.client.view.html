@@ -3,30 +3,31 @@
         {{crumb.name}}<span ng-hide="$index === breadcrumb.length - 1" class="glyphicon glyphicon-chevron-right"></span>
     </span>-->
     <div class=" nav-img pull-left">
-    	<a data-ui-sref="home"><img src="modules/core/client/img/brand/logo.png" alt="" style="width: 130px;"></a>
-    </div>
-    <div  class="navbar-brand pull-right">
-        Contact
-    </div>
-    <div ng-show="authentication.user.isTeacher" class="navbar-brand pull-right">
-        Profile
-    </div>
-    <a ng-show="authentication.user" href="#"><img src="modules/core/client/img/user/carl.png" alt="" class="img-circle 
-        user-pic pull-right">
-    </a>
-    <div ng-show="authentication.user" class="navbar-brand pull-right">
-        Raymond, R
+        <a data-ui-sref="home"><img src="modules/core/client/img/brand/logo.png" alt="" style="width: 130px;"></a>
     </div>
     <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="logout()">
         Logout
     </div>
+    <!-- Profile -->
+    <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="profile()">
+        <img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic">
+    </div>
+    <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="profile()">
+        Raymond, R
+    </div>
+    <!-- Login -->
     <div ng-hide="authentication.user" class="navbar-brand pull-right">
         <a data-ui-sref="authentication.signin">Login</a>
     </div>
-    <div  class="navbar-brand pull-right">
+    <!-- Contact -->
+    <div class="navbar-brand pull-right">
+        Contact
+    </div>
+    <!-- About -->
+    <div class="navbar-brand pull-right">
         About Us
     </div>
-    <div  class="navbar-brand pull-right">
-       <a data-ui-sref="home">Home</a>
+    <div class="navbar-brand pull-right">
+        <a data-ui-sref="home">Home</a>
     </div>
 </div>

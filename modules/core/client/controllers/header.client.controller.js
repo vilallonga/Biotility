@@ -13,5 +13,20 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
         $scope.click = function(crumb) {
             $location.url(crumb.url);
         };
+
+        // Go to profile
+        $scope.profile = function() {
+
+            console.log($scope.authentication);
+            console.log($scope.authentication.userName);
+
+            if ($scope.authentication.IsTeacher) {
+                $location.url('/teacher/' + $scope.authentication.userName);
+            } else {
+                $location.url('/student/' + $scope.authentication.userName);
+
+            }
+        };
+
     }
 ]);

@@ -1,69 +1,66 @@
-
 @font-face {
     font-family: AwesomeFont;
     src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
 }
-
 /*----header----*/
+
 .navbar {
     height: 75px;
 }
+
 .top-bar {
-	min-width: 100%;
-	background-color: white;
-}
-.nav-img{
-	padding-top: 8px;
-	padding-left: 50px;
+    min-width: 100%;
+    background-color: white;
 }
 
-.header-image{
-	padding-bottom: 10px;
-	padding-left: 30px;
-	padding-top: 10px;
-}
 .glyphicon-chevron-right {
-	margin-left: 12px;
+    margin-left: 12px;
 }
-.navbar-brand{
-	font-family: AwesomeFont, Verdana, Geneva, sans-serif;
-	font-size: 15px;
-	padding-right: 20px;
-	cursor: pointer;
-	margin-top: 10px;
+
+.navbar-brand {
+    font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    padding-right: 20px;
+    cursor: pointer;
+    margin-top: 10px;
 }
+
 .navbar-brand>span {
-	color: white;
+    color: white;
 }
-#navbar a:link, #navbar a:visited {
-	color: #959595;
-	text-decoration: none;
+
+#navbar a:link,
+#navbar a:visited {
+    color: #959595;
+    text-decoration: none;
 }
 
 #navbar a:hover {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 #navbar a:active {
-	color: #464646;
-	text-decoration: none;
+    color: #464646;
+    text-decoration: none;
 }
 
 .top-span>.vertical-center {
     top: 40% !important;
 }
 
-.bg-navbar{
-	margin-top: 0px;
-	height: 75px;
-	background-color: #242424;
-	color:white;
+.bg-navbar {
+    margin-top: 0px;
+    height: 75px;
+    background-color: #242424;
+    color: white;
 }
+
 .header-text {
-	font-size: 30px;
-	margin-top: 30px;
+    font-size: 30px;
+    margin-top: 30px;
 }
+
 .vertical-center {
     position: relative;
     top: 50%;
@@ -72,17 +69,17 @@
     transform: translateY(-50%);
 }
 
-.content-main{
+.content-main {
     background: white;
     height: 100%;
 }
 
 .user-pic {
-	margin-top: 5px;
     height: 40px;
     width: 40px;
-	
+    cursor: pointer;
 }
+
 .logo {
     width: 30%;
     height: 60%;
@@ -95,41 +92,36 @@
     text-shadow: 1px 1px 8px grey;
 }
 
-
 .margin-top-75 {
     margin-top: 75px;
 }
 
-.subjects{
-background: #EFEFEF	;
+.subjects {
+    background: #EFEFEF;
 }
-
-.so{
-	margin-right: 10px;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+.hovereffect{
+	opacity: 1.0 !important;
+    background: rgba(255, 255, 255, .7);
 }
-
-#subject-box {
-	background: white;
-    padding: 10px;
+.under {
+	position: relative;
+	z-index: 9;
+	padding: 10px;
     text-align: center;
-	border: solid;
-	border-color: #E5E5E5;
-	border-width: 1px;
-	border-radius: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    margin: 10px;
 }
-
-#overlay {
-	  background:rgba(255,255,255,.5);
-      opacity:1;
-      -webkit-transition: opacity .25s ease;
-		-moz-transition: opacity .25s ease;
-}
-
-#subject-box:hover #overlay {
-               opacity:.2;
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+    opacity: 0;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
 }
 
 
@@ -160,61 +152,53 @@ background: #EFEFEF	;
     text-decoration: none;
     color: white;
 }
+
 .big-btn > a {
     color: inherit;
 }
 
-.main-head{
-	background-color: #BBB;
-	border-radius: 25px;
-	padding: 40px;
+.main-head {
+    background-color: #BBB;
+    border-radius: 25px;
+    padding: 40px;
 }
 
-.head{
-	font-family: AwesomeFont, Verdana, sans-serif;
+.head {
+    font-family: AwesomeFont, Verdana, sans-serif;
 }
 
-.m{
-	font-size: 40px;
-	color: white;
-	margin-left: 100px;
-	margin-top: -300px;
-	margin-bottom: 4px;
-	text-shadow: 2px 2px 5px #787878;
+.m {
+    font-size: 40px;
+    color: white;
+    margin-left: 100px;
+    margin-top: -300px;
+    margin-bottom: 4px;
+    text-shadow: 2px 2px 5px #787878;
 }
 
-.red{
-color: #FDC8C1;	
+.red {
+    color: #FDC8C1;
 }
 
-.mh{
-	font-size: 15px;
-	font-color: white;
-	margin-left: 100px;
-	margin-bottom: 200px;
-	color: white;
-	text-shadow: 1px 1px 8px #787878;
-	
+.mh {
+    font-size: 15px;
+    font-color: white;
+    margin-left: 100px;
+    margin-bottom: 200px;
+    color: white;
+    text-shadow: 1px 1px 8px #787878;
 }
 
-.sh{
-	font-size: 30px;
-	margin-bottom: 20px;
-	color: #11023C;
-	margin-left: 50px;
+.sh {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #11023C;
+    margin-left: 50px;
 }
 
-.shh{
-	margin-top: 12px;
-	margin-bottom: 5px;
-	font-size: 15px;
-	color: black;
-}
-
-
-.footer{
-	padding-top: 42px;
-	padding-bottom: 30px;
-	background: #252525;
-	color: #B9B9B9;
+.footer {
+    padding-top: 42px;
+    padding-bottom: 30px;
+    background: #252525;
+    color: #B9B9B9;
 }
