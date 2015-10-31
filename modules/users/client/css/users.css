@@ -1,12 +1,54 @@
+
+@font-face {
+    font-family: AwesomeFont;
+    src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+}
+
 @media (min-width: 992px) {
   .nav-users {
     position: fixed;
   }
 }
 
-body {
-    background-color: #FFF;
+body{
+overflow-x: hidden;	
 }
+
+.breadcrumbh{
+	background: #FC252B; !important
+	font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+	margin-bottom: 70px;
+	min-width: 100%;
+	display: inline-block;
+}
+
+#breadcrumbh a:link, #breadcrumbh a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+#breadcrumbh a:hover {
+	color: #464646;
+	text-decoration: none;
+}
+
+#breadcrumbh a:active {
+	color: white;
+	text-decoration: none;
+}
+
+.page-head{
+	color: white;
+	font-size: 30px;
+}
+
+.b-head{
+	color: #E5E5E5;
+	font-size: 15px;
+	margin-bottom: 70px;
+	margin-top: -20px;
+}
+
 .social-account-container {
   display: inline-block;
   position: relative;
@@ -53,6 +95,10 @@ body {
 
 .topmargin-100{
 	margin-top: 100px;
+}
+
+.topmargin-b{
+	margin-top: 130px;
 }
 
 img.image-center{
