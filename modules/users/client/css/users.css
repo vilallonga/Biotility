@@ -113,3 +113,15 @@ img.image-center{
 select.my_dropdown {
     width:100%;
 }
+
+.inputs{
+	margin-bottom:10px;	
+}
+
+.accounts{
+	margin-right: 100px;
+}
+
+.account-pick{
+	margin-left:-100px;
+}
