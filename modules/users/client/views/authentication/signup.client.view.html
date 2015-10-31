@@ -1,85 +1,69 @@
-<div style="margin-top:200px;" ng-controller="AuthenticationController">
+<div ng-controller="AuthenticationController">
+    
+    <div class="breadcrumbh" id="breadcrumbh">
+    	<div class="row topmargin-b">
+        	<div class="col-md-2 col-md-offset-1 page-head">
+            	Sign-up
+            </div>
+            <div class="col-md-3 col-md-offset-9 b-head">
+            	<a data-ui-sref="home">Home</a> / <a data-ui-sref="authentication.signin">Login</a> / Sign-Up
+            </div>
+    	</div>
+    </div>
+    
     <form ng-submit="signup(true)">
-        <div class="row ">
-            <div class="col-md-2 col-md-offset-5 text-left">
-                <h1>Sign-Up<br></h1>
+   		 <div class="container topmargin-50" align="center">
+         	<div class="inputs">
+         	<input type="text" ng-model="credentials.firstName"  placeholder="First Name" required style="height:40px;">
+            </div>
+            <div class="inputs">
+            <input type="text" ng-model="credentials.lastName" required placeholder="Last Name" required style="height:40px;">
+            </div>
+            <div class="inputs">
+            <input type="email" ng-model="credentials.email" required placeholder="E-mail" required style="height:40px;">
+            </div>
+            <div class="inputs">
+            <input type="text" ng-model="credentials.userName" required placeholder="Username" required style="height:40px;">
+            </div>
+            <div class="inputs">
+            <input type="password" ng-model="credentials.password" required placeholder="Password" required style="height:40px;">
             </div>
         </div>
-        <div class="row topmargin-50">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>First Name: </p>
-            </div>
-            <div class="col-md-2">
-                <input type="text" ng-model="credentials.firstName" required>
-            </div>
-        </div>
+        
         <div class="row">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>Last Name: </p>
+            <div class="col-md-2 col-md-offset-4 text-right">
+                <div class="accounts">
+                Account Type: 
+                </div>
             </div>
-            <div class="col-md-2">
-                <input type="text" ng-model="credentials.lastName" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>E-mail: </p>
-            </div>
-            <div class="col-md-2">
-                <input type="email" ng-model="credentials.email" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>Username: </p>
-            </div>
-            <div class="col-md-2">
-                <input type="text" ng-model="credentials.userName" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>Password: </p>
-            </div>
-            <div class="col-md-2">
-                <input type="password" ng-model="credentials.password" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>Account Type: </p>
-            </div>
-            <div class="radio col-md-2">
+            <div class="radio col-md-2 account-pick">
                 <label>
                     <input type="radio" name="profiletype" value="Teacher" ng-model="credentials.profileType" required> Teacher
                 </label>
-                <br/>
+                <br>
                 <label>
                     <input type="radio" name="profiletype" value="Student" ng-model="credentials.profileType" required> Student
                 </label>
-                <br/>
+                <br>
             </div>
         </div>
         <!-- if student -->
-        <div class="row" ng-show="credentials.profileType=='Student'">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <p>Class Code: </p>
-            </div>
-            <div class="col-md-2">
-                <input type="number" ng-model="credentials.courseCode" required>
-            </div>
+        <div ng-show="credentials.profileType=='Student'" class="inputs" align="center">
+                <input type="text" ng-model="credentials.courseCode" required placeholder="Class Code" required style="height:40px;">
         </div>
         <!-- if teacher -->
         <div ng-show="credentials.profileType=='Teacher'">
             <div class="row">
-                <div class="col-md-2 col-md-offset-3 text-right">
-                    <p>Courses: </p>
+                <div class="col-md-2 col-md-offset-4 text-right">
+                    <div class="accounts">
+                		Courses:
+                	</div>
                 </div>
-                <div class="col-md-2">
-                    <select ng-model="toAdd">
+                <div class="col-md-2 account-pick">
+                    <select ng-model="toAdd" style="height: 30px;">
                         <option ng-repeat="name in classNames track by $index">{{name}}</option>
                     </select>
-                    <button type="button" class="btn btn-info" ng-click="add(toAdd)">
+                    <button type="button" class="btn btn-default" ng-click="add(toAdd)">
                         +
                     </button>
                 </div>
@@ -101,3 +85,5 @@
         </div>
     </form>
 </div>
+
+<div class="text-center footer" style="margin-top: 100px;">&copy; Biotility, 2015.</div>
