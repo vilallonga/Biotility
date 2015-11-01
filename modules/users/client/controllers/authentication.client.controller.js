@@ -59,6 +59,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.error = response.message;
             });
         };
+        
+        $scope.open = function () {
+
+        // $modal.open({
+        //     templateUrl: 'myModalContent.html',
+        //     backdrop: true,
+        //     windowClass: 'modal',
+            
+        // });
+        };
 
         $scope.signin = function(isValid) {
 
@@ -89,8 +99,22 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.error = response.message;
             });
 
-
-        };
+        // $scope.open = function () {
+        //     $modal.open({
+        //         templateUrl: 'myModalContent.html',
+        //         backdrop: true,
+        //         windowClass: 'modal',
+        //         controller: function ($scope, $modalInstance, $log, user) {
+        //             $scope.user = user;
+                    
+        //         },
+        //         resolve: {
+        //             user: function () {
+        //                 return $scope.user;
+        //             }
+        //         },
+        //     });
+        // };
 
         // OAuth provider request
         $scope.callOauthProvider = function(url) {
