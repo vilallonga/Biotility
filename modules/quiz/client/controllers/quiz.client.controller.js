@@ -50,104 +50,38 @@ angular.module('quiz').controller('QuizController', ['$scope',
   }//End of function for controller
 ]);
 
-angular.module('quiz').controller('QuizCreate', ['$scope', 'Quiz',
-  function ($scope, Quiz) {
-    $scope.createQuizObject = function() { 
-      var quizQuestion = new Quiz({
-        description: this.description,
-        type: this.type,
-        answerDesc1: this.answer1,
-        answerDesc2: this.answer2
-      });
-    };
-  
+angular.module('quiz').controller('QuizCreate', ['$scope', 'QuizQuestion',
+  function ($scope, QuizQuestion) {  
     $scope.showContent = function($fileContent){
-        console.log("Show content");
-        $scope.content = $fileContent;
+        //console.log("Show content");
+        var fileText = $fileContent;
+        //console.log(fileText);
+
+        var rows = fileText.split('\n');
+        var obj = [];
+        angular.forEach(rows, function(val) {
+          var o = val.split(',');
+          if (o[0] !== 'Category') { //sketchy way to get rid of first row
+            console.log("O is" + o[0] + o[1]);
+            var quizQuestion = new QuizQuestion({
+              description: o[2],
+              type: o[0],
+              answerDesc1: o[4],
+              answerDesc2: o[5],
+              correctAnswer: o[3]
+            });
+
+            quizQuestion.$save(function (response) {
+              console.log("save done");
+            }, function (errorResponse) {
+              console.log("Error occured" + errorResponse.data.message);
+            });
+          }
+        });
+        
+        $scope.content = obj;
+        //console.log(obj);
     };
   }
 ]);
 
-//angular.module('quiz').controller('ArticlesController', ['$scope', '$stateParams', '$location', 'Quiz',
-  
-
-  // function ($scope, $stateParams, $location, Authentication, Articles) {
-  //   $scope.authentication = Authentication;
-
-  //   // Create new Article
-    // $scope.create = function (isValid) {
-    //   $scope.error = null;
-
-    //   if (!isValid) {
-    //     $scope.$broadcast('show-errors-check-validity', 'articleForm');
-
-    //     return false;
-    //   }
-
-    //   // Create new Article object
-    //   var article = new Articles({
-    //     title: this.title,
-    //     content: this.content
-    //   });
-
-  //     // Redirect after save
-  //     article.$save(function (response) {
-  //       $location.path('articles/' + response._id);
-
-  //       // Clear form fields
-  //       $scope.title = '';
-  //       $scope.content = '';
-  //     }, function (errorResponse) {
-  //       $scope.error = errorResponse.data.message;
-  //     });
-  //   };
-
-  //   // Remove existing Article
-  //   $scope.remove = function (article) {
-  //     if (article) {
-  //       article.$remove();
-
-  //       for (var i in $scope.articles) {
-  //         if ($scope.articles[i] === article) {
-  //           $scope.articles.splice(i, 1);
-  //         }
-  //       }
-  //     } else {
-  //       $scope.article.$remove(function () {
-  //         $location.path('articles');
-  //       });
-  //     }
-  //   };
-
-  //   // Update existing Article
-  //   $scope.update = function (isValid) {
-  //     $scope.error = null;
-
-  //     if (!isValid) {
-  //       $scope.$broadcast('show-errors-check-validity', 'articleForm');
-
-  //       return false;
-  //     }
-
-  //     var article = $scope.article;
-
-  //     article.$update(function () {
-  //       $location.path('articles/' + article._id);
-  //     }, function (errorResponse) {
-  //       $scope.error = errorResponse.data.message;
-  //     });
-  //   };
-
-  //   // Find a list of Articles
-  //   $scope.find = function () {
-  //     $scope.articles = Articles.query();
-  //   };
-
-  //   // Find existing Article
-  //   $scope.findOne = function () {
-  //     $scope.article = Articles.get({
-  //       articleId: $stateParams.articleId
-  //     });
-  //   };
-  // }
-//]);
