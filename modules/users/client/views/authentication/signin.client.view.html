@@ -6,27 +6,25 @@
 
 </head>
 <div ng-controller="AuthenticationController">
-    <div class="topmargin">
-        <img class="image-center" src="modules/core/client/img/brand/logo2.jpg" alt="Biotility Logo" style="width:300px;height:124px;">
+    <div class="breadcrumbh" id="breadcrumbh">
+    	<div class="row topmargin-b">
+        	<div class="col-md-2 col-md-offset-1 page-head">
+            	Login
+            </div>
+            <div class="col-md-3 col-md-offset-9 b-head">
+            	<a data-ui-sref="home">Home</a> / Login
+            </div>
+    	</div>
     </div>
+    
+    
     <!-- username and password entry -->
     <form ng-submit="signin(true)">
         <div class="container topmargin-50">
-            <div class="row">
-                <div class="col-md-1 col-md-offset-4">
-                    <p>Username: </p>
-                </div>
-                <div class="col-md-1">
-                    <input type="text" ng-model="credentials.username" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1 col-md-offset-4">
-                    <p>Password: </p>
-                </div>
-                <div class="col-md-1">
-                    <input type="password" ng-model="credentials.password" required>
-                </div>
+            <div align="center">
+                 <input type="text" ng-model="credentials.username" placeholder="Username" required style="height:40px;">
+                 <br>
+                 <input type="password" ng-model="credentials.password" placeholder="Password" required style="height:40px;">
             </div>
         </div>
         <!-- log-in button -->
@@ -50,3 +48,6 @@
         <a data-ui-sref="authentication.signup">Don't have an account? Click here to register.</a>
     </div>
 </div>
+
+
+ <div class="text-center footer" style="margin-top: 100px;">&copy; Biotility, 2015.</div>

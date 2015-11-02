@@ -1,61 +1,66 @@
-
 @font-face {
-    font-family: roundedElegance;
-    src: url(/modules/core/client/img/font/rounded_elegance-webfont.woff);
+    font-family: AwesomeFont;
+    src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+}
+/*----header----*/
+
+.navbar {
+    height: 75px;
 }
 
-/*----header----*/
-.navbar {
-    height: 50px;
-}
 .top-bar {
-	min-width: 100%;
-	background-color: white;
+    min-width: 100%;
+    background-color: white;
 }
-.header-image{
-	padding-bottom: 10px;
-	padding-left: 30px;
-	padding-top: 10px;
-}
+
 .glyphicon-chevron-right {
-	margin-left: 12px;
+    margin-left: 12px;
 }
-.navbar-brand{
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 15px;
-	padding-right: 20px;
-	cursor: pointer;
+
+.navbar-brand {
+    font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    padding-right: 20px;
+    cursor: pointer;
+    margin-top: 10px;
 }
+
 .navbar-brand>span {
-	color: white;
+    color: white;
 }
-#navbar a:link, #navbar a:visited {
-	color: #959595;
-	text-decoration: none;
+
+#navbar a:link,
+#navbar a:visited {
+    color: #959595;
+    text-decoration: none;
 }
 
 #navbar a:hover {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 #navbar a:active {
-	color: #464646;
-	text-decoration: none;
+    color: #464646;
+    text-decoration: none;
 }
 
 .top-span>.vertical-center {
     top: 40% !important;
 }
 
-.bg-navbar{
-	background-color: #242424;
-	color:white;
+.bg-navbar {
+    margin-top: 0px;
+    height: 75px;
+    background-color: #242424;
+    color: white;
 }
+
 .header-text {
-	font-size: 30px;
-	margin-top: 30px;
+    font-size: 30px;
+    margin-top: 30px;
 }
+
 .vertical-center {
     position: relative;
     top: 50%;
@@ -64,17 +69,17 @@
     transform: translateY(-50%);
 }
 
-.content-main{
+.content-main {
     background: white;
     height: 100%;
 }
 
 .user-pic {
-	margin-top: 5px;
     height: 40px;
     width: 40px;
-	
+    cursor: pointer;
 }
+
 .logo {
     width: 30%;
     height: 60%;
@@ -87,24 +92,38 @@
     text-shadow: 1px 1px 8px grey;
 }
 
-.header-space{
-	padding-top: 145px;
+.margin-top-75 {
+    margin-top: 75px;
 }
 
-.margin-top-50 {
-    margin-top: 50px;
+.subjects {
+    background: #EFEFEF;
 }
-
-.subject-box {
-    padding: 10px;
+.hovereffect{
+	opacity: 1.0 !important;
+    background: rgba(255, 255, 255, .7);
+}
+.under {
+	position: relative;
+	z-index: 9;
+	padding: 10px;
     text-align: center;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    margin: 10px;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+    opacity: 0;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
 }
 
-.thumbnail.subject-img {
-    box-shadow: 1px 1px 8px black;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
 
 .thumbnail.prequiz-thumb {
     height: 361px;
@@ -113,12 +132,6 @@
 
 .text-center {
     text-align: center;
-}
-
-.thumbnail.subject-img:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
 }
 
 .button {
@@ -139,46 +152,53 @@
     text-decoration: none;
     color: white;
 }
+
 .big-btn > a {
     color: inherit;
 }
 
-.main-head{
-	background-color: #BBB;
-	border-radius: 25px;
-	padding: 40px;
+.main-head {
+    background-color: #BBB;
+    border-radius: 25px;
+    padding: 40px;
 }
 
-.head{
-	font-family: roundedElegance, Verdana, sans-serif;
+.head {
+    font-family: AwesomeFont, Verdana, sans-serif;
 }
 
-.sub{
-	font-family: Verdana, Geneva, sans-serif;	
+.m {
+    font-size: 40px;
+    color: white;
+    margin-left: 100px;
+    margin-top: -300px;
+    margin-bottom: 4px;
+    text-shadow: 2px 2px 5px #787878;
 }
 
-.mh{
-	margin-top: 0px;
-	font-size: 30px;
-	font-style: bold;
-	margin-bottom: 10px;
-	color: black;
+.red {
+    color: #FDC8C1;
 }
 
-.mhh{
-	margin-top: 20px;
-	margin-bottom: 10px;
-	font-size: 20px;
-	font-style: bold;
-	color: black;
+.mh {
+    font-size: 15px;
+    font-color: white;
+    margin-left: 100px;
+    margin-bottom: 200px;
+    color: white;
+    text-shadow: 1px 1px 8px #787878;
 }
 
-.ms{
-	color: #262626;	
-	font-size: 13px;
+.sh {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #11023C;
+    margin-left: 50px;
 }
 
-.himg{
-    box-shadow: 6px 6px 5px #787878;
-	margin-top: 30px;
+.footer {
+    padding-top: 42px;
+    padding-bottom: 30px;
+    background: #252525;
+    color: #B9B9B9;
 }

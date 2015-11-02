@@ -32,6 +32,7 @@ exports.signup = function(req, res) {
         user = new Teacher(req.body);
     } else {
         // problem... not teacher or student
+        return;
     }
 
     // potential error message
@@ -73,7 +74,8 @@ exports.signin = function(req, res) {
             'password': req.body.password
         },
         function(err, student) {
-            if (!err) {
+            if (student) {
+                student.IsTeacher = false;
                 res.json(student);
                 return;
             } else {
@@ -83,13 +85,12 @@ exports.signin = function(req, res) {
                         'password': req.body.password
                     },
                     function(err, teacher) {
-                        if (!err) {
+                        if (teacher) {
+                            teacher.IsTeacher = true;
                             res.json(teacher);
                         } else {
                             // no user found after both searching both data collections, send error.
-                            res.send(500, {
-                                error: "No user found."
-                            });
+                            res.status(500).send("No user found.");
                         }
                     });
             }

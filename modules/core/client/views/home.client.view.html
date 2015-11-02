@@ -1,24 +1,32 @@
 <div class="margin-top-50 content-main" ng-controller="MainController">
     <div top-images>
-    	<!--insert carousel here...-->
+        <!--insert carousel here...-->
         <img src="modules/core/client/img/biotility_img/microcentrifuge.jpg" alt="" style="width: 100%; height: 100%;">
     </div>
-    
-    <div class="container">
-        <h2>Select a topic to begin: </h2>
-        <div class="row">
-            <div class="col-sm-3 subject-box" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
-                <div class="thumbnail subject-img">
-                    <img ng-src="{{subject.img}}" alt="" class="img-responsive">
-                    <div class="caption">
-                        <h3>{{subject.name}}</h3>
-                        <p>{{subject.description}}</p>
+    <div class="head">
+        <div class="m"> Advanced <span style="color: #FD432F">biotechnology</span> education and training </div>
+        <div class="mh">Preparation for the Biotechnician Assistant Credentialing Exam (BACE)</div>
+    </div>
+    <div class="container-fluid subjects">
+        <div class="margin-top-75">
+            <div class="row">
+                <div class="head sh">
+                    Select a topic to begin:
+                </div>
+                <div class="col-xs-3" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
+                    <div class="thumbnail under">
+                        <div ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{hovereffect: hover}" class="overlay">
+                            <!-- insert some overlay stuff here -->
+                        </div>
+                        <img style="width: 100%;" ng-src="{{subject.img}}" alt="" class="img-responsive">
+                        <div class="head caption">
+                            {{subject.name}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="text-center">&copy; Biotility, 2015.</div>
-    
+</div>
+<div class="text-center footer">&copy; Biotility, 2015.</div>
 </div>

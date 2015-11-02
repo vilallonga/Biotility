@@ -33,11 +33,11 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
     .state('studentprofile', {
-      url:'/profile/student/{userName:[a-zA-Z]+}',
+      url:'/student/{userName:[a-zA-Z]+}',
       templateUrl: 'modules/core/client/views/profile.client.view.html'
     })
     .state('teacherprofile', {
-      url:'/profile/teacher/{userName:[a-zA-Z]+}',
+      url:'/teacher/{userName:[a-zA-Z]+}',
       templateUrl: 'modules/core/client/views/profile.client.view.html'
     })
     .state('bad-request', {
