@@ -98,7 +98,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             }).error(function(response) {
                 $scope.error = response.message;
             });
-        }
+        };
         // $scope.open = function () {
         //     $modal.open({
         //         templateUrl: 'myModalContent.html',
