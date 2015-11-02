@@ -83,4 +83,17 @@ angular.module('core').controller('QuizResultsController', ['$scope','Authentica
     }
 ]);
 
+angular.module('core').controller('ProfileController', ['$scope', '$state', '$location', 'Authentication',
+    function ($scope, $state, $location, Authentication) {
+
+        $scope.authentication = Authentication;
+        $scope.user = Authentication.user;
+
+        console.log($scope.user);
+
+
+
+    }
+]);
+
 

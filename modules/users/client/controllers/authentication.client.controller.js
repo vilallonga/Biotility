@@ -83,7 +83,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.error = response.message;
             });
         };
-
+/*
          $scope.open = function () {
 
         $modal.open({
@@ -93,6 +93,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             
         });
     };
+    */
 
         $scope.signin = function(isValid) {
 
@@ -118,18 +119,20 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.authentication.user = response;
                 //make a dialog pop up box appear notifying the user that they successfully logged in
                 //thhis tells a user they have logged in successfully
+                /*
                 $('#dialog').html('Login Succesful');
                 $('#dialog').dialog({
-                autoOpen: true,
-                show: "blind",
-                hide: "explode",
-                modal: true,
-                open: function(event, ui) {
-                setTimeout(function(){
-              $('#dialog').dialog('close');                
-                }, 4000);
-    }
-});
+                    autoOpen: true,
+                    show: "blind",
+                    hide: "explode",
+                    modal: true,
+                    open: function(event, ui) {
+                        setTimeout(function(){
+                            $('#dialog').dialog('close');
+                        }, 4000);
+                    }
+                });
+                */
 
                 // And redirect to home page
                 $state.go('home');
@@ -139,7 +142,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
 
         };
-
+/*
         $scope.open = function () {
 
         $modal.open({
@@ -157,6 +160,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             },
         });
     };
+    */
 
         // OAuth provider request
         $scope.callOauthProvider = function(url) {
