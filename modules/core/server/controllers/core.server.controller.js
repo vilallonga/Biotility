@@ -1,47 +1,74 @@
 'use strict';
 
+var mongoose = require('mongoose'),
+    Teacher = mongoose.model('Teacher'),
+    Student = mongoose.model('Student'),
+    Question = mongoose.model('Question');
+
+
 /**
  * Render the main application page
  */
-exports.renderIndex = function (req, res) {
-  res.render('modules/core/server/views/index', {
-    user: req.user || null
-  });
+exports.renderIndex = function(req, res) {
+    res.render('modules/core/server/views/index', {
+        user: req.user || null
+    });
 };
 
 /**
  * Render the server error page
  */
-exports.renderServerError = function (req, res) {
-  res.status(500).render('modules/core/server/views/500', {
-    error: 'Oops! Something went wrong...'
-  });
+exports.renderServerError = function(req, res) {
+    res.status(500).render('modules/core/server/views/500', {
+        error: 'Oops! Something went wrong...'
+    });
 };
 
 /**
  * Render the server not found responses
  * Performs content-negotiation on the Accept HTTP header
  */
-exports.renderNotFound = function (req, res) {
+exports.renderNotFound = function(req, res) {
 
-  res.status(404).format({
-    'text/html': function () {
-      res.render('modules/core/server/views/404', {
-        url: req.originalUrl
-      });
-    },
-    'application/json': function () {
-      res.json({
-        error: 'Path not found'
-      });
-    },
-    'default': function () {
-      res.send('Path not found');
-    }
-  });
+    res.status(404).format({
+        'text/html': function() {
+            res.render('modules/core/server/views/404', {
+                url: req.originalUrl
+            });
+        },
+        'application/json': function() {
+            res.json({
+                error: 'Path not found'
+            });
+        },
+        'default': function() {
+            res.send('Path not found');
+        }
+    });
 };
 
 // Retrieve question data, based on request params.
 exports.getQuestionData = function(req, res) {
-  
+
+};
+
+
+exports.getStudentData = function(req, res) {
+    Student.find().exec(function(doc, err) {
+        if (!err) {
+            res.json(doc);
+        } else {
+          res.send('student data error');
+        }
+    });
+};
+
+exports.getTeacherData = function(req, res) {
+    Teacher.find().exec(function(doc, err) {
+        if (!err) {
+            res.json(doc);
+        } else {
+          res.send('Teacher data error');
+        }
+    });
 };

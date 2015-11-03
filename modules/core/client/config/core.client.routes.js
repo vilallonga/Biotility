@@ -17,28 +17,36 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'modules/core/client/views/home.client.view.html'
     })
     .state('subject',{
-      url:'/{courseName:[a-zA-Z]+}',
+      url:'/{courseName:.+}',
       templateUrl: 'modules/core/client/views/subject.client.view.html'
     })
     .state('subject.quiz',{
       url: '/quizTemplate',
-      templateUrl: 'modules/core/client/views/quizTemplate.client.view.html'
+      templateUrl: 'modules/quiz/client/views/quizTemplate.client.view.html'
     })
     .state('subject.quiz.quiz-results',{
       url:'/quizResults',
-      templateUrl: 'modules/core/client/views/quizResults.client.view.html'
+      templateUrl: 'modules/quiz/client/views/quizResults.client.view.html'
     })
      .state('subject.resources', {
       url: '/resources',
       templateUrl: 'modules/core/client/views/resources.client.view.html'
     })
     .state('studentprofile', {
-      url:'/student/{userName:[a-zA-Z]+}',
+      url:'/student/{userName:.+}',
       templateUrl: 'modules/core/client/views/profile.client.view.html'
     })
     .state('teacherprofile', {
-      url:'/teacher/{userName:[a-zA-Z]+}',
+      url:'/teacher/{userName:.+}',
       templateUrl: 'modules/core/client/views/profile.client.view.html'
+    })
+    .state('studentData', {
+      url:'/data/students',
+      templateUrl: 'modules/core/client/views/data.students.client.view.html'
+    })
+    .state('teacherData', {
+      url:'/data/teachers',
+      templateUrl: 'modules/core/client/views/data.teachers.client.view.html'
     })
     .state('bad-request', {
       url:'/bad-request',
