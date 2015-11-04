@@ -13,8 +13,32 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // credentials object
         $scope.credentials = {};
 
-        // course to be added
-        $scope.toAdd = '';
+    $scope.signup = function (isValid) {
+      $scope.error = null;
+      //when database is setup and we can successfully hit /api/auth/signup,
+      // move this below where the redirect is commented
+      if ($scope.type === 'Student') {
+        $state.go('studentpofile', $state.previous.params);
+      } else if ($scope.type === 'Teacher') {
+        $state.go('teacherprofile', $state.previous.params);
+      }
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
+
+        return false;
+      }
+
+      $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
+        // If successful we assign the response to the global user model
+        $scope.authentication.user = response;
+
+        // And redirect to the previous or home page
+        //$state.go($state.previous.state.name || 'home', $state.previous.params);
+
+      }).error(function (response) {
+        $scope.error = response.message;
+      });
+    };
 
         $scope.add = function(course) {
             if (course !== '') {
@@ -59,16 +83,17 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.error = response.message;
             });
         };
-        
-        $scope.open = function () {
+/*
+         $scope.open = function () {
 
-        // $modal.open({
-        //     templateUrl: 'myModalContent.html',
-        //     backdrop: true,
-        //     windowClass: 'modal',
+        $modal.open({
+            templateUrl: 'myModalContent.html',
+            backdrop: true,
+            windowClass: 'modal',
             
-        // });
-        };
+        });
+    };
+    */
 
         $scope.signin = function(isValid) {
 
@@ -92,6 +117,22 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
             $http.post('/api/auth/signin', $scope.credentials).success(function(response) {
                 // If successful we assign the response to the global user model
                 $scope.authentication.user = response;
+                //make a dialog pop up box appear notifying the user that they successfully logged in
+                //thhis tells a user they have logged in successfully
+                /*
+                $('#dialog').html('Login Succesful');
+                $('#dialog').dialog({
+                    autoOpen: true,
+                    show: "blind",
+                    hide: "explode",
+                    modal: true,
+                    open: function(event, ui) {
+                        setTimeout(function(){
+                            $('#dialog').dialog('close');
+                        }, 4000);
+                    }
+                });
+                */
 
                 // And redirect to home page
                 $state.go('home');
@@ -99,22 +140,25 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
                 $scope.error = response.message;
             });
         };
-        // $scope.open = function () {
-        //     $modal.open({
-        //         templateUrl: 'myModalContent.html',
-        //         backdrop: true,
-        //         windowClass: 'modal',
-        //         controller: function ($scope, $modalInstance, $log, user) {
-        //             $scope.user = user;
-                    
-        //         },
-        //         resolve: {
-        //             user: function () {
-        //                 return $scope.user;
-        //             }
-        //         },
-        //     });
-        // };
+/*
+        $scope.open = function () {
+
+        $modal.open({
+            templateUrl: 'myModalContent.html',
+            backdrop: true,
+            windowClass: 'modal',
+            controller: function ($scope, $modalInstance, $log, user) {
+                $scope.user = user;
+                
+            },
+            resolve: {
+                user: function () {
+                    return $scope.user;
+                }
+            },
+        });
+    };
+    */
 
         // OAuth provider request
         $scope.callOauthProvider = function(url) {
