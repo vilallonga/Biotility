@@ -13,6 +13,12 @@ module.exports = function (app) {
   // Fetch question data from database
   app.route('/api/question-data/:subject-name').get(core.getQuestionData);
 
+  // Fetch student data from database
+  app.route('/api/data/students').get(core.getStudentData);
+
+  // Fetch teacher data from database
+  app.route('/api/data/teachers').get(core.getTeacherData);
+
   // Define application route
   app.route('/*').get(core.renderIndex);
 };

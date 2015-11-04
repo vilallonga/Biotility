@@ -28,5 +28,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
             }
         };
 
+        $scope.logout = function() {
+            $scope.authentication.user = null;
+            $location.url('/');
+        };
+
     }
 ]);

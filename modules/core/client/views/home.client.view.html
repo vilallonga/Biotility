@@ -16,7 +16,10 @@
                 <div class="col-xs-3" ng-repeat="subject in subjects track by $index" ng-click="onClicked(subject)">
                     <div class="thumbnail under">
                         <div ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{hovereffect: hover}" class="overlay">
-                            <!-- insert some overlay stuff here -->
+                            <div style="margin-top: 37%;">
+                                <div class="center-block center-button" ng-click="gotoQuiz(subject)">Assessment</div>
+                                <div class="center-block center-button" ng-click="gotoResource(subject)">Resources</div>
+                            </div>
                         </div>
                         <img style="width: 100%;" ng-src="{{subject.img}}" alt="" class="img-responsive">
                         <div class="head caption">

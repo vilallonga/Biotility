@@ -1,5 +1,5 @@
 <div ui-view class = "margin-top-50" ng-controller = "QuizController">
-    <div class="header-space">
+    <div style="margin-top:100px;">
         <!-- Using this for space -->
     </div>
 	<div class = "container" >
@@ -23,7 +23,6 @@
 			</div>
 			<button class = "btn" ng-click="increment()" ng-hide = "isDone">Next</button>
 			<button class = "btn" ui-sref = "subject.quiz.quiz-results" ng-show = "isDone">Finish!</button>
-
-	  </div>
+	  	</div>
 	</div>
 </div>
