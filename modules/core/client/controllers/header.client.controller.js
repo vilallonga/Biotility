@@ -17,17 +17,16 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
         // Go to profile
         $scope.profile = function() {
 
-            console.log($scope.authentication);
-            console.log($scope.authentication.userName);
-
+            // routing depending on profile type
             if ($scope.authentication.IsTeacher) {
-                $location.url('/teacher/' + $scope.authentication.userName);
+                $location.url('/teacher/' + $scope.authentication.user.userName);
             } else {
-                $location.url('/student/' + $scope.authentication.userName);
+                $location.url('/student/' + $scope.authentication.user.userName);
 
             }
         };
 
+        // logout: set current auth user to null
         $scope.logout = function() {
             $scope.authentication.user = null;
             $location.url('/');
