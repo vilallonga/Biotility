@@ -13,7 +13,7 @@
         <img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic">
     </div>
     <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="profile()">
-        Raymond, R
+        {{authentication.user.lastName}}, {{authentication.user.firstName}}
     </div>
     <!-- Login -->
     <div ng-hide="authentication.user" class="navbar-brand pull-right">

@@ -35,15 +35,13 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
 
         $scope.authentication = Authentication;
         //$scope.user = Authentication.user;
-        var user = {
-            "firstName": "Michael",
-            "lastName": "Vilallonga",
-            "email": "mv1@email.com",
-            "username": "abc",
-
-
-        }
-        $scope.user = user;
+        // var user = {
+        //     "firstName": "Michael",
+        //     "lastName": "Vilallonga",
+        //     "email": "mv1@email.com",
+        //     "username": "abc",
+        // };
+        $scope.user = $scope.authentication.user;
         console.log("\n");
         console.log($scope.user);
 
@@ -74,9 +72,6 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             isFirstOpen: true,
             isFirstDisabled: false
         };
-
-
-
     }
 ]);
 
