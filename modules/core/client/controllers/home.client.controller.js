@@ -87,9 +87,46 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
     function ($scope, $state, $location, Authentication) {
 
         $scope.authentication = Authentication;
-        $scope.user = Authentication.user;
+        //$scope.user = Authentication.user;
+        var user = {
+            "firstName": "Michael",
+            "lastName": "Vilallonga",
+            "email": "mv1@email.com",
+            "username": "abc",
 
+
+        }
+        $scope.user = user;
+        console.log("\n");
         console.log($scope.user);
+
+        $scope.oneAtATime = true;
+
+        $scope.groups = [
+            {
+                title: 'Cells',
+                content: 'Lesson 4: The Nucleus',
+                progress: 60
+            },
+            {
+                title: 'Biology',
+                content: 'Lesson 2: Ecosystems',
+                progress: 25
+            },
+            {
+                title: 'Chemistry',
+                content: 'Lesson 13: Electron Mobility',
+                progress: 75
+            }
+        ];
+
+        $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+
+        $scope.status = {
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
 
 
 

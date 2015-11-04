@@ -1,71 +1,143 @@
-<div class = "margin-top-50" ng-controller = "ProfileController">
-  <div class="header-space">
-    <!-- Using this for space -->
-  </div>
+<div class="container" ng-controller="ProfileController">
+  <script src="/public/lib/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+  <h1>Edit Profile</h1>
+  <hr>
+  <div class="row">
+    <div id="left-side" class="list-view ">
+      <h1 id="section-tabs-header">
+        {{user.firstName}} {{user.lastName}}
+      </h1>
 
-  <div class="container" >
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="jumbotron">
-          <h1>Biotility</h1>
-          <p>Select your classes from the list below</p>
-        </div>
+    </div>
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic">        <h6>Upload a different photo...</h6>
 
+        <input type="file" class="form-control">
+
+        <nav aria-label="context" role="navigation"><ul class="nav" id="section-tabs"><li class="section"><a class="home" href="/" tabindex="0">Home</a></li>
+          <li class="section"><a class="profile" href="/about/851547" tabindex="0">Profile</a></li>
+          <li class="section"><a class="notifications" href="/profile/communication" tabindex="0">Notifications</a></li>
+          <li class="section"><a class="files" href="/files" tabindex="0">Files</a></li>
+          <li class="section"><a class="profile_settings active" href="/profile/settings" tabindex="0">Settings</a></li>
+          <li class="section"><a class="eportfolios" href="/dashboard/eportfolios" tabindex="0">ePortfolios</a></li></ul></nav>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div>
+      <h3>Personal info</h3>
 
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <!--repeat these using an angular loop when properly implemented -->
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-              <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Subject #1
-                </a>
-              </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-              <div class="panel-body">
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                    <span class="sr-only">60% Complete</span>
-                  </div>
-                </div>      </div>
-            </div>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="{{user.firstName}}">
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingTwo">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Subject #2
-                </a>
-              </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-              <div class="panel-body">
-                Some Text Goes Here
-              </div>
-            </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Last name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="{{user.lastName}}">
           </div>
-          <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingThree">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Subject #3
-                </a>
-              </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-              <div class="panel-body">
-                Some Text Goes Here
-              </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Company:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="{{user.email}}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Time Zone:</label>
+          <div class="col-lg-8">
+            <div class="ui-select">
+              <select id="user_time_zone" class="form-control">
+                <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                <option value="Alaska">(GMT-09:00) Alaska</option>
+                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                <option value="Arizona">(GMT-07:00) Arizona</option>
+                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+              </select>
             </div>
           </div>
         </div>
-      </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Username:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="text" value="{{user.username}}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Change Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" value="11111122333">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Confirm Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" type="password" value="11111122333">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <input type="button" class="btn btn-primary" value="Save Changes">
+            <span></span>
+            <input type="reset" class="btn btn-default" value="Cancel">
+          </div>
+        </div>
+      </form>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3">
+      <h1>Biotility</h1>
+      <h3>Select a course below</h3>
+      <script type="text/ng-template" id="group-template.html">
+        <div class="panel {{panelClass || 'panel-default'}}">
+          <div class="panel-heading">
+            <h4 class="panel-title" style="color:#fa39c3">
+              <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+            </h4>
+          </div>
+          <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" style="text-align: right" ng-transclude></div>
+          </div>
+        </div>
+      </script>
+
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+          <p>{{group.content}}</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{group.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{group.progress}}%;">
+              <span class="sr-only">{{group.progress}}% Complete</span>
+            </div>
+          </div>
+        </uib-accordion-group>
+
+    </div>
+  </div>
+  <hr>
 </div>
+
+
+
