@@ -1,10 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Teacher = mongoose.model('Teacher'),
-    Student = mongoose.model('Student'),
     Question = mongoose.model('Question');
-
 
 /**
  * Render the main application page
@@ -50,25 +47,4 @@ exports.renderNotFound = function(req, res) {
 // Retrieve question data, based on request params.
 exports.getQuestionData = function(req, res) {
 
-};
-
-
-exports.getStudentData = function(req, res) {
-    Student.find().exec(function(doc, err) {
-        if (!err) {
-            res.json(doc);
-        } else {
-          res.send('student data error');
-        }
-    });
-};
-
-exports.getTeacherData = function(req, res) {
-    Teacher.find().exec(function(doc, err) {
-        if (!err) {
-            res.json(doc);
-        } else {
-          res.send('Teacher data error');
-        }
-    });
 };

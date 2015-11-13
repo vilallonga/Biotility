@@ -7,9 +7,7 @@ var path = require('path'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
     mongoose = require('mongoose'),
     passport = require('passport'),
-    User = mongoose.model('User'),
-    Teacher = mongoose.model('Teacher'),
-    Student = mongoose.model('Student');
+    User = mongoose.model('User');
 
 // URLs for which user can't be redirected on signin
 var noReturnUrls = [
@@ -23,23 +21,13 @@ var noReturnUrls = [
 exports.signup = function(req, res) {
 
     // Init Schema
-    var user;
-    if (req.body.profileType === "Student") {
-        delete req.body.profileType;
-        user = new Student(req.body);
-    } else if (req.body.profileType === "Teacher") {
-        delete req.body.profileType;
-        user = new Teacher(req.body);
-    } else {
-        // problem... not teacher or student
-        return;
-    }
+    var user = new User(req.body);
 
     // potential error message
     var message = null;
 
     // Add missing user fields
-    user.displayName = user.firstName + ' ' + user.lastName;
+    user.displayName = user.lastName + ', ' + user.firstName;
 
     // Then save the user
     user.save(function(err) {
@@ -68,31 +56,21 @@ exports.signup = function(req, res) {
  */
 exports.signin = function(req, res) {
 
-    // First try to find the person in the Student database.
-    Student.findOne({
-            'userName': req.body.username,
-            'password': req.body.password
+    // First find if user name exists in db.
+    User.findOne({
+            'userName': req.body.username
         },
-        function(err, student) {
-            if (student) {
-                student.IsTeacher = false;
-                res.json(student);
-                return;
+        function(err, user) {
+            if (user) {  // if exists, authenticate with provided password.
+                // if valid, login.
+                if (user.authenticate(req.body.password)) {
+                    res.json(user);
+                } else { // else throw 400.
+                    res.status(400).send("Bad Login.");
+                }
             } else {
-                // If not found, then try to find them in the Teacher database.
-                Teacher.findOne({
-                        'userName': req.body.username,
-                        'password': req.body.password
-                    },
-                    function(err, teacher) {
-                        if (teacher) {
-                            teacher.IsTeacher = true;
-                            res.json(teacher);
-                        } else {
-                            // no user found after both searching both data collections, send error.
-                            res.status(500).send("No user found.");
-                        }
-                    });
+                // no user found, send error.
+                res.status(500).send("No user found.");
             }
         });
 };

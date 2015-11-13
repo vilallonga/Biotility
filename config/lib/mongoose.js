@@ -19,26 +19,6 @@ module.exports.loadModels = function() {
 
 // ************* Schema Definitions *************
 
-// Student Schema
-var studentSchema = new Schema({
-    firstName: {type: String, required: 'Please enter your first name.'},
-    lastName: {type: String, required: 'Please enter your last name.'},
-    userName: {type: String, required: true, unique: true},
-    password: {type: String, required: true},
-    email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
-    courseCode: Number
-});
-
-// Instructor/Teacher Schema
-var teacherSchema = new Schema({
-    firstName: {type: String, required: 'Please enter your first name.'},
-    lastName: {type: String, required: 'Please enter your last name.'},
-    userName: {type: String, required: true, unique: true},
-    password: {type: String, required: true},
-    email: {type: String, required: 'Please enter your email address.', set: toLower, unique: true},
-    coursesTeaching: [Number]
-});
-
 // Subject Schema
 var subjectSchema = new Schema({
     name: {type : String, required: true},
@@ -58,16 +38,8 @@ var questionSchema = new Schema({
     correctAnswer: {type: String, required: true}
 });
 
-module.exports.Student = mongoose.model('Student', studentSchema);
 module.exports.Subject = mongoose.model('Subject', subjectSchema);
-module.exports.Teacher = mongoose.model('Teacher', teacherSchema);
 module.exports.Question = mongoose.model('Question', questionSchema);
-
-
-function toLower(email) {
-  return email.toLowerCase();
-}
-
 
 // Initialize Mongoose
 module.exports.connect = function(cb) {
