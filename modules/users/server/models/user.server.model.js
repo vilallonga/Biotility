@@ -70,7 +70,7 @@ var UserSchema = new Schema({
     },
     profileImageURL: {
         type: String,
-        default: 'modules/core/client/img/user/carl.png'
+        default: 'modules/users/client/img/profile/default.jpg'
     },
     // provider: {
     //     type: String,

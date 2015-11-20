@@ -14,6 +14,13 @@ body {
     height: 75px;
 }
 
+.nav-img {
+    margin-top: 8px;
+}
+
+.navbar-brand >.nav-img {
+    margin-top: -10px;
+}
 .top-bar {
     min-width: 100%;
     background-color: white;
@@ -178,6 +185,10 @@ body {
     -webkit-border-radius: 10px;
 }
 
+.caption {
+    font-size: 20px;
+}
+
 .big-btn {
     width: 361px;
     height: 250px;
@@ -196,10 +207,6 @@ body {
     background-color: #BBB;
     border-radius: 25px;
     padding: 40px;
-}
-
-.head {
-    font-family: AwesomeFont, Verdana, sans-serif;
 }
 
 .m {
