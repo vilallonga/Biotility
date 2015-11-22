@@ -1,26 +1,40 @@
-<div ui-view class = "margin-top-50" ng-controller = "QuizController">
+<div ui-view class = "margin-top-50" ng-controller = "QuizController" ng-init = "getQuestion()">
     <div style="margin-top:100px;">
         <!-- Using this for space -->
     </div>
 	<div class = "container" >
+		<span ng-bind="question.description"></span>
 		  <div class = "col-md-10 col-md-offset-1" style = "border-style: solid;">
-	      	<h1> Question is: {{arr[index].q}} </h1>
-			<div class = "col-md-offset-1">
+	      	<h1> Question {{index}} : {{questions[index].description}} </h1>
+	      	<!--Use for multiple choice -->
+			<div class = "col-md-offset-1" ng-show = "isMultipleChoice">
 				<div class = "row">
 				  <div class="radio">
-				    <label><input type="radio" name="answer">{{arr[index].a1}}</label>
+				    <label><input type="radio" name="answer">{{questions[index].answerDesc1}}</label>
 				  </div>
 				  <div class="radio">
-				    <label><input type="radio" name="answer">{{arr[index].a2}}</label>
+				    <label><input type="radio" name="answer">{{questions[index].answerDesc2}}</label>
 				  </div>
 				   <div class="radio">
-				    <label><input type="radio" name="answer">{{arr[index].a3}}</label>
+				    <label><input type="radio" name="answer">{{questions[index].answerDesc3}}</label>
 				  </div>
 				  <div class="radio">
-				    <label><input type="radio" name="answer">{{arr[index].a4}}</label>
+				    <label><input type="radio" name="answer">{{questions[index].answerDesc4}}</label>
 				  </div>
 				</div>
 			</div>
+			<!--Used for True/False-->
+			<div class = "col-md-offset-1" ng-hide = "isMultipleChoice">
+				<div class = "row">
+				  <div class="radio">
+				    <label><input type="radio" name="answer">True<label>
+				  </div>
+				  <div class="radio">
+				    <label><input type="radio" name="answer">False</label>
+				  </div>
+				</div>
+			</div>
+
 			<button class = "btn" ng-click="increment()" ng-hide = "isDone">Next</button>
 			<button class = "btn" ui-sref = "quiz.results" ng-show = "isDone">Finish!</button>
 	  	</div>

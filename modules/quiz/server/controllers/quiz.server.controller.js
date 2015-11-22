@@ -9,10 +9,11 @@ var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
- * Create a article
+ * Create a quiz question
  */
 exports.create = function (req, res) {
-  console.log("in the create function");
+   console.log("Mongoose create");
+
   var question = new QuizQuestion(req.body);
   
   question.save(function (err) {
@@ -26,16 +27,21 @@ exports.create = function (req, res) {
   });
 };
 exports.list = function (req, res) {
-  QuizQuestion.find().sort('-created').populate('user', 'displayName').exec(function (err, question) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(question);
-    }
-  });
+  console.log("Mongoose list");
+  QuizQuestion.find( {}, 
+    function(err, quizCount) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      }else {
+        var data = {};
+        data = quizCount;
+        res.json(data);
+      }
+    });
 };
+
 exports.quizQuestionByID = function (req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {

@@ -4,18 +4,18 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-/*
+
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://abc:abc@ds045454.mongolab.com:45454/intro_proj',
-    //'mongodb://ds027769.mongolab.com:27769/software5c'
     options: {
       user: 'abc',
       pass: 'abc'
-*/
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://devteam:devteam@ds027769.mongolab.com:27769/software5c',
-    options: {
-      user: 'devteam',
-      pass: 'devteam'
     },
+    
+    // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://devteam:devteam@ds027769.mongolab.com:27769/software5c',
+    // options: {
+    //   user: 'devteam',
+    //   pass: 'devteam'
+    // },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
   },

@@ -5,7 +5,12 @@
 angular.module('quiz').factory('QuizQuestion', ['$resource',
   function ($resource) {
     return $resource('api/quiz/',  {
-
-    });
+	}, {    	
+		getQuestions: {
+		method: 'GET',
+		url:'/api/question_upload',
+		isArray: true
+		}
+	});
   }
 ]);

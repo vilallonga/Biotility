@@ -11,5 +11,8 @@ module.exports = function (app) {
     .get(quiz.list)
     .post(quiz.create);
 
+  app.route('/api/question_upload')
+  	.get(quiz.list);
+
   app.param('quizID', quiz.quizQuestionByID);
 };
