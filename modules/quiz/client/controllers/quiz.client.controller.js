@@ -3,72 +3,70 @@
 // Articles controller
 angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion',
   function ($scope, QuizQuestion) {
-    // This provides Authentication context.
-    // $scope.arr =
-    // [
-    //     {
-    //         q: "What is biology?",
-    //         a1: "A. is Cool",
-    //         a2: "B. is not cool",
-    //         a3: "C. A natural science concerned with the study of life and living organisms",
-    //         a4: "D. all of the above"
-    //     },
-    //     {
-    //         q: "What is Genetics?",
-    //         a1: "A. is Cool",
-    //         a2: "B. the study of genes, heredity, and genetic variation in living organisms",
-    //         a3: "C. is kinda cool",
-    //         a4: "D. all of the above"
-    //     },
-    //     {
-    //         q: "What is Chemistry?",
-    //         a1: "A. is Cool",
-    //         a2: "B. is not cool",
-    //         a3: "C. is kinda cool",
-    //         a4: "D. the branch of science that deals with the identification of the substances of which matter is composed"
-    //     },
-    //     {
-    //         q: "What is Geology?",
-    //         a1: "A. the science that deals with the earth's physical structure and substance",
-    //         a2: "B. is not cool",
-    //         a3: "C. is kinda cool",
-    //         a4: "D. all of the above"
-    //     }
-
-    // ];
     $scope.isDone = false;
     $scope.questions = {};
-    var max = $scope.questions.length - 1;
+    var max = null;
     $scope.isMultipleChoice = false;
     $scope.index = 0;
+    $scope.score = 0;
+    $scope.numQuestion = $scope.index + 1;
 
-    $scope.increment = function($location) { 
+    $scope.submitForm = function () {
+      alert($scope.answer);
+    };
+
+    $scope.increment = function(answer) { 
+      //Checks if last question was reached
+      console.log($scope.questions);
+      max = $scope.questions.length - 1;// (Index of array starts as 0)
+      console.log("Max is " + max);
+      console.log("Index is " + $scope.index);
       if ($scope.index === max) {
         console.log("Done");
         $scope.isDone = true;
       }
+      //Checking the answer of the question
+      console.log("Answer is " + answer);
+      console.log("Actual answer is " + $scope.questions[$scope.index].correctAnswer);
+      if ($scope.questions[$scope.index].correctAnswer === answer) { 
+        $scope.score++;
+      }
+
+
+      //Preparing next question
+      $scope.index = ($scope.index + 1) % $scope.questions.length;
+
       if ( $scope.questions[$scope.index].questionType === "TF" ) {
         $scope.isMultipleChoice = false;
       }else {
         $scope.isMultipleChoice = true;
       }
-      $scope.index = ($scope.index + 1) % $scope.questions.length;
-      console.log($scope.index);
+      $scope.numQuestion++;
     };
-
-
 
     $scope.getQuestion = function () {
-      console.log("Function getQuestion is called");
       $scope.questions = QuizQuestion.getQuestions();
       console.log($scope.questions);
+      if ($scope.questions.questionType === "TF") {
+        $scope.isMultipleChoice = false;
+      }
+      max = $scope.questions.length;
+      console.log(max);
     };
-    if ($scope.questions.questionType === "TF") {
-      $scope.isMultipleChoice = false;
-    }
 
   }//End of function for controller
 ]);
+
+angular.module('quiz').controller('QuizResults', ['$scope', '$stateParams',
+  function ($scope, $stateParams) {
+    console.log("Hello state parm");
+    console.log($stateParams.correctScore);
+    $scope.score = $stateParams.correctScore;
+  }
+]);
+
+
+
 
 angular.module('quiz').controller('QuizCreate', ['$scope', 'QuizQuestion',
   function ($scope, QuizQuestion) {  

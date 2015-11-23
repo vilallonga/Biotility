@@ -22,7 +22,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('quiz.results', {
                 url: '/results',
-                templateUrl: 'modules/quiz/client/views/quizResults.client.view.html'
+                templateUrl: 'modules/quiz/client/views/quizResults.client.view.html',
+                params: { 
+                    correctScore: null,
+                }
             })
             .state('resources', {
                 url: '/{courseName:.+}/resources',
