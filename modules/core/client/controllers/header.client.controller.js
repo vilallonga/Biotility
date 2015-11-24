@@ -26,6 +26,20 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
             }
         };
 
+        //check if drop down menu should appear
+        $scope.shouldRender = function(user)
+        {
+            if(user.IsTeacher){
+                return true;
+            }
+            else{
+                return false;
+            }
+            
+        };
+
+
+
         // logout: set current auth user to null
         $scope.logout = function() {
             $scope.authentication.user = null;

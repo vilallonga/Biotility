@@ -32,4 +32,13 @@
     <div class="navbar-brand pull-right">
         <a data-ui-sref="home">Home</a>
     </div>
+
+   <div ng-if="shouldRender(authentication.user)" class="navbar-brand-pull-right">
+    <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
+        <li ui-sref-active="active">
+            <a ui-sref="studentList">Student List</a>
+        </li>
+    </a>
+</div> 
+
 </div>
