@@ -62,6 +62,8 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
     currCategory = "Applications"; //temp change for current results
 
     $scope.byCategory = function(listOfQuestions) {
+      console.log("By category");
+      console.log(listOfQuestions);
       for (var i = 0 ; i < listOfQuestions.length; i++) {
         if (listOfQuestions[i].category === currCategory) {
          $scope.questions.push(listOfQuestions[i]);

@@ -10,7 +10,7 @@ angular.module('core').controller('MainController', ['$scope', '$state', '$locat
         $scope.subjects = Subjects.subjects;
 
         $scope.gotoQuiz = function(subjectObj) {
-            $location.path('/quiz/' + subjectObj.name);
+            $location.path('/' + subjectObj.name + '/quiz');
         };
 
         $scope.gotoResource = function(subjectObj) {

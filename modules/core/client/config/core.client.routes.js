@@ -17,7 +17,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/client/views/home.client.view.html'
             })
             .state('quiz', {
-                url: '/quiz/{courseName:.+}',
+                url: '/{courseName:.+}/quiz',
                 templateUrl: 'modules/quiz/client/views/quizTemplate.client.view.html'
             })
             .state('quiz.results', {
