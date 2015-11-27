@@ -53,6 +53,7 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
     $scope.getQuestion = function () {
       QuizQuestion.getQuestions().
         $promise.then(function(listOfQuestions){ //Checks to see if the value is correctly returned before printing out the console.
+            console.log(listOfQuestions);
             $scope.byCategory(listOfQuestions);
         });
     };
@@ -100,7 +101,7 @@ angular.module('quiz').controller('QuizCreate', ['$scope', 'QuizQuestion',
         angular.forEach(rows, function(val) {
           var o = val.split(',');
           if (o[0] !== 'Category') { //sketchy way to get rid of first row
-            //console.log("O is" + o[0] + o[1]);
+            console.log(o);
             var quizQuestion;
             if (o[1] === 'TF') {
               quizQuestion = new QuizQuestion({

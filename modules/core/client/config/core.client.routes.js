@@ -34,7 +34,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('question_upload', {
                 url: '/question_upload',
-                templateUrl: 'modules/quiz/client/views/quizTest.client.view.html'
+                templateUrl: 'modules/quiz/client/views/quizUpload.client.view.html'
             })
             .state('studentprofile', {
                 url: '/student/{userName:.+}',
