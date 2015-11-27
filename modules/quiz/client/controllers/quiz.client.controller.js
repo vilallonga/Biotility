@@ -57,7 +57,8 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
         });
     };
 
-    //currCategory = "Applications"; //temp change for current results
+    console.log("Category before the switch to applications: " + currCategory);
+    currCategory = "Applications"; //temp change for current results
 
     $scope.byCategory = function(listOfQuestions) {
       for (var i = 0 ; i < listOfQuestions.length; i++) {
