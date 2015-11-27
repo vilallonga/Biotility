@@ -23,6 +23,10 @@ body {
     margin-left: 12px;
 }
 
+.nav-img{
+	padding-top: 10px;	
+}
+
 
 /* MAIN PAGE BUTTONS */
 
@@ -231,10 +235,33 @@ body {
     margin-left: 50px;
 }
 
+.about-sub {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #11023C;
+}
+
+.about-ssub {
+	font-size: 20px;
+	 margin-bottom: 20px;
+    color: #11023C;	
+}
+
+.con{
+	font-size: 12px;
+	color: black;
+	margin-bottom: 10px;
+}
+
 .footer {
     padding-top: 42px;
     padding-bottom: 30px;
     background: #252525;
     color: #B9B9B9;
-    font-family:
+}
+
+img.center {
+	display: block;
+    margin-left: auto;
+    margin-right: auto	
 }
