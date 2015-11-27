@@ -4,33 +4,38 @@
     </div>
 	<div class = "container" >
 		<span ng-bind="question.description"></span>
-		  <div class = "col-md-10 col-md-offset-1" style = "border-style: solid;">
-	      	<h1> Question {{numQuestion}} : {{questions[index].description}} </h1>
+	  	<div class = "col-md-10 col-md-offset-1" style = "border-style: solid;">
+	  		<div id = "startButton" ng-hide = "isStart">
+	  			<button class = "btn" ng-click = "start()" ng-hide = "isDone" > Start </button>
+	  			<button class = "btn" ui-sref = "quiz.results({correctScore: score, numQuestion: numQuestion}) " ng-show = "isDone" > Finished </button>
+	  		</div>
+	  		<div id = "quizContent" ng-show = "isStart">
+		      	<h1> Question {{numQuestion}} : {{questions[index].description}} </h1>
 
 
-			<form class = "col-md-offset-1" ng-submit="submitForm()">
-				<div class = "row" ng-show = "isMultipleChoice">
-					<label><input type="radio" ng-model="answer" value = "1"> {{questions[index].answerDesc1}}</label></br>
-					<label><input type="radio" ng-model="answer" value = "2"> {{questions[index].answerDesc2}}</labe><br>
-					<label><input type="radio" ng-model="answer" value = "3"> {{questions[index].answerDesc3}}</label><br>
-					<label><input type="radio" ng-model="answer" value = "4"> {{questions[index].answerDesc4}}</label><br>
-				</div>
+				<form class = "col-md-offset-1">
+					<div class = "row" ng-show = "isMultipleChoice">
+						<label><input type="radio" ng-model="answer" value = "1"> {{questions[index].answerDesc1}}</label></br>
+						<label><input type="radio" ng-model="answer" value = "2"> {{questions[index].answerDesc2}}</labe><br>
+						<label><input type="radio" ng-model="answer" value = "3"> {{questions[index].answerDesc3}}</label><br>
+						<label><input type="radio" ng-model="answer" value = "4"> {{questions[index].answerDesc4}}</label><br>
+					</div>
 
-				<!--Used for True/False-->
+					<!--Used for True/False-->
 
-				<div class = "row" ng-hide = "isMultipleChoice">
-				    <label><input type="radio" ng-model="answer" value = "T" >True</label><br>
-				    <label><input type="radio" ng-model="answer" value = "F" >False</label><br>
-				</div>
+					<div class = "row" ng-hide = "isMultipleChoice">
+					    <label><input type="radio" ng-model="answer" value = "T" >True</label><br>
+					    <label><input type="radio" ng-model="answer" value = "F" >False</label><br>
+					</div>
 
-				<tt>color = {{answer}}</tt><br/>
-				<!--ng-click="increment()"-->
+					<tt>Your Choice = {{answer}}</tt><br/>
+					<tt>Actual Answer = {{questions[index].correctAnswer}}</tt><br/>
+					<!--ng-click="increment()"-->
 
-				<button class = "btn" ng-hide = "isDone" ng-click = "increment(answer)" >Next</button>
-				<button class = "btn" ui-sref = "quiz.results({correctScore : {{score}}  })" ng-show = "isDone" type = "submit">Finish!</button>
-			</form>
+					<button class = "btn" ng-hide = "isDone" ng-click = "checkAnswer(answer)" > Next</button>
+				</form>
+			</div>
 
-
-	  	</div>
+  		</div>
 	</div>
 </div>

@@ -17,7 +17,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/client/views/home.client.view.html'
             })
             .state('quiz', {
-                url: '/{courseName:.+}/quiz',
+                url: '/quiz/{courseName:.+}',
                 templateUrl: 'modules/quiz/client/views/quizTemplate.client.view.html'
             })
             .state('quiz.results', {
@@ -25,6 +25,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/quiz/client/views/quizResults.client.view.html',
                 params: { 
                     correctScore: null,
+                    numQuestion: null,
                 }
             })
             .state('resources', {

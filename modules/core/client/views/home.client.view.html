@@ -17,8 +17,10 @@
                     <div class="thumbnail under">
                         <div ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{hovereffect: hover}" class="overlay">
                             <div class="hover-box">
-                                <div class="center-block center-button" ng-click="gotoQuiz(subject)">Assessment</div>
+                                <!-- <div class="center-block center-button" ui-sref="quiz.category({category: subject.name})">Assessment</div> -->
                                 <div class="center-block center-button" ng-click="gotoResource(subject)">Resources</div>
+                                <div class="center-block center-button" ng-click="gotoQuiz(subject)">Assessment</div>
+
                             </div>
                         </div>
                         <img style="width: 100%;" ng-src="{{subject.img}}" alt="" class="img-responsive">

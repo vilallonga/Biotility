@@ -4,15 +4,18 @@
  * Module dependencies.
  */
 var quiz = require('../controllers/quiz.server.controller');
+//var user = require('/user/server/controllers/users.authentication.server.controller');
 
 module.exports = function (app) {
   // Articles collection routes
   app.route('/api/quiz')
-    .get(quiz.list)
     .post(quiz.create);
 
-  app.route('/api/question_upload')
-  	.get(quiz.list);
+  app.route('/api/quiz/')
+  	.get(quiz.retrieveQuestionsByCategory);
+
+  app.route('/api/quiz_result')
+  	.put(quiz.updateScoreByCategory);
 
   app.param('quizID', quiz.quizQuestionByID);
 };

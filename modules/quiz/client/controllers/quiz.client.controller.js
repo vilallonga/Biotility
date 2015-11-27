@@ -1,70 +1,91 @@
 'use strict';
 
-// Articles controller
-angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion',
-  function ($scope, QuizQuestion) {
-    $scope.isDone = false;
-    $scope.questions = {};
+// Quiz main controller
+angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state',
+  function ($scope, QuizQuestion, $stateParams, $state) {
+    $scope.isDone = false; //checks if the quiz is finished ->switches models to done state
+    $scope.isStart = false; //checks if quiz start button is triggered
+
+    $scope.questions = [];
     var max = null;
     $scope.isMultipleChoice = false;
-    $scope.index = 0;
+    $scope.index = -1;
     $scope.score = 0;
-    $scope.numQuestion = $scope.index + 1;
+    $scope.numQuestion = 0;
 
-    $scope.submitForm = function () {
-      alert($scope.answer);
-    };
+    var currCategory = $stateParams.courseName;
 
-    $scope.increment = function(answer) { 
-      //Checks if last question was reached
-      console.log($scope.questions);
+    $scope.start = function() {
+      $scope.isStart = true;
+      $scope.increment();
       max = $scope.questions.length - 1;// (Index of array starts as 0)
-      console.log("Max is " + max);
-      console.log("Index is " + $scope.index);
-      if ($scope.index === max) {
-        console.log("Done");
-        $scope.isDone = true;
-      }
-      //Checking the answer of the question
-      console.log("Answer is " + answer);
-      console.log("Actual answer is " + $scope.questions[$scope.index].correctAnswer);
+    };
+    $scope.checkAnswer = function(answer) {
+      console.log("Check answer");
       if ($scope.questions[$scope.index].correctAnswer === answer) { 
         $scope.score++;
       }
-
-
-      //Preparing next question
-      $scope.index = ($scope.index + 1) % $scope.questions.length;
-
-      if ( $scope.questions[$scope.index].questionType === "TF" ) {
-        $scope.isMultipleChoice = false;
-      }else {
-        $scope.isMultipleChoice = true;
-      }
-      $scope.numQuestion++;
+      $scope.increment();
     };
 
-    $scope.getQuestion = function () {
-      $scope.questions = QuizQuestion.getQuestions();
-      console.log($scope.questions);
-      if ($scope.questions.questionType === "TF") {
-        $scope.isMultipleChoice = false;
+    $scope.increment = function() { 
+      //Preparing next question
+      if ($scope.index === max) {
+        console.log("Done");
+        $scope.isDone = true;
+        $scope.isStart = false;
+      }else {
+        $scope.index = ($scope.index + 1) % $scope.questions.length;
+
+        if ( $scope.questions[$scope.index].questionType === "TF" ) {
+          $scope.isMultipleChoice = false;
+        }else {
+          $scope.isMultipleChoice = true;
+        }
+        $scope.numQuestion++;
+        console.log("Max index is " + max);
+        console.log("Index is " + $scope.index);
+        console.log("Score is " + $scope.score);
       }
+
+
+    };
+    $scope.getQuestion = function () {
+      QuizQuestion.getQuestions().
+        $promise.then(function(listOfQuestions){ //Checks to see if the value is correctly returned before printing out the console.
+            $scope.byCategory(listOfQuestions);
+        });
+    };
+
+    //currCategory = "Applications"; //temp change for current results
+
+    $scope.byCategory = function(listOfQuestions) {
+      for (var i = 0 ; i < listOfQuestions.length; i++) {
+        if (listOfQuestions[i].category === currCategory) {
+         $scope.questions.push(listOfQuestions[i]);
+        }
+      }
+      console.log($scope.questions);
       max = $scope.questions.length;
-      console.log(max);
     };
 
   }//End of function for controller
 ]);
 
-angular.module('quiz').controller('QuizResults', ['$scope', '$stateParams',
+/*
+Controller for the finished quiz results
+*/
+angular.module('quiz').controller('QuizResults', ['$scope', '$stateParams', 
   function ($scope, $stateParams) {
-    console.log("Hello state parm");
     console.log($stateParams.correctScore);
     $scope.score = $stateParams.correctScore;
+    $scope.totalNumQuestion = $stateParams.numQuestion;
   }
 ]);
 
+/*
+Controller for storing quiz into MongoDB
+*/
 
 
 
