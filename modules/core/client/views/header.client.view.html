@@ -10,10 +10,12 @@
     </div>
     <!-- Profile -->
     <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="profile()">
-        <img src="modules/core/client/img/user/carl.png" alt="" class="img-circle user-pic">
+        <div class="nav-img">
+            <img ng-src="{{authentication.user.profileImageURL}}" alt="" class="img-circle user-pic">
+        </div>
     </div>
     <div ng-show="authentication.user" class="navbar-brand pull-right" ng-click="profile()">
-        {{authentication.user.lastName}}, {{authentication.user.firstName}}
+        {{authentication.user.displayName}}
     </div>
     <!-- Login -->
     <div ng-hide="authentication.user" class="navbar-brand pull-right">

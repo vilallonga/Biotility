@@ -17,9 +17,6 @@ exports.update = function (req, res) {
   // Init Variables
   var user = req.user;
 
-  // For security measurement we remove the roles from the req.body object
-  delete req.body.roles;
-
   if (user) {
     // Merge existing user
     user = _.extend(user, req.body);
@@ -56,13 +53,13 @@ exports.changeProfilePicture = function (req, res) {
   var message = null;
 
   if (user) {
-    fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+    fs.writeFile('./modules/users/client/img/profile/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
       if (uploadError) {
         return res.status(400).send({
           message: 'Error occurred while uploading profile picture'
         });
       } else {
-        user.profileImageURL = 'modules/users/client/img/profile/uploads/' + req.files.file.name;
+        user.profileImageURL = './modules/users/client/img/profile/' + req.files.file.name;
 
         user.save(function (saveError) {
           if (saveError) {
