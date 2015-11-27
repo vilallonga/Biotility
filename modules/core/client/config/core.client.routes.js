@@ -17,12 +17,16 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/client/views/home.client.view.html'
             })
             .state('quiz', {
-                url: '/{courseName:.+}/quiz',
+                url: '/quiz/{courseName:.+}',
                 templateUrl: 'modules/quiz/client/views/quizTemplate.client.view.html'
             })
             .state('quiz.results', {
                 url: '/results',
-                templateUrl: 'modules/quiz/client/views/quizResults.client.view.html'
+                templateUrl: 'modules/quiz/client/views/quizResults.client.view.html',
+                params: { 
+                    correctScore: null,
+                    numQuestion: null,
+                }
             })
             .state('resources', {
                 url: '/{courseName:.+}/resources',
@@ -30,7 +34,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('question_upload', {
                 url: '/question_upload',
-                templateUrl: 'modules/quiz/client/views/quizTest.client.view.html'
+                templateUrl: 'modules/quiz/client/views/quizUpload.client.view.html'
             })
             .state('studentprofile', {
                 url: '/student/{userName:.+}',
