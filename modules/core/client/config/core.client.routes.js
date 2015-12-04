@@ -52,6 +52,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 url: '/data/teachers',
                 templateUrl: 'modules/core/client/views/data.teachers.client.view.html'
             })
+            .state('about', {
+                url: '/about',
+                templateUrl: 'modules/core/client/views/about.client.view.html'
+            })
+            .state('contact', {
+                url: '/contact',
+                templateUrl: 'modules/core/client/views/contact.client.view.html'
+            })
             .state('bad-request', {
                 url: '/bad-request',
                 templateUrl: 'modules/core/client/views/400.client.view.html',

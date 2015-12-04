@@ -15,7 +15,7 @@ body {
 }
 
 .nav-img {
-    margin-top: 8px;
+    margin-top: 2px;
 }
 
 .navbar-brand >.nav-img {
@@ -28,6 +28,10 @@ body {
 
 .glyphicon-chevron-right {
     margin-left: 12px;
+}
+
+.nav-img{
+	padding-top: 10px;	
 }
 
 
@@ -186,7 +190,7 @@ body {
 }
 
 .caption {
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .big-btn {
@@ -238,10 +242,66 @@ body {
     margin-left: 50px;
 }
 
+.about-sub {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #11023C;
+}
+
+.about-ssub {
+	font-size: 20px;
+	 margin-bottom: 20px;
+    color: #11023C;	
+}
+
+.con{
+	font-size: 12px;
+	color: black;
+	margin-bottom: 10px;
+}
+
 .footer {
     padding-top: 42px;
     padding-bottom: 30px;
     background: #252525;
     color: #B9B9B9;
-    font-family:
+}
+
+img.center {
+	display: block;
+    margin-left: auto;
+    margin-right: auto	
+}
+
+img.circle {
+    border-radius: 50%;	
+}
+
+img.bord {
+	border: solid;
+	border-color: #D4D4D4;
+	border-width: 4px;
+}
+
+.contact {
+	font-size: 25px;
+	margin-bottom: 20px;
+    color: #11023C;
+	text-align: center;
+}
+
+.contact-name {
+	font-size: 12px;
+    color: black;
+	text-align: center;
+}
+
+.bold {
+	font-weight: bold;	
+}
+
+img.resource {
+    float: right;
+    margin: 0 0 30px 30px;
+	border-radius: 5px;
 }
