@@ -10,13 +10,15 @@ var mongoose = require('mongoose'),
  * Article Schema
  */
 var questionSchema = new Schema({
+    category: {type: String, required: true},
+    questionType: {type: String, required: true},
     description: {type : String, required: true},
-    type: {type: String, required: true},
-    answerDesc1: {type: String, required: true},
-    answerDesc2: {type: String, required: true},
+    correctAnswer: {type: String, required: true},
+    answerDesc1: {type: String},
+    answerDesc2: {type: String},
     answerDesc3: {type: String},
-    answerDesc4: {type: String},
-    correctAnswer: {type: String, required: true}
+    answerDesc4: {type: String}
+
 });
 
 mongoose.model('QuizQuestion', questionSchema);
