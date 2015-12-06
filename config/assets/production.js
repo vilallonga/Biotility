@@ -6,7 +6,7 @@ module.exports = {
       css: [
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
-        'public/dist/application.min.css'
+        'public/lib/dist/application.min.css'
       ],
       js: [
         'public/lib/angular/angular.min.js',
@@ -18,7 +18,7 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/angular-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'public/dist/application.min.js'
+        'public/lib/dist/application.min.js'
       ]
     },
     css: 'public/dist/application.min.css',
