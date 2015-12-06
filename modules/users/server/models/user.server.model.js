@@ -34,13 +34,11 @@ var UserSchema = new Schema({
         type: String,
         trim: true,
         default: ''
-        //required: true
       },
     lastName: {
         type: String,
         trim: true,
         default: ''
-        //required: true
     },
     displayName: {
         type: String,
@@ -53,13 +51,11 @@ var UserSchema = new Schema({
         lowercase: true,
         trim: true,
         default: ''
-        //required: true
     },
     userName: {
         type: String,
         unique: true,
         default: '',
-        //required: 'Please fill in a username',
         lowercase: true,
         trim: true
     },
