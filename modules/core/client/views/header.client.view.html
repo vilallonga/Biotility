@@ -21,10 +21,32 @@
     <div ng-hide="authentication.user" class="navbar-brand pull-right">
         <a data-ui-sref="authentication.signin">Login</a>
     </div>
+
+    <!-- student list -->
+    
+     <div class="navbar-brand pull-right admin-menu" role="navigation">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li class="dropdown"><a href="">Student List <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
+                        <li><a data-ui-sref="studentList">Students</a>
+                        </li>
+                    </ul>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+    
+
     <!-- Contact -->
     <div class="navbar-brand pull-right">
         Contact
     </div>
+
+   
+
     <!-- About -->
     <div class="navbar-brand pull-right">
         About Us
@@ -33,12 +55,8 @@
         <a data-ui-sref="home">Home</a>
     </div>
 
-   <div ng-if="shouldRender(authentication.user)" class="navbar-brand-pull-right">
-    <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-        <li ui-sref-active="active">
-            <a ui-sref="studentList">Student List</a>
-        </li>
-    </a>
-</div> 
+  
+    
+ 
 
 </div>

@@ -49,11 +49,11 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'modules/core/client/views/data.teachers.client.view.html'
             })
 
-            .state('studentList',{
-                url: '/teacher/{userName:.+}',
-                templateUrl: 'modules/core/client/views/studentList.client.view.html'
-            })
-            
+            //.state('studentList',{
+              // url: '/list',
+                //templateUrl: 'modules/core/client/views/studentlist.client.view.html'
+            //})
+
             .state('bad-request', {
                 url: '/bad-request',
                 templateUrl: 'modules/core/client/views/400.client.view.html',

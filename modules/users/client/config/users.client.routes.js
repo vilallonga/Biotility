@@ -42,6 +42,12 @@ angular.module('users').config(['$stateProvider',
         url: '/signin?err',
         templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
       })
+
+      .state('studentList',{
+               url: '/list',
+                templateUrl: 'modules/users/client/views/studentlist.client.view.html'
+            })
+
       .state('password', {
         abstract: true,
         url: '/password',
