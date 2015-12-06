@@ -1,55 +1,45 @@
-
 @font-face {
-    font-family: AwesomeFont;
-    src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+  font-family: AwesomeFont;
+  src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
 }
-
 @media (min-width: 992px) {
   .nav-users {
     position: fixed;
   }
 }
-
-body{
-overflow-x: hidden;	
+body {
+  overflow-x: hidden;
 }
-
-.breadcrumbh{
-	background: #FC252B; !important
-	font-family: AwesomeFont, Verdana, Geneva, sans-serif;
-	margin-bottom: 70px;
-	min-width: 100%;
-	display: inline-block;
+.breadcrumbh {
+  background: #FC252B;
+  !important font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+  margin-bottom: 70px;
+  min-width: 100%;
+  display: inline-block;
 }
-
 #breadcrumbh a:link, #breadcrumbh a:visited {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
 #breadcrumbh a:hover {
-	color: #464646;
-	text-decoration: none;
+  color: #464646;
+  text-decoration: none;
 }
-
 #breadcrumbh a:active {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
-.page-head{
-	color: white;
-	font-size: 30px;
+.page-head {
+  color: white;
+  font-size: 30px;
 }
-
-.b-head{
-	color: #E5E5E5;
-	font-size: 15px;
-	margin-bottom: 70px;
-	margin-top: 12px;
-	text-align: right;
+.b-head {
+  color: #E5E5E5;
+  font-size: 15px;
+  margin-bottom: 70px;
+  margin-top: 12px;
+  text-align: right;
 }
-
 .social-account-container {
   display: inline-block;
   position: relative;
@@ -81,52 +71,41 @@ overflow-x: hidden;
   min-height: 150px;
   max-height: 150px;
 }
-
-.topmargin{
-	margin-top: 200px;
+.topmargin {
+  margin-top: 200px;
 }
-
-.topmargin-50{
-	margin-top: 50px;
+.topmargin-50 {
+  margin-top: 50px;
 }
-
-.topmargin-10{
-	margin-top: 10px;
+.topmargin-10 {
+  margin-top: 10px;
 }
-
-.topmargin-100{
-	margin-top: 100px;
+.topmargin-100 {
+  margin-top: 100px;
 }
-
-.topmargin-b{
-	margin-top: 130px;
+.topmargin-b {
+  margin-top: 130px;
 }
-
-img.image-center{
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
+img.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .registerLink {
-	font-size: 10px;
+  font-size: 10px;
 }
-
 select.my_dropdown {
-    width:100%;
+  width: 100%;
 }
-
-.inputs{
-	margin-bottom:10px;
+.inputs {
+  margin-bottom: 10px;
 }
-
-.accounts{
-	margin-right: 100px;
+.accounts {
+  margin-right: 100px;
 }
-
-.account-pick{
-	margin-left:-100px;
+.account-pick {
+  margin-left: -100px;
 }
-
 input {
-	border-radius: 4px;	
+  border-radius: 4px;
 }

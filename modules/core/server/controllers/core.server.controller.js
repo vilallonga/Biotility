@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Question = mongoose.model('Question'),
+  QuizQuestion = mongoose.model('QuizQuestion'),
   User = mongoose.model('User'),
   Subject = mongoose.model('Subject');
 
@@ -60,7 +60,9 @@ exports.parseUsers = function(req, res) {
   });
 };
 
-// Retrieve question data, based on request params.
-exports.getQuestionData = function(req, res) {
-
+// Retrieve question data, send as response.
+exports.parseQuestions = function(req, res) {
+  QuizQuestion.find({}).lean().exec(function(err, users) {
+    return res.end(JSON.stringify(users));
+  });
 };

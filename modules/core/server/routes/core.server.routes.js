@@ -8,13 +8,16 @@ module.exports = function (app) {
   app.route('/server-error').get(core.renderServerError);
 
   // Fetch question data from database
-  app.route('/api/question-data/:subject-name').get(core.getQuestionData);
+  //app.route('/api/question-data/:subject-name').get(core.getQuestionData);
 
   // Fetch subject data from database
   app.route('/api/parse/subjects').get(core.parseSubjects);
 
   // Fetch user data from database
   app.route('/api/data/users').get(core.parseUsers);
+
+  // Fetch question data from database
+  app.route('/api/data/questions').get(core.parseQuestions);
 
   // Return a 404 for all undefined api, module or lib routes
   // GOES AFTER ALL API CALLS ^^^^

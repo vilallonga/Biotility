@@ -48,6 +48,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         url: '/data/users',
         templateUrl: 'modules/core/client/views/data.users.client.view.html'
       })
+      .state('questionData', {
+        url: '/data/questions',
+        templateUrl: 'modules/core/client/views/data.questions.client.view.html'
+      })
       .state('about', {
         url: '/about',
         templateUrl: 'modules/core/client/views/about.client.view.html'

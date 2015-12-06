@@ -9,3 +9,12 @@ angular.module('core').controller('UserData', ['$scope', '$http',
       });
   }
 ]);
+
+angular.module('core').controller('QuestionData', ['$scope', '$http',
+    function($scope, $http) {
+      $http.get('/api/data/questions')
+      .success(function(res){
+      	$scope.data = res;
+      });
+  }
+]);

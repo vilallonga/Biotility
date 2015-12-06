@@ -17,10 +17,16 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     // array of class names
     $scope.classNames = [];
 
-    // grab all the courses, and read their names.
-    for (var i = 0; i < Subjects.subjects.length; i++) {
-      $scope.classNames.push(Subjects.subjects[i].name);
-    }
+    // load subjects
+    Subjects.loadSubjects().then(function(response) {
+      $scope.subjects = response.data;
+
+      // grab all the courses, and read their names.
+      for (var i = 0; i < $scope.subjects.length; i++) {
+        $scope.classNames.push($scope.subjects[i].name);
+      }
+
+    });
 
     $scope.add = function(course) {
       if (course !== '') {
