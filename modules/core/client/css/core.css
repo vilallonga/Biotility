@@ -13,6 +13,7 @@ body {
 }
 .nav-img {
   margin-top: 2px;
+  padding: 0;
 }
 .navbar-brand >.nav-img {
   margin-top: -10px;
@@ -24,12 +25,8 @@ body {
 .glyphicon-chevron-right {
   margin-left: 12px;
 }
-.nav-img {
-  padding-top: 10px;
-}
 
 /* MAIN PAGE BUTTONS */
-
 .hover-box {
   position: relative;
   height: 100%;
