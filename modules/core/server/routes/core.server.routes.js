@@ -7,9 +7,6 @@ module.exports = function (app) {
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
 
-  // Fetch question data from database
-  //app.route('/api/question-data/:subject-name').get(core.getQuestionData);
-
   // Fetch subject data from database
   app.route('/api/parse/subjects').get(core.parseSubjects);
 

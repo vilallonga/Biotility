@@ -11,11 +11,11 @@ var path = require('path'),
 /**
  * Create a quiz question
  */
-exports.create = function (req, res) {
+exports.create = function(req, res) {
 
   var question = new QuizQuestion(req.body);
-  
-  question.save(function (err) {
+
+  question.save(function(err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -25,31 +25,20 @@ exports.create = function (req, res) {
     }
   });
 };
+
 /*
 Retrieve all of the questions by category in quiz_bank
 */
-exports.retrieveQuestionsByCategory = function (req, res) {
-  QuizQuestion.find( {
-      //category : req.param.category
-      //category: "Applications"
-    }, 
-    function(err, quizCount) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      }else {
-        var data = {};
-        data = quizCount;
-        res.json(data);
-      }
-    });
+exports.retrieveQuestionsByCategory = function(req, res) {
+  QuizQuestion.find({ "category" : req.query.category }).exec(function(err, questions) {
+    return res.end(JSON.stringify(questions));
+  });
 };
 
 /*
 Inserts the quiz results to the Student profile
 */
-exports.updateScoreByCategory = function (req, res) {
+exports.updateScoreByCategory = function(req, res) {
   // var article = req.article;
 
   // article.title = req.body.title;
@@ -67,7 +56,7 @@ exports.updateScoreByCategory = function (req, res) {
   // });
 };
 
-exports.quizQuestionByID = function (req, res, next, id) {
+exports.quizQuestionByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
@@ -75,7 +64,7 @@ exports.quizQuestionByID = function (req, res, next, id) {
     });
   }
 
-  QuizQuestion.findById(id).populate('user', 'displayName').exec(function (err, quiz) {
+  QuizQuestion.findById(id).populate('user', 'displayName').exec(function(err, quiz) {
     if (err) {
       return next(err);
     } else if (!quiz) {
