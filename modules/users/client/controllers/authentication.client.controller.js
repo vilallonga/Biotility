@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication', 'Subjects',
-  function($scope, $state, $http, $location, $window, Authentication, Subjects) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'PasswordValidator', 'Authentication', 'Subjects',
+  function($scope, $state, $http, $location, $window, PasswordValidator, Authentication, Subjects) {
 
     //Added Stuff
     $scope.authentication = Authentication;
-    //$scope.popoverMsg = PasswordValidator.getPopoverMsg();
+    $scope.popoverMsg = PasswordValidator.getPopoverMsg();
 
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
@@ -34,7 +34,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $scope.error = null;
 
       if (!isValid) {
-        //$scope.$broadcast('show-errors-check-validity', 'userForm');
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
 
         return false;
       }

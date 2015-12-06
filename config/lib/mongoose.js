@@ -17,7 +17,7 @@ module.exports.loadModels = function() {
     });
 };
 
-// ************* Schema Definitions *************
+/************* Schema Definitions *************/
 
 // Subject Schema
 var subjectSchema = new Schema({
@@ -30,7 +30,7 @@ var subjectSchema = new Schema({
 // Question Schema
 var questionSchema = new Schema({
     description: {type : String, required: true},
-    type: {type: String, required: true},
+    type: {type: String, required: true}, // Multichoice, T/F, etc
     answerDesc1: {type: String, required: true},
     answerDesc2: {type: String, required: true},
     answerDesc3: {type: String},
@@ -40,6 +40,8 @@ var questionSchema = new Schema({
 
 module.exports.Subject = mongoose.model('Subject', subjectSchema);
 module.exports.Question = mongoose.model('Question', questionSchema);
+
+/************* End Schema Definitions *************/
 
 // Initialize Mongoose
 module.exports.connect = function(cb) {

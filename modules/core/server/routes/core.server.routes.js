@@ -7,11 +7,18 @@ module.exports = function (app) {
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
 
-  // Return a 404 for all undefined api, module or lib routes
-  app.route('/:url(api|modules|lib)/*').get(core.renderNotFound);
-
   // Fetch question data from database
   app.route('/api/question-data/:subject-name').get(core.getQuestionData);
+
+  // Fetch subject data from database
+  app.route('/api/parse/subjects').get(core.parseSubjects);
+
+  // Fetch user data from database
+  app.route('/api/data/users').get(core.parseUsers);
+
+  // Return a 404 for all undefined api, module or lib routes
+  // GOES AFTER ALL API CALLS ^^^^
+  app.route('/:url(api|modules|lib)/*').get(core.renderNotFound);
 
   // Define application route
   app.route('/*').get(core.renderIndex);

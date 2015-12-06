@@ -1,0 +1,29 @@
+<div class="margin-top-75">
+	<!-- -->
+</div>
+
+<div ng-controller="UserData">
+	<h2 class="text-center" style="font-size: 60px;">User Data</h2>
+	<table class="table table-striped">
+		<thead>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Email</th>
+			<th>DisplayName</th>
+			<th>UserName</th>
+			<th>ProfileType</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="d in data">
+				<td>{{d.firstName}}</td>
+				<td>{{d.lastName}}</td>
+				<td>{{d.email}}</td>
+				<td>{{d.displayName}}</td>
+				<td>{{d.userName}}</td>
+				<td>{{d.profileType}}</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+</div>
