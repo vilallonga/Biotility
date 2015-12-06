@@ -1,16 +1,16 @@
 <div ng-controller="AuthenticationController">
-    
-    <div class="breadcrumbh" id="breadcrumbh">
+
+    <div class="breadcrumbh">
     	<div class="row topmargin-b">
         	<div class="col-md-2 col-md-offset-1 page-head">
             	Sign-up
             </div>
-            <div class="col-md-3 col-md-offset-9 b-head">
+            <div class="col-md-8 b-head">
             	<a data-ui-sref="home">Home</a> / <a data-ui-sref="authentication.signin">Login</a> / Sign-Up
             </div>
     	</div>
     </div>
-    
+
     <form ng-submit="signup(true)">
    		 <div class="container topmargin-50" align="center">
          	<div class="inputs">
@@ -29,11 +29,11 @@
             <input type="password" ng-model="credentials.password" required placeholder="Password" required style="height:40px;">
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-2 col-md-offset-4 text-right">
                 <div class="accounts">
-                Account Type: 
+                Account Type:
                 </div>
             </div>
             <div class="radio col-md-2 account-pick">
@@ -49,7 +49,7 @@
         </div>
         <!-- if student -->
         <div ng-show="credentials.profileType=='Student'" class="inputs" align="center">
-                <input type="text" ng-model="credentials.courseCode" required placeholder="Class Code" required style="height:40px;">
+                <input type="text" ng-model="credentials.courseCode" placeholder="Class Code" style="height:40px;">
         </div>
         <!-- if teacher -->
         <div ng-show="credentials.profileType=='Teacher'">
@@ -63,9 +63,9 @@
                     <select ng-model="toAdd" style="height: 30px;">
                         <option ng-repeat="name in classNames track by $index">{{name}}</option>
                     </select>
-                    <button type="button" class="btn btn-default" ng-click="add(toAdd)">
-                        +
-                    </button>
+                    	<button type="button" class="btn btn-default" ng-click="add(toAdd)">
+                        	+
+                   		</button>
                 </div>
             </div>
             <div class="row">

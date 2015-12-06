@@ -26,15 +26,13 @@ exports.signup = function(req, res) {
     // potential error message
     var message = null;
 
-    // Add missing user fields
-    user.displayName = user.lastName + ', ' + user.firstName;
-
     // Then save the user
     user.save(function(err) {
         if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
+          return res.status(400).send({
+              message: errorHandler.getErrorMessage(err),
+              tried: user
+          });
         } else {
             // Remove sensitive data before login
             user.password = undefined;
@@ -42,7 +40,9 @@ exports.signup = function(req, res) {
 
             req.login(user, function(err) {
                 if (err) {
-                    res.status(400).send(err);
+                  return res.status(403).send({
+                      message: errorHandler.getErrorMessage(err)
+                  });
                 } else {
                     res.json(user);
                 }

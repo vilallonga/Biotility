@@ -33,58 +33,61 @@ var UserSchema = new Schema({
     firstName: {
         type: String,
         trim: true,
-        default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your first name']
-    },
+        default: ''
+      },
     lastName: {
         type: String,
         trim: true,
-        default: '',
-        validate: [validateLocalStrategyProperty, 'Please fill in your last name']
+        default: ''
     },
     displayName: {
         type: String,
-        trim: true
+        trim: true,
+        default: ''
     },
     email: {
         type: String,
         unique: true,
         lowercase: true,
         trim: true,
-        default: '',
-        validate: [validateLocalStrategyEmail, 'Please fill a valid email address']
+        default: ''
     },
     userName: {
         type: String,
-        unique: 'Username already exists',
-        required: 'Please fill in a username',
+        unique: true,
+        default: '',
         lowercase: true,
         trim: true
     },
     password: {
         type: String,
-        default: ''
+        default: '',
+        trim: true
     },
     salt: {
         type: String
     },
     profileImageURL: {
         type: String,
-        default: 'modules/users/client/img/profile/default.jpg'
+        default: '/modules/users/client/img/profile/default.jpg'
     },
     // provider: {
-    //     type: String,
-    //     required: 'Provider is required'
+    //     type: String
+    //     //required: 'Provider is required'
     // },
     // providerData: {},
     // additionalProvidersData: {},
     profileType: {
         type: String,
         enum: profileStates,
-        required: true
+        trim: true,
+        default: "Student"
     },
     coursesTeaching: [Number],
-    courseCode: Number,
+    courseCode: {
+      type: Number,
+      trim: true
+    },
     updated: {
         type: Date
     },

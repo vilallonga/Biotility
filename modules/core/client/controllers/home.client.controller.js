@@ -7,7 +7,9 @@ angular.module('core').controller('MainController', ['$scope', '$state', '$locat
         // This provides Authentication context.
         $scope.authentication = Authentication;
 
-        $scope.subjects = Subjects.subjects;
+        Subjects.loadSubjects().then(function(response) {
+          $scope.subjects = response.data;
+        });
 
         $scope.gotoQuiz = function(subjectObj) {
             $location.path('/' + subjectObj.name + '/quiz');
@@ -65,4 +67,3 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         };
     }
 ]);
-

@@ -9,6 +9,12 @@ module.exports = {
       user: 'devteam',
       pass: 'devteam'
     },
+    
+    // uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://devteam:devteam@ds027769.mongolab.com:27769/software5c',
+    // options: {
+    //   user: 'devteam',
+    //   pass: 'devteam'
+    // },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
   },
