@@ -39,9 +39,11 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         $scope.user = $scope.authentication.user;
 
         $scope.oneAtATime = true;
-
+        $scope.isTeacher = false;
         $scope.profileVisible = true;
-
+        if ($scope.profileType === "Teacher") {
+            $scope.isTeacher = true;
+        }
         $scope.groups = [
             {
                 title: 'Cells',

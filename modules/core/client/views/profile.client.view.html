@@ -33,7 +33,7 @@
         <i class="fa fa-coffee"></i>
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div> -->
-      <h3>Personal info</h3>
+      <h3>Account Information</h3>
       <div class="col-lg-3">
         <div class = "col-lg-8">
           <label>Email</label>
@@ -48,10 +48,10 @@
     </div>
   <!--</div>-->
 
-  <div class="row">
+  <div class="row" ng-hide="isTeacher">
     <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
       <h1>Biotility</h1>
-      <h3>Select a course below</h3>
+      <h3>Course Progress</h3>
       <script type="text/ng-template" id="group-template.html">
         <div class="panel {{panelClass || 'panel-default'}}">
           <div class="panel-heading">
@@ -153,6 +153,113 @@
 
     </div>
   </div>
+
+    <div class="row" ng-show="isTeacher">
+      <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
+        <h1>Biotility</h1>
+        <h3>Course Progress</h3>
+        <script type="text/ng-template" id="group-template.html">
+          <div class="panel {{panelClass || 'panel-default'}}">
+            <div class="panel-heading">
+              <h4 class="panel-title" style="color:#fa39c3">
+                <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                  ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+              </h4>
+            </div>
+            <div class="panel-collapse collapse" uib-collapse="!isOpen">
+              <div class="panel-body" style="text-align: right" ng-transclude></div>
+            </div>
+          </div>
+        </script>
+
+        <uib-accordion close-others="oneAtATime">
+          <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+            <p>{{group.content}}</p>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="{{group.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{group.progress}}%;">
+                <span class="sr-only">{{group.progress}}% Complete</span>
+              </div>
+            </div>
+          </uib-accordion-group>
+
+      </div>
+
+      <div class="col-md-9 col-md-offset-3" ng-hide="profileVisible">
+        <!-- change for to just a list or table or something -->
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+
+            <label class="col-lg-3 control-label">First name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" disabled value="{{user.firstName}}" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Last name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="{{user.lastName}}" disabled>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">School:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="{{user.email}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Time Zone:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="user_time_zone" class="form-control">
+                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                  <option value="Alaska">(GMT-09:00) Alaska</option>
+                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                  <option value="Arizona">(GMT-07:00) Arizona</option>
+                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Username:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="{{user.userName}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Change Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirm Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
   <hr>
 </div>
 
