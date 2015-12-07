@@ -1,4 +1,4 @@
-<div ng-controller="MainController">
+<div ng-controller="SubjectController">
 
 	<div class="breadcrumbh" id="breadcrumbh">
     	<div class="row topmargin-b">
@@ -6,7 +6,7 @@
             	Resources
             </div>
             <div class="col-md-8 b-head">
-            	<a data-ui-sref="home">Home</a> / Subject / Resources
+            	<a data-ui-sref="home">Home</a> / {{subject}} / Resources
             </div>
     	</div>
     </div>
@@ -44,9 +44,9 @@ Ut arcu purus, hendrerit a sollicitudin vitae, consequat ac turpis. Maecenas id 
     </div>
     
     <div class="container" align="center">
-         <a class="btn btn-default about-ssub" href="http://google.com">
+         <div class="btn btn-default about-ssub" ng-click="startQuiz()">
       	Go to Quiz!
-     </a>
+     </div>
      </div>
     
 
