@@ -16,12 +16,13 @@
 
         <input type="file" class="form-control">
 
-        <nav aria-label="context" role="navigation"><ul class="nav" id="section-tabs"><li class="section"><a class="home" href="/" tabindex="0">Home</a></li>
-          <li class="section"><a class="profile" href="/about/851547" tabindex="0">Profile</a></li>
-          <li class="section"><a class="notifications" href="/profile/communication" tabindex="0">Notifications</a></li>
-          <li class="section"><a class="files" href="/files" tabindex="0">Files</a></li>
-          <li class="section"><a class="profile_settings active" href="/profile/settings" tabindex="0">Settings</a></li>
-          <li class="section"><a class="eportfolios" href="/dashboard/eportfolios" tabindex="0">ePortfolios</a></li></ul></nav>
+        <nav aria-label="context" role="navigation">
+          <ul class="nav" id="section-tabs">
+            <li class="section"><a class="home" href="/" tabindex="0">Home</a></li>
+            <li class="section"><a ng-click="profileVisible = true" class="profile" href="#" tabindex="0">Profile</a></li>
+            <li class="section"><a ng-click="profileVisible = false" class="profile_settings active" href="#" tabindex="0">Settings</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -41,8 +42,43 @@
           <span>{{user.userName}}</span>
         </div>
       </div>
-      <br>
       <!--
+
+      ------>
+    </div>
+  <!--</div>-->
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
+      <h1>Biotility</h1>
+      <h3>Select a course below</h3>
+      <script type="text/ng-template" id="group-template.html">
+        <div class="panel {{panelClass || 'panel-default'}}">
+          <div class="panel-heading">
+            <h4 class="panel-title" style="color:#fa39c3">
+              <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+            </h4>
+          </div>
+          <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" style="text-align: right" ng-transclude></div>
+          </div>
+        </div>
+      </script>
+
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+          <p>{{group.content}}</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{group.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{group.progress}}%;">
+              <span class="sr-only">{{group.progress}}% Complete</span>
+            </div>
+          </div>
+        </uib-accordion-group>
+
+    </div>
+
+    <div class="col-md-9 col-md-offset-3" ng-hide="profileVisible">
       <form class="form-horizontal" role="form">
         <div class="form-group">
 
@@ -114,37 +150,6 @@
         </div>
       </form>
 
-      ------>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-9 col-md-offset-3">
-      <h1>Biotility</h1>
-      <h3>Select a course below</h3>
-      <script type="text/ng-template" id="group-template.html">
-        <div class="panel {{panelClass || 'panel-default'}}">
-          <div class="panel-heading">
-            <h4 class="panel-title" style="color:#fa39c3">
-              <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
-                ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
-            </h4>
-          </div>
-          <div class="panel-collapse collapse" uib-collapse="!isOpen">
-            <div class="panel-body" style="text-align: right" ng-transclude></div>
-          </div>
-        </div>
-      </script>
-
-      <uib-accordion close-others="oneAtATime">
-        <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-          <p>{{group.content}}</p>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="{{group.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{group.progress}}%;">
-              <span class="sr-only">{{group.progress}}% Complete</span>
-            </div>
-          </div>
-        </uib-accordion-group>
 
     </div>
   </div>

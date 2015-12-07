@@ -40,6 +40,8 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
 
         $scope.oneAtATime = true;
 
+        $scope.profileVisible = true;
+
         $scope.groups = [
             {
                 title: 'Cells',
@@ -59,7 +61,6 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         ];
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
 
         $scope.status = {
             isFirstOpen: true,

@@ -21,4 +21,8 @@ var questionSchema = new Schema({
 
 });
 
+questionSchema.methods.getQuizResults = function(userID) {
+
+};
+
 mongoose.model('QuizQuestion', questionSchema);
