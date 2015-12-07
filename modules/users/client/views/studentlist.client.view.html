@@ -4,26 +4,19 @@
     <div class="page-header">
         <h1>Students</h1>
     </div>
-    <table class="table table-striped">
-  		<thead>
-  			<th>FirstName</th>
-  			<th>LastName</th>
-  			<th>Email</th>
-  			<th>DisplayName</th>
-  			<th>UserName</th>
-  			<th>ProfileType</th>
-  		</thead>
-  		<tbody>
-  			<tr ng-repeat="d in data">
-  				<td>{{d.firstName}}</td>
-  				<td>{{d.lastName}}</td>
-  				<td>{{d.email}}</td>
-  				<td>{{d.displayName}}</td>
-  				<td>{{d.userName}}</td>
-  				<td>{{d.profileType}}</td>
-  			</tr>
-  		</tbody>
+    
+            <div class="list-group">
+            <h3 class="list-group-item-heading">Name</h3>
+  			<a ng-repeat="d in data"class="list-group-item">
+                
+  				
+  				<h4 class="list-group-item-heading">{{d.displayName}}</h4>
+  				
+  			</a>
+        </div>
+        
+  		
 
-  	</table>
+  
 
  </div>
