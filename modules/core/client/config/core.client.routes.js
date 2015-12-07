@@ -2,6 +2,7 @@
 
 // Setting up route
 angular.module('core').config(['$stateProvider', '$urlRouterProvider',
+<<<<<<< HEAD
   function($stateProvider, $urlRouterProvider) {
     // Redirect to 404 when route not found
     $urlRouterProvider.otherwise(function($injector, $location) {
@@ -51,10 +52,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         url: '/data/questions',
         templateUrl: 'modules/core/client/views/data.questions.client.view.html'
       })
-      .state('studentList',{
-          url: '/teacher/{userName:.+}',
-          templateUrl: 'modules/core/client/views/studentList.client.view.html'
-      })
+      // .state('studentList',{
+      //     url: '/teacher/{userName:.+}',
+      //     templateUrl: 'modules/core/client/views/studentList.client.view.html'
+      // })
       .state('about', {
         url: '/about',
         templateUrl: 'modules/core/client/views/about.client.view.html'

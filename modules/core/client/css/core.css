@@ -288,3 +288,11 @@ img.resource {
   margin: 0 0 30px 30px;
   border-radius: 5px;
 }
+
+ul.navbar-nav{
+margin-top: -15px;
+margin-right: -8px;
+}
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}

@@ -27,9 +27,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
         };
 
         //check if drop down menu should appear
-        $scope.shouldRender = function(user)
+        $scope.shouldRender = function()
         {
-            if(user.IsTeacher){
+            if($scope.authentication.IsTeacher){
                 return true;
             }
             else{
@@ -37,6 +37,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', '$loc
             }
             
         };
+
+
+
+        
 
 
 
