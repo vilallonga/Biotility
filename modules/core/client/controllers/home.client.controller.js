@@ -37,7 +37,8 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
 
         $scope.authentication = Authentication;
         $scope.user = $scope.authentication.user;
-
+        console.log($scope.user);
+        
         $scope.oneAtATime = true;
 
         $scope.groups = [

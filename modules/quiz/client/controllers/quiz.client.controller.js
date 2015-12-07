@@ -1,8 +1,10 @@
 'use strict';
 
 // Quiz main controller
-angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state',
-  function ($scope, QuizQuestion, $stateParams, $state) {
+angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state', 'Authentication',
+  function ($scope, QuizQuestion, $stateParams, $state, Authentication) {
+    $scope.authentication = Authentication;
+    console.log($scope.authentication.user);
     $scope.isDone = false; //checks if the quiz is finished ->switches models to done state
     $scope.isStart = false; //checks if quiz start button is triggered
 
@@ -47,8 +49,6 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
         console.log("Index is " + $scope.index);
         console.log("Score is " + $scope.score);
       }
-
-
     };
     $scope.getQuestion = function () {
       QuizQuestion.getQuestions().
@@ -79,11 +79,32 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
 /*
 Controller for the finished quiz results
 */
-angular.module('quiz').controller('QuizResults', ['$scope', '$stateParams', 
-  function ($scope, $stateParams) {
-    console.log($stateParams.correctScore);
+angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParams', 'Authentication',
+  function ($http, $scope, $stateParams, Authentication) {
+    $scope.authentication = Authentication;
+    $scope.user = $scope.authentication.user;
     $scope.score = $stateParams.correctScore;
     $scope.totalNumQuestion = $stateParams.numQuestion;
+   
+    var studentGrades = {
+      category :    $stateParams.category,
+      studentName : $scope.user.userName,
+      score :       $scope.score,
+      totalNum:     $stateParams.numQuestion
+    };
+
+    console.log($scope.user.userName + " " + $stateParams.correctScore + " " +  $stateParams.category);
+
+    $http.get('/api/quiz_result')
+      .success(function(res) {
+        console.log(res);
+      });
+    
+    $http.post('/api/quiz_result', studentGrades)
+      .success(function(res){
+        console.log (res);
+      });
+
   }
 ]);
 

@@ -7,7 +7,7 @@
 	  	<div class = "col-md-10 col-md-offset-1" style = "border-style: solid;">
 	  		<div id = "startButton" ng-hide = "isStart">
 	  			<button class = "btn" ng-click = "start()" ng-hide = "isDone" > Start </button>
-	  			<button class = "btn" ui-sref = "quiz.results({correctScore: score, numQuestion: numQuestion}) " ng-show = "isDone" > Finished </button>
+	  			<button class = "btn" ui-sref = "quiz.results({correctScore: score, numQuestion: numQuestion, category: currCategory}) " ng-show = "isDone" > Finished </button>
 	  		</div>
 	  		<div id = "quizContent" ng-show = "isStart">
 		      	<h1> Question {{numQuestion}} : {{questions[index].description}} </h1>

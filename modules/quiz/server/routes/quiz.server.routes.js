@@ -15,7 +15,8 @@ module.exports = function (app) {
   	.get(quiz.retrieveQuestionsByCategory);
 
   app.route('/api/quiz_result')
-  	.put(quiz.updateScoreByCategory);
-
+  	.get(quiz.getGrades)
+  	.post(quiz.updateGrades);
+  	
   app.param('quizID', quiz.quizQuestionByID);
 };
