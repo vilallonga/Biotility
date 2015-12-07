@@ -288,3 +288,10 @@ img.resource {
   margin: 0 0 30px 30px;
   border-radius: 5px;
 }
+
+.res-sub {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #FF2F2F;
+  padding-left: 40px;
+}
