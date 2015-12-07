@@ -11,7 +11,7 @@
     <!-- left column -->
     <div class="col-md-3">
       <div class="text-center">
-        <img ng-src="{{authentication.user.profileImageURL}}" alt="" class="img-circle user-pic">       
+        <img ng-src="{{authentication.user.profileImageURL}}" alt="" class="img-circle user-pic">
         <h6>Upload a different photo...</h6>
 
         <input type="file" class="form-control">
@@ -33,9 +33,19 @@
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div> -->
       <h3>Personal info</h3>
-
+      <div class="col-lg-3">
+        <div class = "col-lg-8">
+          <label>Email</label>
+          <span>{{user.email}}</span>
+          <label>Username</label>
+          <span>{{user.userName}}</span>
+        </div>
+      </div>
+      <br>
+      <!--
       <form class="form-horizontal" role="form">
         <div class="form-group">
+
           <label class="col-lg-3 control-label">First name:</label>
           <div class="col-lg-8">
             <input class="form-control" type="text" value="{{user.firstName}}">
@@ -103,6 +113,8 @@
           </div>
         </div>
       </form>
+
+      ------>
     </div>
   </div>
 
