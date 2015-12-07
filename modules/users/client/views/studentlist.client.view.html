@@ -1,16 +1,29 @@
-<div ng-controller="StudentLookupController" ng-init="find()">
+<div ng-controller="StudentListController">
     <div style="margin-top: 100px;">
     </div>
     <div class="page-header">
         <h1>Students</h1>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="user in users" data-ng-href"" class= "list-group-item">
-        <small class="list-group-item-text">
-            </small>
-            <h4 class="list-group-item-heading" data-ng-bind="user.displayName"></h4>
-        </a>
-    </div>
+    <table class="table table-striped">
+  		<thead>
+  			<th>FirstName</th>
+  			<th>LastName</th>
+  			<th>Email</th>
+  			<th>DisplayName</th>
+  			<th>UserName</th>
+  			<th>ProfileType</th>
+  		</thead>
+  		<tbody>
+  			<tr ng-repeat="d in data">
+  				<td>{{d.firstName}}</td>
+  				<td>{{d.lastName}}</td>
+  				<td>{{d.email}}</td>
+  				<td>{{d.displayName}}</td>
+  				<td>{{d.userName}}</td>
+  				<td>{{d.profileType}}</td>
+  			</tr>
+  		</tbody>
+
+  	</table>
 
  </div>
-

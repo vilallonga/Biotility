@@ -11,7 +11,7 @@ module.exports = function (app) {
   app.route('/api/parse/subjects').get(core.parseSubjects);
 
   // Fetch user data from database
-  app.route('/api/data/users').get(core.parseUsers);
+  app.route('/api/data/students').get(core.findStudents);
 
   // Fetch question data from database
   app.route('/api/data/questions').get(core.parseQuestions);
