@@ -28,6 +28,10 @@ angular.module('core').controller('SubjectController', ['$scope', '$state', '$lo
         $scope.authentication = Authentication;
 
         $scope.subject = $stateParams.courseName;
+		
+		$scope.startQuiz = function(){
+			$location.path('/' + $scope.subject + '/quiz');
+		};
 
     }
 ]);
