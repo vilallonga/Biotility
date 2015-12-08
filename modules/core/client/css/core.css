@@ -289,6 +289,13 @@ img.resource {
   border-radius: 5px;
 }
 
+ul.navbar-nav{
+margin-top: -15px;
+margin-right: -8px;
+}
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
 .res-sub {
   font-size: 20px;
   margin-bottom: 20px;

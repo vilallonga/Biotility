@@ -48,8 +48,8 @@
 
   <div class="row">
     <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
-      <h1>Biotility</h1>
-      <h3>Select a course below</h3>
+      <h1>Class Scores</h1>
+      <h3>Select a class below</h3>
       <script type="text/ng-template" id="group-template.html">
         <div class="panel {{panelClass || 'panel-default'}}">
           <div class="panel-heading">
@@ -151,13 +151,5 @@
 
     </div>
   </div>
-
-  <div class = "row">
-    <h1>Grades</h1>
-    <ul ng-repeat="grade in studentGrades">
-      <li> {{grade.category}} : {{grade.score}} </li>
-    </ul>
-  </div>
-
   <hr>
 </div>

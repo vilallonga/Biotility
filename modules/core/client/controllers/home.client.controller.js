@@ -20,6 +20,7 @@ angular.module('core').controller('MainController', ['$scope', '$state', '$locat
             $location.path('/' + subjectObj.name + '/resources');
         };
 
+
     }
 ]);
 
@@ -29,7 +30,7 @@ angular.module('core').controller('SubjectController', ['$scope', '$state', '$lo
         $scope.authentication = Authentication;
 
         $scope.subject = $stateParams.courseName;
-		
+
 		$scope.startQuiz = function(){
 			$location.path('/' + $scope.subject + '/quiz');
 		};
@@ -42,8 +43,9 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
 
         $scope.authentication = Authentication;
         $scope.user = $scope.authentication.user;
+
         console.log($scope.user);
-        
+
         $scope.oneAtATime = true;
 
         $scope.groups = [
@@ -72,11 +74,21 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             isFirstDisabled: false
         };
 
+        $scope.$on('creation', function(event, args) {
+            console.log(args);
+            console.log("controller2");
+            $scope.test = "TESTING";
+            console.log($scope.section);
+            $scope.section = args.firstName;
+            console.log($scope.section);
+
+        });
+
         $scope.studentGrades = [];
         $http.get('/api/quiz_result')
           .success(function(res) {
             console.log(res);
-            byStudent(res); 
+            byStudent(res);
           });
 
         var byStudent = function(allStudentGrades) {

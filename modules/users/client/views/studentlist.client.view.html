@@ -1,0 +1,26 @@
+<div ng-controller="StudentListController">
+    <div style="margin-top: 100px;">
+    </div>
+    <div class="page-header">
+        <h1>Students</h1>
+    </div>
+    
+            <div class="list-group">
+            <h3 class="list-group-item-heading">Name</h3>
+  			<a ng-repeat="d in data"class="list-group-item" data-ui-sref="teacherProfileTeacherView({username: user, email: email, firstname: firstname, lastname: lastname})" ng-click="getName(d)">
+                
+
+                 <div class="list-group-item-heading">
+                {{d.displayName}}
+
+                </div>
+  			
+  				
+  			</a>
+        </div>
+        
+  		
+
+  
+
+ </div>

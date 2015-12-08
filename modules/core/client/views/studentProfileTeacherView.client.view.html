@@ -1,0 +1,84 @@
+<div class="container" ng-controller="StudentGetController">]
+  <div style="margin-top: 100px;">
+    </div>
+  <hr>
+  <div class="row">
+    <div id="left-side" class="list-view ">
+      <h1 id="section-tabs-header">
+        <h2> Username: {{userFinal}} </h2>
+      </h1>
+
+    </div>
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        
+
+        <input type="file" class="form-control">
+
+        <nav aria-label="context" role="navigation">
+          <ul class="nav" id="section-tabs">
+            <li class="section"><a class="home" href="/" tabindex="0">Home</a></li>
+            <li class="section"><a ng-click="profileVisible = true" class="profile" href="#" tabindex="0">Profile</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+<!--       <div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+      </div> -->
+      <h3>Personal info</h3>
+      <div class="col-lg-3">
+        <div class = "col-lg-8">
+          <label>Email</label>
+          <span>{{emailFinal}}</span>
+          <label>Username</label>
+          <span>{{userFinal}}</span>
+          <label>First Name</label>
+          <span>{{firstnameFinal}}</span>
+          <label>Last Name</label>
+          <span>{{lastnameFinal}}</span>
+        </div>
+      </div> 
+    </div>
+  <!--</div>-->
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
+      <h1>Biotility</h1>
+      <h3>Select a course below</h3>
+      <script type="text/ng-template" id="group-template.html">
+        <div class="panel {{panelClass || 'panel-default'}}">
+          <div class="panel-heading">
+            <h4 class="panel-title" style="color:#fa39c3">
+              <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span
+                ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+            </h4>
+          </div>
+          <div class="panel-collapse collapse" uib-collapse="!isOpen">
+            <div class="panel-body" style="text-align: right" ng-transclude></div>
+          </div>
+        </div>
+      </script>
+
+      <uib-accordion close-others="oneAtATime">
+        <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+          <p>{{group.content}}</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{group.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{group.progress}}%;">
+              <span class="sr-only">{{group.progress}}% Complete</span>
+            </div>
+          </div>
+        </uib-accordion-group>
+
+    </div>
+
+    
+  </div>
+  <hr>
+</div>

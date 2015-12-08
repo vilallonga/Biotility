@@ -66,3 +66,10 @@ exports.parseQuestions = function(req, res) {
     return res.end(JSON.stringify(users));
   });
 };
+
+// Find student data
+exports.findStudents = function(req, res) {
+  User.find({'profileType' : 'Student'}).lean().exec(function(err, users) {
+    return res.end(JSON.stringify(users));
+  });
+};

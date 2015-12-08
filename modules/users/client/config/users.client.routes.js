@@ -2,7 +2,7 @@
 
 // Setting up route
 angular.module('users').config(['$stateProvider',
-  function ($stateProvider) {
+  function($stateProvider) {
     // Users state routing
     $stateProvider
       .state('settings', {
@@ -41,6 +41,22 @@ angular.module('users').config(['$stateProvider',
       .state('authentication.signin', {
         url: '/signin?err',
         templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
+      })
+
+      .state('teacherProfileTeacherView', {
+        url: '/list/students',
+        templateUrl: 'modules/core/client/views/studentProfileTeacherView.client.view.html',
+        params: {
+          username: "Username",
+          email: "email",
+          firstname: "first",
+          lastname: "last",
+        }
+      })
+
+      .state('studentList', {
+        url: '/list',
+        templateUrl: 'modules/users/client/views/studentlist.client.view.html'
       })
       .state('password', {
         abstract: true,
