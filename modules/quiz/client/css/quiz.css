@@ -1,0 +1,14 @@
+@font-face {
+  font-family: AwesomeFont;
+  src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+}
+
+body {
+  font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+}
+
+#startButton {
+	color: black;
+	margin-top: 100px;
+	border-style: solid;
+}

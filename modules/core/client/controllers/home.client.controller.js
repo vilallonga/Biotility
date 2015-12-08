@@ -9,6 +9,7 @@ angular.module('core').controller('MainController', ['$scope', '$state', '$locat
 
         Subjects.loadSubjects().then(function(response) {
           $scope.subjects = response.data;
+            console.log($scope.subjects);
         });
 
         $scope.gotoQuiz = function(subjectObj) {
@@ -28,16 +29,21 @@ angular.module('core').controller('SubjectController', ['$scope', '$state', '$lo
         $scope.authentication = Authentication;
 
         $scope.subject = $stateParams.courseName;
+		
+		$scope.startQuiz = function(){
+			$location.path('/' + $scope.subject + '/quiz');
+		};
 
     }
 ]);
 
-angular.module('core').controller('ProfileController', ['$scope', '$state', '$location', 'Authentication',
-    function ($scope, $state, $location, Authentication) {
+angular.module('core').controller('ProfileController', ['$scope', '$state', '$location', 'Authentication', '$http',
+    function ($scope, $state, $location, Authentication, $http) {
 
         $scope.authentication = Authentication;
         $scope.user = $scope.authentication.user;
-
+        console.log($scope.user);
+        
         $scope.oneAtATime = true;
         $scope.isTeacher = false;
         $scope.profileVisible = true;
@@ -68,5 +74,26 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             isFirstOpen: true,
             isFirstDisabled: false
         };
+
+        $scope.studentGrades = [];
+        $http.get('/api/quiz_result')
+          .success(function(res) {
+            console.log(res);
+            byStudent(res); 
+          });
+
+        var byStudent = function(allStudentGrades) {
+            for (var i = 0 ; i < allStudentGrades.length; i++) {
+                console.log(allStudentGrades[i].studentName);
+                console.log($scope.user.userName);
+                if (allStudentGrades[i].studentName === $scope.user.userName) {
+                    $scope.studentGrades.push(allStudentGrades[i]);
+                }
+             console.log($scope.studentGrades[i].studentName);
+
+            }
+
+        };
+
     }
 ]);

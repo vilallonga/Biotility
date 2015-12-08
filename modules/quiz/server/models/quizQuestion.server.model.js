@@ -25,4 +25,12 @@ questionSchema.methods.getQuizResults = function(userID) {
 
 };
 
+var gradeSchema = new Schema ({
+	category : {type: String, required: true},
+	studentName : {type: String, required: true},
+	score : {type: String, required: true},
+	totalNum: {type: String, required: true}
+});
+
 mongoose.model('QuizQuestion', questionSchema);
+mongoose.model('StudentGrades', gradeSchema);

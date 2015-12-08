@@ -102,7 +102,20 @@ var UserSchema = new Schema({
     resetPasswordExpires: {
         type: Date
     },
-    courses: {}
+    courses: {
+        courseName: {
+            type: String
+        },
+        content: {
+            type: String
+        },
+        progress: {
+            type: String
+        },
+        section: {
+            type: String
+        }
+    }
 });
 
 /**
