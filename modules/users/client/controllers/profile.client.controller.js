@@ -25,6 +25,9 @@ angular.module('users').controller('StudentListController', ['$rootScope', '$sco
    
  	$scope.getName = function(disName) {
            $scope.user = disName.userName;
+           $scope.email = disName.email;
+           $scope.firstname = disName.firstName;
+           $scope.lastname = disName.lastName;
            console.log("hello");
            console.log($scope.user);
         };
@@ -36,10 +39,17 @@ angular.module('users').controller('StudentGetController', ['$rootScope', '$scop
    
     $scope.authentication = Authentication;
    // $scope.section = null;
-    $scope.user = $stateParams.username;
-    $scope.email = $stateParams.email;
-    $scope.firstname = $stateParams.firstname;
-    $scope.lastname = $stateParams.lastname;
+   console.log("in state params:");
+   console.log($stateParams.username);
+    $scope.userFinal = $stateParams.username;
+    $scope.emailFinal = $stateParams.email;
+    $scope.firstnameFinal = $stateParams.firstname;
+    $scope.lastnameFinal = $stateParams.lastname;
+   console.log("Second controller");
+   console.log($scope.userFinal);
+   console.log($scope.email);
+   console.log($scope.firstname);
+   console.log($scope.lastname);
 
 
    

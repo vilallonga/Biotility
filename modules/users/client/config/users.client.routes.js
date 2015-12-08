@@ -44,13 +44,13 @@ angular.module('users').config(['$stateProvider',
       })
 
       .state('teacherProfileTeacherView', {
-        url: '/list/students/{userName:.+}',
+        url: '/list/students',
         templateUrl: 'modules/core/client/views/studentProfileTeacherView.client.view.html',
         params: {
-          username: null,
-          email: null,
-          firstname: null,
-          lastname: null,
+          username: "Username",
+          email: "email",
+          firstname: "first",
+          lastname: "last",
         }
       })
 
