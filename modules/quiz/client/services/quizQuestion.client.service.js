@@ -14,10 +14,6 @@ angular.module('quiz').factory('QuizQuestion', ['$resource',
 			method: 'GET',
 			url:'/api/quiz',
 			isArray: true, 
-		},
-		updateScore: {
-			method: 'PUT',
-			url: '/api/quiz_result'
 		}
 	});
   }

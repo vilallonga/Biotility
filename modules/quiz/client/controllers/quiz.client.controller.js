@@ -1,8 +1,11 @@
 'use strict';
 
 // Quiz main controller
-angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion', '$stateParams', '$state', '$http',
-  function($scope, QuizQuestion, $stateParams, $state, $http) {
+angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state', 'Authentication', '$http',
+  function ($scope, QuizQuestion, $stateParams, $state, Authentication, $http) {
+    $scope.authentication = Authentication;
+    console.log($scope.authentication.user);
+
     $scope.isDone = false; //checks if the quiz is finished ->switches models to done state
     $scope.isStart = false; //checks if quiz start button is triggered
 
@@ -13,7 +16,7 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion', '
     $scope.score = 0;
     $scope.numQuestion = 0;
 
-    var currCategory = $stateParams.courseName;
+    $scope.currCategory = $stateParams.courseName;
 
     $scope.start = function() {
       $scope.isStart = true;
@@ -48,8 +51,6 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion', '
         console.log("Index is " + $scope.index);
         console.log("Score is " + $scope.score);
       }
-
-
     };
 
     $scope.getQuestion = function() {
@@ -60,19 +61,52 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion', '
         });
     };
 
-    //console.log("Category before the switch to applications: " + currCategory);
+    console.log("Category before the switch to applications: " + $scope.currCategory);
+    $scope.currCategory = "Applications"; //temp change for current results
 
-  } //End of function for controller
+    $scope.byCategory = function(listOfQuestions) {
+      console.log("By category");
+      console.log(listOfQuestions);
+      for (var i = 0 ; i < listOfQuestions.length; i++) {
+        if (listOfQuestions[i].category === $scope.currCategory) {
+         $scope.questions.push(listOfQuestions[i]);
+        }
+      }
+      console.log($scope.questions);
+      max = $scope.questions.length;
+    };
+
+  }//End of function for controller
+
 ]);
 
 /*
 Controller for the finished quiz results
 */
-angular.module('quiz').controller('QuizResults', ['$scope', '$stateParams',
-  function($scope, $stateParams) {
-    console.log($stateParams.correctScore);
+
+angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParams', 'Authentication',
+  function ($http, $scope, $stateParams, Authentication) {
+    $scope.authentication = Authentication;
+    $scope.user = $scope.authentication.user;
+
     $scope.score = $stateParams.correctScore;
     $scope.totalNumQuestion = $stateParams.numQuestion;
+    
+    //Creates a new student grades and stores it into collection view StudentGrades
+    var studentGrades = {
+      category :    $stateParams.category,
+      studentName : $scope.user.userName,
+      score :       $scope.score,
+      totalNum:     $stateParams.numQuestion
+    };
+
+    console.log($scope.user.userName + " " + $stateParams.correctScore + " " +  $stateParams.category);
+    
+    $http.post('/api/quiz_result', studentGrades)
+      .success(function(res){
+        console.log (res);
+      });
+
   }
 ]);
 

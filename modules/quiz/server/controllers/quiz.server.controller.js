@@ -6,7 +6,10 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   QuizQuestion = mongoose.model('QuizQuestion'),
+  StudentGrades = mongoose.model('StudentGrades'),
+  User = mongoose.model('User'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
+
 
 /**
  * Create a quiz question
@@ -35,26 +38,29 @@ exports.retrieveQuestionsByCategory = function(req, res) {
   });
 };
 
+exports.getGrades = function (req, res) {
+  StudentGrades.find({}).lean().exec(function(err, grades) {
+    return res.end(JSON.stringify(grades));
+  });
+};
 /*
 Inserts the quiz results to the Student profile
 */
-exports.updateScoreByCategory = function(req, res) {
-  // var article = req.article;
 
-  // article.title = req.body.title;
-  // article.content = req.body.content;
-
-
-  // user.save(function (err) {
-  //     //   if (err) {
-  // //     return res.status(400).send({
-  // //       message: errorHandler.getErrorMessage(err)
-  // //     });
-  // //   } else {
-  // //     res.json(article);
-  // //   }
-  // });
+exports.updateGrades = function (req, res) {
+  var studentGrade = new StudentGrades(req.body);
+  
+  studentGrade.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(studentGrade);
+    }
+  });
 };
+
 
 exports.quizQuestionByID = function(req, res, next, id) {
 

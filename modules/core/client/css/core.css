@@ -296,3 +296,9 @@ margin-right: -8px;
 ul.nav li.dropdown:hover ul.dropdown-menu {
     display: block;
 }
+.res-sub {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #FF2F2F;
+  padding-left: 40px;
+}
