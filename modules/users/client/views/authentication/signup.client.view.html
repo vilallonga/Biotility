@@ -1,5 +1,6 @@
 <div ng-controller="AuthenticationController">
 
+<!--header-->
     <div class="breadcrumbh">
     	<div class="row topmargin-b">
         	<div class="col-md-2 col-md-offset-1 page-head">
@@ -11,6 +12,7 @@
     	</div>
     </div>
 
+	<!--submit form-->
     <form ng-submit="signup(true)">
    		 <div class="container topmargin-50" align="center">
          	<div class="inputs">
@@ -30,6 +32,7 @@
             </div>
         </div>
 
+<!--account type-->
         <div class="row">
             <div class="col-md-2 col-md-offset-4 text-right">
                 <div class="accounts">
@@ -47,11 +50,11 @@
                 <br>
             </div>
         </div>
-        <!-- if student -->
+        <!-- if student - input class code -->
         <div ng-show="credentials.profileType=='Student'" class="inputs" align="center">
                 <input type="text" ng-model="credentials.courseCode" placeholder="Class Code" style="height:40px;">
         </div>
-        <!-- if teacher -->
+        <!-- if teacher - select courses  -->
         <div ng-show="credentials.profileType=='Teacher'">
             <div class="row">
                 <div class="col-md-2 col-md-offset-4 text-right">
@@ -59,17 +62,22 @@
                 		Courses:
                 	</div>
                 </div>
+                
+                <!--select course-->
                 <div class="col-md-2 account-pick">
                     <select ng-model="toAdd" style="height: 30px;">
                         <option ng-repeat="name in classNames track by $index">{{name}}</option>
                     </select>
+                    <!--button for adding more than one course-->
                     	<button type="button" class="btn btn-default" ng-click="add(toAdd)">
                         	+
                    		</button>
                 </div>
             </div>
+            
+            <!--Classes already seleted-->
             <div class="row">
-                <div class="col-md-2 col-md-offset-3 text-right">
+                <div class="col-md-2 col-md-offset-4 text-right">
                     <ul class="list-inline">
                         <li ng-repeat="x in credentials.coursesTeaching track by $index">
                             <button type="button" class="btn btn-success">{{x}}</button>
@@ -78,6 +86,7 @@
                 </div>
             </div>
         </div>
+        <!--Registration button-->
         <div class="topmargin-10" style="text-align:center;">
             <button class="btn btn-default" type="submit">
                 Register
@@ -86,4 +95,5 @@
     </form>
 </div>
 
+<!--footer-->
 <div class="text-center footer" style="margin-top: 100px;">&copy; Biotility, 2015.</div>
