@@ -47,6 +47,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         $scope.oneAtATime = true;
         $scope.isTeacher = false;
         $scope.profileVisible = true;
+
         if ($scope.profileType === "Teacher") {
             $scope.isTeacher = true;
         }
@@ -59,7 +60,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             {
                 title: 'Biology',
                 content: 'Lesson 2: Ecosystems',
-                progress: 25
+                progress: 0
             },
             {
                 title: 'Chemistry',
@@ -78,7 +79,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         $scope.studentGrades = [];
         $http.get('/api/quiz_result')
           .success(function(res) {
-            console.log(res);
+            console.log("quiz result: ", res);
             byStudent(res); 
           });
 
@@ -88,11 +89,28 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
                 console.log($scope.user.userName);
                 if (allStudentGrades[i].studentName === $scope.user.userName) {
                     $scope.studentGrades.push(allStudentGrades[i]);
+                    //TODO: "Applications" should be the name of the course, like "Biology"
+                    //TODO: quiz should have a pass/fail variable, to determine if adding to progress.
+                    /*
+                    for (var j = 0; j < $scope.groups.length; j++) {
+                        if (allStudentGrades[i].category === $scope.groups[j].title) {
+                            if (allStudentGrades[i].pass == true) {
+                                //add progress to group
+                            }
+                        }
+                    }
+                    */
+                    if (allStudentGrades[i].category === "Applications") {
+                        //have to hardcode this until what "applications" is, is resolved
+                        $scope.groups[1].progress++;
+                        //TODO: this should be:
+                        /* if (allStudentGrades[i].pass == true) { */
+                    }
                 }
              console.log($scope.studentGrades[i].studentName);
 
             }
-
+            $scope.groups[1].progress *= 25;
         };
 
     }
