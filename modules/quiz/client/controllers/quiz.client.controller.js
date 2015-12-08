@@ -1,8 +1,8 @@
 'use strict';
 
 // Quiz main controller
-angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state', 'Authentication',
-  function ($scope, QuizQuestion, $stateParams, $state, Authentication) {
+angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$stateParams', '$state', 'Authentication', '$http',
+  function ($scope, QuizQuestion, $stateParams, $state, Authentication, $http) {
     $scope.authentication = Authentication;
     console.log($scope.authentication.user);
 
@@ -83,7 +83,7 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
 /*
 Controller for the finished quiz results
 */
-<<<<<<< HEAD
+
 angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParams', 'Authentication',
   function ($http, $scope, $stateParams, Authentication) {
     $scope.authentication = Authentication;
@@ -91,7 +91,8 @@ angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParam
 
     $scope.score = $stateParams.correctScore;
     $scope.totalNumQuestion = $stateParams.numQuestion;
-   
+    
+    //Creates a new student grades and stores it into collection view StudentGrades
     var studentGrades = {
       category :    $stateParams.category,
       studentName : $scope.user.userName,

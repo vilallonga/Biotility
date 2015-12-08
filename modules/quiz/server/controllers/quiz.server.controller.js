@@ -59,6 +59,7 @@ exports.updateGrades = function (req, res) {
       res.json(studentGrade);
     }
   });
+};
 
 
 exports.quizQuestionByID = function(req, res, next, id) {
