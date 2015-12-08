@@ -42,6 +42,18 @@ angular.module('users').config(['$stateProvider',
         url: '/signin?err',
         templateUrl: 'modules/users/client/views/authentication/signin.client.view.html'
       })
+
+      .state('teacherProfileTeacherView', {
+        url: '/list/students/{userName:.+}',
+        templateUrl: 'modules/core/client/views/studentProfileTeacherView.client.view.html',
+        params: {
+          username: null,
+          email: null,
+          firstname: null,
+          lastname: null,
+        }
+      })
+
       .state('studentList', {
         url: '/list',
         templateUrl: 'modules/users/client/views/studentlist.client.view.html'

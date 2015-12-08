@@ -4,13 +4,16 @@
     <div class="page-header">
         <h1>Students</h1>
     </div>
-    <!--list of students-->
+    
             <div class="list-group">
             <h3 class="list-group-item-heading">Name</h3>
-  			<a ng-repeat="d in data"class="list-group-item">
+  			<a ng-repeat="d in data"class="list-group-item" ui-sref="teacherProfileTeacherView({username: user, email: email, firstname: firstname, lastname: lastname})" ng-click="getName(d)">
                 
-  				
-  				<h4 class="list-group-item-heading">{{d.displayName}}</h4>
+
+                 <div class="list-group-item-heading">
+                {{d.displayName}}
+                </div>
+  			
   				
   			</a>
         </div>
