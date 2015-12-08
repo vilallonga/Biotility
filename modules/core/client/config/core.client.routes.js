@@ -26,6 +26,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         params: {
           correctScore: null,
           numQuestion: null,
+          category: null,
         }
       })
       .state('resources', {
