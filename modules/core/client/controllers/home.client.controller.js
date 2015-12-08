@@ -68,7 +68,6 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
 
         $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
-
         $scope.status = {
             isFirstOpen: true,
             isFirstDisabled: false

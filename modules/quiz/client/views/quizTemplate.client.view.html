@@ -5,11 +5,11 @@
 	<div class = "container" >
 		<span ng-bind="question.description"></span>
 	  	<div class = "col-md-10 col-md-offset-1">
-	  		<div id = "startButton" ng-hide = "isStart" style = "text-align: center;">
+	  		<div class = "startButton" ng-hide = "isStart" style = "text-align: center;">
 	  			<button class = "btn btn-primary btn-block" ng-click = "start()" ng-hide = "isDone" > Start </button>
 	  			<button class = "btn btn-primary btn-block" ui-sref = "quiz.results({correctScore: score, numQuestion: numQuestion, category: currCategory}) " ng-show = "isDone" > Finished </button>
 	  		</div>
-	  		
+
 
 	  		<div id = "quizContent" ng-show = "isStart">
 		      	<h1> Question {{numQuestion}} : {{questions[index].description}} </h1>
