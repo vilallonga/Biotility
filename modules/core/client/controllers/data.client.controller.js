@@ -18,3 +18,12 @@ angular.module('core').controller('QuestionData', ['$scope', '$http',
       });
   }
 ]);
+
+angular.module('core').controller('SubjectData', ['$scope', '$http',
+    function($scope, $http) {
+      $http.get('/api/parse/subjects')
+      .success(function(res){
+      	$scope.data = res;
+      });
+  }
+]);

@@ -1,7 +1,11 @@
 @font-face {
   font-family: AwesomeFont;
-  src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+  src: url('/modules/core/client/img/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.woff') format('woff'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.ttf')  format('truetype'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.svg#svgFontName') format('svg');
 }
+
 @media (min-width: 992px) {
   .nav-users {
     position: fixed;
@@ -12,20 +16,20 @@ body {
 }
 .breadcrumbh {
   background: #FC252B;
-  !important font-family: AwesomeFont, Verdana, Geneva, sans-serif;
+  font-family: AwesomeFont, Verdana, Geneva, sans-serif !important;
   margin-bottom: 70px;
   min-width: 100%;
   display: inline-block;
 }
-#breadcrumbh a:link, #breadcrumbh a:visited {
+.breadcrumbh a:link, .breadcrumbh a:visited {
   color: white;
   text-decoration: none;
 }
-#breadcrumbh a:hover {
+.breadcrumbh a:hover {
   color: #464646;
   text-decoration: none;
 }
-#breadcrumbh a:active {
+.breadcrumbh a:active {
   color: white;
   text-decoration: none;
 }

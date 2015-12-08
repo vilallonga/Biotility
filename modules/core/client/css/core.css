@@ -1,12 +1,18 @@
 @font-face {
   font-family: AwesomeFont;
-  src: url(/modules/core/client/img/fonts/fontawesome-webfont.woff);
+  src: url('/modules/core/client/img/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.woff') format('woff'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.ttf')  format('truetype'),
+        url('/modules/core/client/img/fonts/fontawesome-webfont.svg#svgFontName') format('svg');
 }
+
 [ui-view].ng-enter, [ui-view].ng-leave {
   position: absolute;
   left: 0;
   right: 0;
   -webkit-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;
 }
 [ui-view].ng-enter {
@@ -70,6 +76,7 @@ body {
   cursor: pointer;
   -webkit-transition: all .25s ease;
   -moz-transition: all .25s ease;
+  -o-transition: all .25s ease;
 }
 .center-block.center-button:hover {
   background: #252525;
@@ -84,15 +91,15 @@ body {
 .navbar-brand>span {
   color: white;
 }
-#navbar a:link, #navbar a:visited {
+.navbar a:link, .navbar a:visited {
   color: #959595;
   text-decoration: none;
 }
-#navbar a:hover {
+.navbar a:hover {
   color: white;
   text-decoration: none;
 }
-#navbar a:active {
+.navbar a:active {
   color: #464646;
   text-decoration: none;
 }
@@ -100,7 +107,7 @@ body {
   top: 40% !important;
 }
 .bg-navbar {
-  margin-top: 0px;
+  margin-top: 0;
   height: 75px;
   background-color: #242424;
   color: white;
@@ -113,6 +120,8 @@ body {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
@@ -143,6 +152,7 @@ body {
 }
 .hovereffect {
   opacity: 1.0 !important;
+  background: rgb(0, 0, 0);
   background: rgba(255, 255, 255, .7);
 }
 .under {
@@ -164,6 +174,7 @@ body {
   opacity: 0;
   -webkit-transition: all .25s ease;
   -moz-transition: all .25s ease;
+  -o-transition: all .25s ease;
 }
 .thumbnail.prequiz-thumb {
   height: 361px;
@@ -176,9 +187,9 @@ body {
   background-color: #000000;
   color: grey;
   padding: 10px;
-  border-radius: 15px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+  border-radius: 15px;
 }
 .caption {
   font-size: 14px;
@@ -276,4 +287,11 @@ img.resource {
   float: right;
   margin: 0 0 30px 30px;
   border-radius: 5px;
+}
+
+.res-sub {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #FF2F2F;
+  padding-left: 40px;
 }
