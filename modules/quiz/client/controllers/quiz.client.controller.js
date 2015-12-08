@@ -15,7 +15,7 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
     $scope.score = 0;
     $scope.numQuestion = 0;
 
-    var currCategory = $stateParams.courseName;
+    $scope.currCategory = $stateParams.courseName;
 
     $scope.start = function() {
       $scope.isStart = true;
@@ -58,14 +58,14 @@ angular.module('quiz').controller('QuizController', ['$scope', 'QuizQuestion','$
         });
     };
 
-    console.log("Category before the switch to applications: " + currCategory);
-    currCategory = "Applications"; //temp change for current results
+    console.log("Category before the switch to applications: " + $scope.currCategory);
+    $scope.currCategory = "Applications"; //temp change for current results
 
     $scope.byCategory = function(listOfQuestions) {
       console.log("By category");
       console.log(listOfQuestions);
       for (var i = 0 ; i < listOfQuestions.length; i++) {
-        if (listOfQuestions[i].category === currCategory) {
+        if (listOfQuestions[i].category === $scope.currCategory) {
          $scope.questions.push(listOfQuestions[i]);
         }
       }
@@ -94,11 +94,6 @@ angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParam
     };
 
     console.log($scope.user.userName + " " + $stateParams.correctScore + " " +  $stateParams.category);
-
-    $http.get('/api/quiz_result')
-      .success(function(res) {
-        console.log(res);
-      });
     
     $http.post('/api/quiz_result', studentGrades)
       .success(function(res){
@@ -111,8 +106,6 @@ angular.module('quiz').controller('QuizResults', ['$http', '$scope','$stateParam
 /*
 Controller for storing quiz into MongoDB
 */
-
-
 
 angular.module('quiz').controller('QuizCreate', ['$scope', 'QuizQuestion',
   function ($scope, QuizQuestion) {  

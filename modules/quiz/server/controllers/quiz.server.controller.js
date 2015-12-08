@@ -50,8 +50,8 @@ exports.retrieveQuestionsByCategory = function (req, res) {
 };
 
 exports.getGrades = function (req, res) {
-  User.find({}).lean().exec(function(err, users) {
-    return res.end(JSON.stringify(users));
+  StudentGrades.find({}).lean().exec(function(err, grades) {
+    return res.end(JSON.stringify(grades));
   });
 };
 /*
