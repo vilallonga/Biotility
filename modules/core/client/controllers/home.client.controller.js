@@ -57,7 +57,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             $scope.isTeacher = true;
         }
 
-        // dummy data. backend still not up. cant link students to courses 
+        // dummy data. backend still not up. cant link students to courses
         $scope.groups = [
             {
                 title: 'Cells',
@@ -133,7 +133,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
              //console.log($scope.studentGrades[i].studentName);
 
             }
-            $scope.groups[0].progress *= 25;
+            $scope.groups[0].progress *= 10;
         };
 
     }
