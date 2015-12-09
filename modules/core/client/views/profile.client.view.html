@@ -14,6 +14,7 @@
         <img ng-src="{{authentication.user.profileImageURL}}" alt="" class="img-circle user-pic">
         <h6>Upload a different photo...</h6>
 
+        // student profile picture.. for some reason doesnt store pic after refresh
         <input type="file" class="form-control">
 
         <nav aria-label="context" role="navigation">
@@ -33,6 +34,8 @@
         <i class="fa fa-coffee"></i>
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div> -->
+
+      // visual rep of student username and email
       <h3>Account Information</h3>
       <div class="col-lg-3">
         <div class = "col-lg-8">
@@ -48,6 +51,7 @@
     </div>
   <!--</div>-->
 
+   // for teacher profile.. will allow teachers not to view student settings
   <div class="row" ng-hide="isTeacher">
     <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
       <h1>Biotility</h1>
@@ -66,6 +70,7 @@
         </div>
       </script>
 
+  // allows students and teachers to see progress bar ref students progress
       <uib-accordion close-others="oneAtATime">
         <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
           <p>{{group.content}}</p>
@@ -143,6 +148,8 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
+
+            // save changes needs a function to be added .. TODO
             <input type="button" class="btn btn-primary" value="Save Changes">
             <span></span>
             <input type="reset" class="btn btn-default" value="Cancel">
@@ -154,6 +161,7 @@
     </div>
   </div>
 
+    // accordian that is used to view student subjects
     <div class="row" ng-show="isTeacher">
       <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
         <h1>Biotility</h1>
@@ -172,6 +180,7 @@
           </div>
         </script>
 
+    // closes the rest of the accordian as one is opened
         <uib-accordion close-others="oneAtATime">
           <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
             <p>{{group.content}}</p>
@@ -184,6 +193,7 @@
 
       </div>
 
+      // setup for setting tab.. displays first & last name, user, school, timezone (might not be needed)
       <div class="col-md-9 col-md-offset-3" ng-hide="profileVisible">
         <!-- change for to just a list or table or something -->
         <form class="form-horizontal" role="form">
@@ -250,6 +260,8 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
+
+              // save changes button needs a function to be added
               <input type="button" class="btn btn-primary" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancel">
@@ -264,6 +276,7 @@
 
   </div>
 
+// Grade display.. applications is the only link from backend as of now
   <div class = "row">
     <h1>Grades</h1>
     <ul ng-repeat="grade in studentGrades">
