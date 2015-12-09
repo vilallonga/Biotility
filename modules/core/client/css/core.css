@@ -1,3 +1,5 @@
+
+/* Font */
 @font-face {
   font-family: AwesomeFont;
   src: url('/modules/core/client/img/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
@@ -82,6 +84,8 @@ body {
   background: #252525;
   color: white;
 }
+
+/* NAVBAR */
 .navbar-brand {
   font-size: 15px;
   padding-right: 20px;
@@ -116,6 +120,7 @@ body {
   font-size: 30px;
   margin-top: 30px;
 }
+
 .vertical-center {
   position: relative;
   top: 50%;
@@ -125,6 +130,9 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+/* HOME PAGE */
+
 .content-main {
   background: white;
   height: 100%;
@@ -150,6 +158,9 @@ body {
 .subjects {
   background: #EFEFEF;
 }
+
+/* Subject boxes */
+
 .hovereffect {
   opacity: 1.0 !important;
   background: rgb(0, 0, 0);
@@ -194,6 +205,9 @@ body {
 .caption {
   font-size: 14px;
 }
+
+/* buttons*/
+
 .big-btn {
   width: 361px;
   height: 250px;
@@ -205,6 +219,8 @@ body {
 .big-btn > a {
   color: inherit;
 }
+
+/* home page content*/
 .main-head {
   background-color: #BBB;
   border-radius: 25px;
@@ -235,6 +251,9 @@ body {
   color: #11023C;
   margin-left: 50px;
 }
+
+/* about and contact page content */
+
 .about-sub {
   font-size: 25px;
   margin-bottom: 20px;
@@ -250,12 +269,19 @@ body {
   color: black;
   margin-bottom: 10px;
 }
+
+/* footer */
+
+
 .footer {
   padding-top: 42px;
   padding-bottom: 30px;
   background: #252525;
   color: #B9B9B9;
 }
+
+/*image css */
+
 img.center {
   display: block;
   margin-left: auto;
@@ -269,6 +295,10 @@ img.bord {
   border-color: #D4D4D4;
   border-width: 4px;
 }
+
+/*contact page */
+
+
 .contact {
   font-size: 25px;
   margin-bottom: 20px;
@@ -283,6 +313,9 @@ img.bord {
 .bold {
   font-weight: bold;
 }
+
+/* resource page */
+
 img.resource {
   float: right;
   margin: 0 0 30px 30px;
@@ -295,3 +328,12 @@ img.resource {
   color: #FF2F2F;
   padding-left: 40px;
 }
+
+ul.navbar-nav{
+margin-top: -15px;
+margin-right: -8px;
+}
+ul.nav li.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
+

@@ -9,7 +9,6 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         location: false
       });
     });
-
     // Home state routing
     $stateProvider
       .state('home', {
@@ -43,7 +42,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       })
       .state('teacherprofile', {
         url: '/teacher/{userName:.+}',
-        templateUrl: 'modules/core/client/views/profile.client.view.html'
+        templateUrl: 'modules/core/client/views/teacherprofile.client.view.html'
       })
       .state('userData', {
         url: '/data/users',

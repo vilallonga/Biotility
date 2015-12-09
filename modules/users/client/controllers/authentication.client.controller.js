@@ -59,6 +59,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $location.url('/');
 
       }).error(function(response) {
+        console.log("invalid");
+        //sets error if invalid info
+        setTimeout(function(){ alert("Error: Username already exists/Enter valid information"); }, 0);
         $scope.error = response.message;
         console.log(response);
       });
@@ -81,6 +84,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // And redirect to home page
         $state.go('home');
       }).error(function(response) {
+        console.log("invalid");
+        //sets popup for invalid usernmae or password
+        setTimeout(function(){ alert("Invalid Username or Password"); }, 0);
         $scope.error = response.message;
       });
     };

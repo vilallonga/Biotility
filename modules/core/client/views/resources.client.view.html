@@ -1,5 +1,6 @@
 <div ng-controller="SubjectController">
 
+	<!--header-->
 	<div class="breadcrumbh" id="breadcrumbh">
     	<div class="row topmargin-b">
         	<div class="col-md-2 col-md-offset-1 page-head">
@@ -15,6 +16,9 @@
    <div class="container head about-sub">
     	Learn More
     </div>
+    
+    <!--show based on url and subject -->
+    <!--category and subcategories with links-->
     
     <!--Cells-->
     <div ng-show="subject == 'Cells'">
@@ -275,6 +279,8 @@ http://dl.clackamas.edu/ch105-04/calculat.htm">Calculations Using Molarity</a>
         </div>
         
    </div>
+   
+   <!--link to quiz for specific subject -->
     
     <div class="container" align="center">
          <div class="btn btn-default about-ssub" ng-click="startQuiz()">
@@ -282,7 +288,7 @@ http://dl.clackamas.edu/ch105-04/calculat.htm">Calculations Using Molarity</a>
      </div>
      </div>
     
-
+<!--footer-->
 <div class="text-center footer" style="margin-top: 100px;">&copy; Biotility, 2015.</div>
 
 </div>

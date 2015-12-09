@@ -1,3 +1,4 @@
+
 'use strict';
 
 /**
@@ -14,3 +15,4 @@ module.exports = _.extend(
   require('./users/users.password.server.controller'),
   require('./users/users.profile.server.controller')
 );
+
