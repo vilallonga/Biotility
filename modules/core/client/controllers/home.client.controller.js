@@ -41,32 +41,42 @@ angular.module('core').controller('SubjectController', ['$scope', '$state', '$lo
 angular.module('core').controller('ProfileController', ['$scope', '$state', '$location', 'Authentication', '$http',
     function ($scope, $state, $location, Authentication, $http) {
 
+        // authentication of user
         $scope.authentication = Authentication;
         $scope.user = $scope.authentication.user;
 
         console.log($scope.user);
 
+        // accodian view one open - rest closed
         $scope.oneAtATime = true;
         $scope.isTeacher = false;
         $scope.profileVisible = true;
 
+        // for teacher view
         if ($scope.profileType === "Teacher") {
             $scope.isTeacher = true;
         }
+
+        // dummy data. backend still not up. cant link students to courses 
         $scope.groups = [
             {
                 title: 'Cells',
-                content: 'Lesson 4: The Nucleus',
+                content: 'Quiz 1: The Nucleus',
                 progress: 0
             },
             {
                 title: 'Biology',
-                content: 'Lesson 2: Ecosystems',
+                content: 'Quiz 2: Ecosystems',
                 progress: 25
             },
             {
+                title: 'Genetics',
+                content: 'Quiz 3: DNA',
+                progress: 35
+            },
+            {
                 title: 'Chemistry',
-                content: 'Lesson 13: Electron Mobility',
+                content: 'Quiz 4: Electron Mobility',
                 progress: 75
             }
         ];
