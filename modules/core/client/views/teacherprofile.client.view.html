@@ -1,9 +1,11 @@
+<!--teacher profile page-->
 <div class="container" ng-controller="ProfileController">
   <h1>Edit Profile</h1>
   <hr>
   <div class="row">
     <div id="left-side" class="list-view ">
       <h1 id="section-tabs-header">
+        <!--teacher name-->
         {{user.firstName}} {{user.lastName}}
       </h1>
 
@@ -15,7 +17,7 @@
         <h6>Upload a different photo...</h6>
 
         <input type="file" class="form-control">
-
+        <!--profile menu-->
         <nav aria-label="context" role="navigation">
           <ul class="nav" id="section-tabs">
             <li class="section"><a class="home" href="/" tabindex="0">Home</a></li>
@@ -33,6 +35,8 @@
         <i class="fa fa-coffee"></i>
         This is an <strong>.alert</strong>. Use this to show important messages to the user.
       </div> -->
+
+      <!--teacher info-->
       <h3>Personal info</h3>
       <div class="col-lg-3">
         <div class = "col-lg-8">
@@ -45,7 +49,7 @@
       
     </div>
   <!--</div>-->
-
+  <!--class scores-->
   <div class="row">
     <div class="col-md-9 col-md-offset-3" ng-show="profileVisible">
       <h1>Class Scores</h1>
@@ -75,7 +79,7 @@
         </uib-accordion-group>
 
     </div>
-
+    <!--profile info-->
     <div class="col-md-9 col-md-offset-3" ng-hide="profileVisible">
       <form class="form-horizontal" role="form">
         <div class="form-group">
@@ -104,6 +108,7 @@
           </div>
         </div>
         <div class="form-group">
+          <!--time zone-->
           <label class="col-lg-3 control-label">Time Zone:</label>
           <div class="col-lg-8">
             <div class="ui-select">
@@ -120,6 +125,7 @@
             </div>
           </div>
         </div>
+        <!--account info-->
         <div class="form-group">
           <label class="col-md-3 control-label">Username:</label>
           <div class="col-md-8">
