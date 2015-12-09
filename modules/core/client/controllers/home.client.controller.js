@@ -57,12 +57,12 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             {
                 title: 'Cells',
                 content: 'Lesson 4: The Nucleus',
-                progress: 60
+                progress: 0
             },
             {
                 title: 'Biology',
                 content: 'Lesson 2: Ecosystems',
-                progress: 0
+                progress: 25
             },
             {
                 title: 'Chemistry',
@@ -115,7 +115,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
                     */
                     if (allStudentGrades[i].category === "Applications") {
                         //have to hardcode this until what "applications" is, is resolved
-                        $scope.groups[1].progress++;
+                        $scope.groups[0].progress++;
                         //TODO: this should be:
                         /* if (allStudentGrades[i].pass == true) { */
                     }
@@ -123,7 +123,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
              //console.log($scope.studentGrades[i].studentName);
 
             }
-            $scope.groups[1].progress *= 25;
+            $scope.groups[0].progress *= 25;
         };
 
     }
