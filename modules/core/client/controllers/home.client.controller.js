@@ -60,6 +60,11 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
         // dummy data. backend still not up. cant link students to courses
         $scope.groups = [
             {
+                title: 'Applications',
+                content: 'Quiz 1: ',
+                progress: 0
+            },
+            {
                 title: 'Cells',
                 content: 'Quiz 1: The Nucleus',
                 progress: 0
