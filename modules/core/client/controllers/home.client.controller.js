@@ -87,6 +87,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
             for (var i = 0 ; i < allStudentGrades.length; i++) {
                 console.log(allStudentGrades[i].studentName);
                 console.log($scope.user.userName);
+                console.log("BANG: " + allStudentGrades[i].studentName + " " + $scope.user.userName);
                 if (allStudentGrades[i].studentName === $scope.user.userName) {
                     $scope.studentGrades.push(allStudentGrades[i]);
                     //TODO: "Applications" should be the name of the course, like "Biology"
@@ -107,7 +108,7 @@ angular.module('core').controller('ProfileController', ['$scope', '$state', '$lo
                         /* if (allStudentGrades[i].pass == true) { */
                     }
                 }
-             console.log($scope.studentGrades[i].studentName);
+             //console.log($scope.studentGrades[i].studentName);
 
             }
             $scope.groups[1].progress *= 25;
